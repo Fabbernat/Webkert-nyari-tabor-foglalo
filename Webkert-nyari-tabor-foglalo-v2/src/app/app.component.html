@@ -3,7 +3,9 @@
 <app-home></app-home>
 } @else if (page === "profile") {
 <app-profile></app-profile>
-} @else {
+} @else if (page === "my-camps") {
+    <app-my-camps></app-my-camps>
+    } @else {
 <app-camps></app-camps>
 }
 <!-- <router-outlet />-->
