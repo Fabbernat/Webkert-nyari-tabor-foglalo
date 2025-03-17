@@ -1,0 +1,11 @@
+<div class="home-container">
+  <h1>Üdvözöllek a nyári tábor foglaló alkalmazásban!</h1>
+
+  <div class="menu">
+    <a routerLink="/my-camps" class="menu-item">Saját táboraim felvitele</a>
+    <a routerLink="/browsing-camps" class="menu-item">Táborok böngészése</a>
+    <a routerLink="/registered-camps" class="menu-item">Jelentkezett táborok megtekintése</a>
+    <a routerLink="/starred-camps" class="menu-item">Csillagozott táborok megtekintése</a>
+    <a routerLink="/register-child" class="menu-item">Gyermek/diák regisztrálása táborra</a>
+  </div>
+</div>
