@@ -1,0 +1,301 @@
+/* home.component.scss */
+:host {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .header {
+    background: linear-gradient(135deg, #2c8aa7 0%, #3b5998 100%);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 60px 30px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    
+    p {
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    
+    &.btn-primary {
+      background-color: #ff6b6b;
+      color: white;
+      
+      &:hover {
+        background-color: darken(#ff6b6b, 10%);
+      }
+    }
+    
+    &.btn-secondary {
+      background-color: #4ecdc4;
+      color: white;
+      
+      &:hover {
+        background-color: darken(#4ecdc4, 10%);
+      }
+    }
+    
+    &.btn-outline {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+  
+  .filter-section {
+    margin-bottom: 30px;
+    
+    h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #333;
+    }
+    
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .filter-btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      background-color: #f1f1f1;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 14px;
+      color: #555;
+      
+      &:hover {
+        background-color: #e0e0e0;
+      }
+      
+      &.active {
+        background-color: #3b5998;
+        color: white;
+      }
+    }
+  }
+  
+  .camps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+  }
+  
+  .camp-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .camp-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+      }
+    }
+    
+    .camp-details {
+      padding: 20px;
+      
+      h3 {
+        margin: 0 0 5px 0;
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+      }
+      
+      .camp-type {
+        color: #2c8aa7;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      
+      .camp-info {
+        margin-bottom: 20px;
+        
+        .info-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 8px;
+          
+          i {
+            min-width: 20px;
+            margin-right: 10px;
+            color: #666;
+          }
+          
+          span {
+            font-size: 14px;
+            color: #555;
+          }
+        }
+      }
+      
+      .camp-actions {
+        display: flex;
+        gap: 10px;
+        
+        .btn-outline {
+          background-color: transparent;
+          border: 1px solid #3b5998;
+          color: #3b5998;
+          
+          &:hover {
+            background-color: rgba(59, 89, 152, 0.1);
+          }
+        }
+      }
+    }
+  }
+  
+  .no-camps {
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
+    
+    p {
+      font-size: 18px;
+      color: #666;
+    }
+  }
+  
+  .admin-section, .volunteer-section {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #f5f7fa;
+    border-radius: 8px;
+    
+    h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+  }
+  
+  .admin-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    
+    .btn {
+      display: flex;
+      align-items: center;
+      
+      i {
+        margin-right: 8px;
+      }
+    }
+  }
+  
+  .volunteer-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    
+    .volunteer-type {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      
+      h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 18px;
+        color: #333;
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .camps-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .header {
+      padding: 40px 20px;
+      
+      h1 {
+        font-size: 28px;
+      }
+      
+      .subtitle {
+        font-size: 16px;
+      }
+    }
+    
+    .admin-actions, .volunteer-types {
+      flex-direction: column;
+      grid-template-columns: 1fr;
+    }
+  }

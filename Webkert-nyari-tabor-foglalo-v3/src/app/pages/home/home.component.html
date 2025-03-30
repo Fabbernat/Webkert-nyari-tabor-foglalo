@@ -1,0 +1,135 @@
+<p>home works!</p>
+<!-- home.component.html -->
+<div class="home-container">
+    <header class="header">
+      <div class="header-content">
+        <h1>Nyári Tábor Foglaló Rendszer</h1>
+        <p class="subtitle">Válassz a legjobb táborok közül!</p>
+        
+        <div class="action-buttons" *ngIf="!isLoggedIn">
+          <button class="btn btn-primary" routerLink="/bejelentkezes">Bejelentkezés</button>
+          <button class="btn btn-secondary" routerLink="/regisztracio">Regisztráció</button>
+        </div>
+        
+        <div class="user-info" *ngIf="isLoggedIn">
+          <p>Bejelentkezve mint: {{getUserTypeLabel()}}</p>
+          <button class="btn btn-outline" (click)="authService.logout()">Kijelentkezés</button>
+        </div>
+      </div>
+    </header>
+  
+    <div class="filter-section">
+      <h2>Táborok szűrése</h2>
+      <div class="filter-buttons">
+        <button 
+          class="filter-btn" 
+          [class.active]="selectedFilter === 'all'" 
+          (click)="onFilterChange('all')">
+          Összes tábor
+        </button>
+        
+        <ng-container *ngIf="userType === 'SZULO' || userType === 'FIATAL' || userType === 'ADMIN'">
+          <button 
+            *ngFor="let tipus of taborTipusok" 
+            class="filter-btn" 
+            [class.active]="selectedFilter === tipus.id" 
+            (click)="onFilterChange(tipus.id)">
+            {{tipus.name}}
+          </button>
+        </ng-container>
+        
+        <ng-container *ngIf="userType === 'PEDAGOGUS'">
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedFilter === 'szentmargit'" 
+            (click)="onFilterChange('szentmargit')">
+            Szent Margit táborok
+          </button>
+        </ng-container>
+        
+        <ng-container *ngIf="userType === 'ONKENTES'">
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedFilter === 'szentmargit'" 
+            (click)="onFilterChange('szentmargit')">
+            Szent Margit táborok
+          </button>
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedFilter === 'cserkesz'" 
+            (click)="onFilterChange('cserkesz')">
+            Cserkésztáborok
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  
+    <div class="camp-list-container">
+      <h2>Elérhető táborok</h2>
+      
+      <div *ngIf="filteredCamps.length === 0" class="no-camps">
+        <p>Nincsenek a feltételeknek megfelelő táborok.</p>
+      </div>
+      
+      <div class="camps-grid">
+        <div *ngFor="let camp of filteredCamps" class="camp-card">
+          <div class="camp-image" [style.background-image]="'url(' + camp.kepUrl + ')'"></div>
+          <div class="camp-details">
+            <h3>{{camp.nev}}</h3>
+            <p class="camp-type">{{getTaborTipusNev(camp.tipus)}}</p>
+            <div class="camp-info">
+              <div class="info-item">
+                <i class="fas fa-calendar"></i>
+                <span>{{camp.kezdoDatum | date:'yyyy.MM.dd'}} - {{camp.zaroDatum | date:'yyyy.MM.dd'}}</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{camp.helyszin}}</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-user-friends"></i>
+                <span>{{camp.korosztalyMin}} - {{camp.korosztalyMax}} éves korig</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-coins"></i>
+                <span>{{camp.dij | currency:'HUF':'symbol':'0.0-0'}} Ft</span>
+              </div>
+            </div>
+            <div class="camp-actions">
+              <button class="btn btn-primary" (click)="jelentkezesTaborba(camp)">Jelentkezés</button>
+              <button class="btn btn-outline" [routerLink]="['/tabor', camp.id]">Részletek</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Admin-specifikus tartalom -->
+    <div class="admin-section" *ngIf="userType === 'ADMIN'">
+      <h2>Adminisztrátori műveletek</h2>
+      <div class="admin-actions">
+        <button class="btn btn-primary" routerLink="/admin/uj-tabor">
+          <i class="fas fa-plus"></i> Új tábor létrehozása
+        </button>
+        <button class="btn btn-secondary" routerLink="/admin/taborok">
+          <i class="fas fa-list"></i> Táborok kezelése
+        </button>
+        <button class="btn btn-secondary" routerLink="/admin/felhasznalok">
+          <i class="fas fa-users"></i> Felhasználók kezelése
+        </button>
+      </div>
+    </div>
+    
+    <!-- Önkéntes-specifikus tartalom -->
+    <div class="volunteer-section" *ngIf="userType === 'ONKENTES'">
+      <h2>Önkéntes pozíciók</h2>
+      <div class="volunteer-types">
+        <div *ngFor="let tipus of onkentesek" class="volunteer-type">
+          <h3>{{tipus.name}}</h3>
+          <button class="btn btn-primary" [routerLink]="['/onkentes-jelentkezes', tipus.id]">
+            Jelentkezés erre a pozícióra
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
