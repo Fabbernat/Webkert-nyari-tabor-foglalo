@@ -1,0 +1,58 @@
+<!-- src/app/features/auth/components/register/register.component.html -->
+
+<div class="register-container">
+    <div class="register-card">
+      <div class="register-header">
+        <h1>Regisztráció</h1>
+        <p>{{ selectedUserType === userTypes.PARENT ? 'Szülő' : 
+             selectedUserType === userTypes.PEDAGOGUE ? 'Pedagógus' : 
+             selectedUserType === userTypes.CHILD ? 'Kiskorú' : 
+             selectedUserType === userTypes.CAMP_ORGANIZER ? 'Tábori szervező/animátor' : 
+             'Adminisztrátor' }} fiók létrehozása</p>
+      </div>
+      
+      <!--<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">-->
+      <form (ngSubmit)="onSubmit()">
+        <!-- Visszalépés gomb -->
+        <div class="back-button-container">
+          <button type="button" class="back-button" (click)="goBack()">
+            <span class="material-icons">arrow_back</span> Vissza
+          </button>
+        </div>
+  
+        <!-- Felhasználónév -->
+        <div class="form-group">
+          <label for="username">Felhasználónév</label>
+          <input type="text" id="username" formControlName="username" autocomplete="username">
+          <div class="error-message" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+            <span *ngIf="registerForm.get('username')?.errors?.['required']">Felhasználónév megadása kötelező</span>
+            <span *ngIf="registerForm.get('username')?.errors?.['minlength']">A felhasználónévnek legalább 3 karakterből kell állnia</span>
+          </div>
+        </div>
+  
+        <!-- Email cím -->
+        <div class="form-group">
+          <label for="email">Email cím</label>
+          <input type="email" id="email" formControlName="email" autocomplete="email">
+          <div class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+            <span *ngIf="registerForm.get('email')?.errors?.['required']">Email cím megadása kötelező</span>
+            <span *ngIf="registerForm.get('email')?.errors?.['email']">Érvénytelen email formátum</span>
+          </div>
+        </div>
+  
+        <!-- Születési dátum -->
+        <div class="form-group">
+          <label for="birthDate">Születési dátum</label>
+          <input type="date" id="birthDate" formControlName="birthDate">
+          <div class="error-message" *ngIf="registerForm.get('birthDate')?.invalid && registerForm.get('birthDate')?.touched">
+            <span *ngIf="registerForm.get('birthDate')?.errors?.['required']">Születési dátum megadása kötelező</span>
+          </div>
+          <div class="error-message" *ngIf="minAgeError">
+            A kiválasztott felhasználói típushoz minimum 18 éves kor szükséges!
+          </div>
+        </div>
+  
+        <!-- Szervező típusa (csak ha camp_organizer) -->
+        <div class="form-group" *ngIf="showOrganizerField">
+          <label for="organizerType">Szervező típusa</label>
+          <select id="organizerType" formControlName="organizerType">
