@@ -1,0 +1,19 @@
+<p>This is the navigation menu</p>
+@if (1 == 1) {
+    <div class="horizontal-group" id="signedin-user-options">
+      <ul>
+        <li><a routerLink="/home">Vissza a főoldalra</a></li>
+        <li><a routerLink="/camps">Táborok böngészése</a></li>
+        <li><a routerLink="/profile">Profilom megtekintése</a></li>
+        <li><a routerLink="/logout">Kijelentkezés</a></li>
+      </ul>
+    </div>
+  } @else {
+    <div class="horizontal-group" id="nosignin-user-options">
+      <ul>
+        <li><a routerLink="/camps">Táborok böngészése</a></li>
+        <li><a routerLink="/signup">Regisztráció</a></li>
+        <li><a routerLink="/login">Bejelentkezés</a></li>
+      </ul>
+    </div>
+  }
