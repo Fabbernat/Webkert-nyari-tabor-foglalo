@@ -4,7 +4,7 @@ Nyári tábor foglaló alkalmazás
 
 ## 1. mérföldkő feljesített funkciók:
 - MainComponent és 5 másik komponens, megtekinthető html oldallal
-- Legalább 2 modell, 2 service és 2 pipe
+- 2 modell, 2 service és 2 pipe
 - CRUD műveletek
 - Adatmodell létrehozva és tesztelve
 
