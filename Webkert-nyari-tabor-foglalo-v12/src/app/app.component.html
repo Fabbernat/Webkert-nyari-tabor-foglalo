@@ -1,7 +1,16 @@
 <!-- src/app/app.component.html -->
-<app-menu></app-menu>
-@if (page === "home"){
-  ...
-} @else (===){
-  
-}
+<nav>
+  <a routerLink="/camps" routerLinkActive="active">Táborok</a>
+  <hr>
+  <a routerLink="/login" routerLinkActive="active">Bejelentkezés</a>
+  <hr>
+  <a routerLink="/register" routerLinkActive="active">Regisztráció</a>
+  <hr>
+  <a routerLink="/profile" routerLinkActive="active">Profil</a>
+  <hr>
+  <a routerLink="/admin" routerLinkActive="active">Admin</a>
+</nav>
+
+<hr />
+
+<router-outlet></router-outlet>
