@@ -1,0 +1,45 @@
+# Node modules
+/node_modules/
+
+# Build output
+/dist/
+/out-tsc/
+
+# Angular build
+/.angular/
+
+# IDE konfigurációk
+/.vscode/
+*.code-workspace
+
+# Környezeti változók
+/src/environments/environment.prod.ts
+/src/environments/environment.ts
+
+# Firebase emulátor fájlok, ha használsz ilyet
+/firebase-debug.log
+/firebase-error.log
+
+# OS fájlok
+.DS_Store
+Thumbs.db
+
+# Log fájlok
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Helyi konfigurációs fájlok
+*.local
+*.env
+.env.*
+
+# Coverage fájlok
+/coverage/
+
+# Test fájlok, ha ideiglenesen létrejönnének
+/test-output/
+
+# Compiled TypeScript
+*.js
+*.js.map
