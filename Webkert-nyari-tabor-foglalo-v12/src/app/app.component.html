@@ -1,16 +1,9 @@
 <!-- src/app/app.component.html -->
-<nav>
-  <a routerLink="/camps" routerLinkActive="active">Táborok</a>
-  <hr>
-  <a routerLink="/login" routerLinkActive="active">Bejelentkezés</a>
-  <hr>
-  <a routerLink="/register" routerLinkActive="active">Regisztráció</a>
-  <hr>
-  <a routerLink="/profile" routerLinkActive="active">Profil</a>
-  <hr>
-  <a routerLink="/admin" routerLinkActive="active">Admin</a>
-</nav>
+<app-header></app-header>
+<app-navigation></app-navigation>
 
-<hr />
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
 
-<router-outlet></router-outlet>
+<app-footer></app-footer>
