@@ -1,16 +1,17 @@
 export enum CampType {
-    SCOUTS = 'cserkésztábor',
-    HIKING = 'erdei vándortábor',
-    SAILING = 'vitorlástábor',
-    DANCE = 'tánctábor',
-    MUSIC = 'zenetábor',
-    ENGLISH = 'angoltábor',
-    GERMAN = 'némettábor',
-    ACTING = 'színjátszótábor',
-    RELIGION = 'hittantábor',
-    PROGRAMMING = 'programozó tábor',
-    MATH = 'matematika tábor',
-    ROBOTICS = 'robotika tábor'
+    CSERKESZTABOR = 'cserkésztábor',
+    ERDEI_VANDORTABOR = 'erdei vándortábor',
+    VITORLAS_TABOR = 'vitorlástábor',
+    TANCTABOR = 'tánctábor',
+    ZENETABOR = 'zenetábor',
+    ANGOL_TABOR = 'angoltábor',
+    NEMET_TABOR = 'némettábor',
+    SZINJATSZO_TABOR = 'színjátszótábor',
+    HITTAN_TABOR = 'hittantábor',
+    PROGRAMOZO_TABOR = 'programozó tábor',
+    MATEMATIKA_TABOR = 'matek tábor',
+    ROBOTIKA_TABOR = 'robotika tábor',
+    ERZSEBETTABOR = 'Erzsébet-tábor'
   }
   
   export enum CampFormat {
@@ -35,9 +36,10 @@ export enum CampType {
     organizerId: string; // A tábort létrehozó személy ID-ja
     dailyProgram: {
       date: Date;
-      activities: string[];
+      lead: string;
       estimatedChildren: number;
       estimatedAdults: number;
+      programs: string[];
+      meals: string[];
     }[];
-    isSaintMargit?: boolean; // "Szent Margit" tábor jelölése
   }
