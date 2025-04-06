@@ -1,0 +1,23 @@
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    margin-top: 30px;
+    position: relative;
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      p {
+        margin: 0;
+      }
+      
+      .watermark {
+        font-style: italic;
+        opacity: 0.7;
+        font-size: 14px;
+      }
+    }
+  }
