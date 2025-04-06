@@ -115,26 +115,27 @@
 </style>
 
 
-
-<nav class="top-navigation">
-  @if (signedIn) {
-    <div class="horizontal-group" id="signedin-user-options">
-      <ul>
-        <li><a routerLink="/camps">Táborok böngészése</a></li>
-        <li><a routerLink="/profile">Profilom megtekintése</a></li>
-        <li><a routerLink="/logout">Kijelentkezés</a></li>
-      </ul>
-    </div>
-  } @else {
-    <div class="horizontal-group" id="nosignin-user-options">
-      <ul>
-        <li><a routerLink="/camps">Táborok böngészése</a></li>
-        <li><a routerLink="/signup">Regisztráció</a></li>
-        <li><a routerLink="/login">Bejelentkezés</a></li>
-      </ul>
-    </div>
-  }
-</nav>
+<app-menu>
+  <nav class="top-navigation">
+    @if (signedIn) {
+      <div class="horizontal-group" id="signedin-user-options">
+        <ul>
+          <li><a routerLink="/camps">Táborok böngészése</a></li>
+          <li><a routerLink="/profile">Profilom megtekintése</a></li>
+          <li><a routerLink="/logout">Kijelentkezés</a></li>
+        </ul>
+      </div>
+    } @else {
+      <div class="horizontal-group" id="nosignin-user-options">
+        <ul>
+          <li><a routerLink="/camps">Táborok böngészése</a></li>
+          <li><a routerLink="/signup">Regisztráció</a></li>
+          <li><a routerLink="/login">Bejelentkezés</a></li>
+        </ul>
+      </div>
+    }
+  </nav>
+</app-menu>
 <main class="main">
   <div class="content">
     <div class="left-side">

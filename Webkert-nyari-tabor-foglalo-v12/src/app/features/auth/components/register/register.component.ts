@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
     consentForm: new FormControl('', [Validators.required])
   });
   
+  // ng generate iteration 1
   selectedUserType: UserType;
   userTypes = UserType;
   organizerTypes = Object.values(OrganizerType);
@@ -28,6 +29,13 @@ export class RegisterComponent implements OnInit {
   isLoading = false;
   errorMessage = '';
   minAgeError = false;
+
+  // ng generate iteration 2
+  showPassword = false;
+    showConfirmPassword = false;
+    showPedagogueField = false;
+    isSubmitting = false;
+    passwordMismatch = false;
   
   constructor(
     private fb: FormBuilder,
@@ -44,24 +52,44 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.showOrganizerField = this.selectedUserType === UserType.CAMP_ORGANIZER;
+    this.showPedagogueField = this.selectedUserType === UserType.PEDAGOGUE;
     this.showConsentUpload = this.selectedUserType === UserType.CHILD;
     
     this.initForm();
   }
 
   initForm(): void {
-    this.registerForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      birthDate: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required],
-      userType: [this.selectedUserType, Validators.required],
-      organizerType: [this.selectedUserType === UserType.CAMP_ORGANIZER ? OrganizerType.CAMP_ANIMATOR : null],
-      consentForm: [null]
-    }, {
-      validators: this.passwordMatchValidator
-    });
+    // this.registerForm = this.fb.group({
+    //   username: ['', [Validators.required, Validators.minLength(3)]],
+    //   email: ['', [Validators.required, Validators.email]],
+    //   birthDate: ['', Validators.required],
+    //   password: ['', [
+    //       Validators.required,
+    //       Validators.minLength(8),
+    //       Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+    //   ]],
+    //   confirmPassword: ['', Validators.required],
+    //   userType: [this.selectedUserType, Validators.required],
+    //   organizerType: [this.selectedUserType === UserType.CAMP_ORGANIZER ? OrganizerType.CAMP_ANIMATOR : null],
+    //   specialization: [null],
+    //   consentForm: [null],
+    //   privacyPolicy: [false, Validators.requiredTrue],
+    //   gdprConsent: [false, Validators.requiredTrue],
+    //   newsletter: [false]
+    // });
+    
+    //   // Listen for changes to validate password match
+    //   this.registerForm.valueChanges.subscribe(() => {
+    //     this.checkPasswordMatch();
+    // });
+  }
+
+  checkPasswordMatch(): void {
+    const password = this.registerForm.get('password')?.value;
+    const confirmPassword = this.registerForm.get('confirmPassword')?.value;
+
+    this.passwordMismatch = password !== confirmPassword &&
+        (this.registerForm.get('confirmPassword')?.touched || false);
   }
 
   passwordMatchValidator(form: FormGroup): { passwordMismatch: boolean } | null {
@@ -69,6 +97,16 @@ export class RegisterComponent implements OnInit {
     const confirmPassword = form.get('confirmPassword')?.value;
     
     return password === confirmPassword ? null : { passwordMismatch: true };
+  }
+
+  // Add missing 'togglePasswordVisibility'
+  togglePasswordVisibility() : void {
+    
+  }
+
+  // Add missing 'toggleConfirmPasswordVisibility'
+  toggleConfirmPasswordVisibility() : void {
+
   }
 
   onFileChange(event: Event): void {
