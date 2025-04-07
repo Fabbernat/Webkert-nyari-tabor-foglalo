@@ -1,1 +1,5 @@
-<p>camp-list works!</p>
+<!-- camp-list.component.html -->
+<h2>Elérhető Táborok</h2>
+<ul>
+  <li *ngFor="let camp of camps">{{ camp.name }} - {{ camp.location }}</li>
+</ul>

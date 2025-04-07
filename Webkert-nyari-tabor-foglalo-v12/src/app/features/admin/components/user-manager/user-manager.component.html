@@ -1,1 +1,5 @@
-<p>user-manager works!</p>
+<!-- user-manager.component.html -->
+<h2>Felhasználók kezelése</h2>
+<ul>
+  <li *ngFor="let user of users">{{ user.name }} - {{ user.role }}</li>
+</ul>

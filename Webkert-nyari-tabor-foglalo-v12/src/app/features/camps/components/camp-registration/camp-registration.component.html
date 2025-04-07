@@ -1,1 +1,9 @@
-<p>camp-registration works!</p>
+<!-- camp-registration.component.html -->
+<h2>Tábor jelentkezés</h2>
+<form>
+  <label>Tábor kiválasztása:</label>
+  <select>
+    <option *ngFor="let camp of camps">{{ camp.name }}</option>
+  </select>
+  <button type="submit">Jelentkezem</button>
+</form>

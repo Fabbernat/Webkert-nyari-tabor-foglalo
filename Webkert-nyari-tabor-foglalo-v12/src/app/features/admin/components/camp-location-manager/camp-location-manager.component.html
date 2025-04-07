@@ -1,1 +1,9 @@
-<p>camp-location-manager works!</p>
+<!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo-v12\src\app\features\admin\components\camp-location-manager\camp-location-manager.component.html -->
+<h1>Admin Felület</h1>
+<p>Felhasználók és táborok kezelése.</p>
+
+<h2>Táborhelyszínek kezelése</h2>
+<ul>
+    <li *ngFor="let loc of locations">{{ loc.name }}</li>
+  </ul>
+  <button (click)="addNewLocation()">Új helyszín hozzáadása</button>
