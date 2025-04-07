@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './camp-location-manager.component.scss'
 })
 export class CampLocationManagerComponent {
-
+  addNewLocation() {
+    console.log("Új helyszín hozzáadása (még nincs implementálva)");
+  }
 }

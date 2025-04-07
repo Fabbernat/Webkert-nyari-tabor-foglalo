@@ -18,6 +18,7 @@ import { StatsDashboardComponent } from './features/admin/components/stats-dashb
 import { CampRegistrationComponent } from './features/camps/components/camp-registration/camp-registration.component';
 import { UserTypeSelectionComponent } from './features/auth/components/user-type-selection/user-type-selection.component';
 import { CampLocationManagerComponent } from './features/admin/components/camp-location-manager/camp-location-manager.component';
+import { UserComponent } from './models/user/user.component';
 
 @Component({
   selector: 'app-root',
@@ -46,7 +47,8 @@ import { CampLocationManagerComponent } from './features/admin/components/camp-l
     StatsDashboardComponent,
     CampRegistrationComponent,
     UserTypeSelectionComponent,
-    CampLocationManagerComponent
+    CampLocationManagerComponent,
+    UserComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

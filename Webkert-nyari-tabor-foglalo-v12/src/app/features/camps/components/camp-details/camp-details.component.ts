@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './camp-details.component.scss'
 })
 export class CampDetailsComponent {
-
+  camp = {
+    name: 'Minta tábor',
+    description: 'Ez egy példa leírás a táborról.'
+  };
 }
