@@ -10,30 +10,30 @@ import { RegisterComponent } from './features/auth/components/register/register.
 import { UserProfileComponent } from './features/profile/components/user-profile/user-profile.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AdminModule } from './features/admin/admin.module';
+import { CampTypesComponent } from './features/home/components/camp-types/camp-types.component';
+import { CreateCampComponent } from './features/camps/components/create-camp/create-camp.component';
+import { CampDetailsComponent } from './features/camps/components/camp-details/camp-details.component';
+import { EditProfileComponent } from './features/profile/components/edit-profile/edit-profile.component';
+import { UserManagerComponent } from './features/admin/components/user-manager/user-manager.component';
+import { FeaturedCampsComponent } from './features/home/components/featured-camps/featured-camps.component';
+import { StatsDashboardComponent } from './features/admin/components/stats-dashboard/stats-dashboard.component';
+import { CampRegistrationComponent } from './features/camps/components/camp-registration/camp-registration.component';
+import { UserTypeSelectionComponent } from './features/auth/components/user-type-selection/user-type-selection.component';
+import { CampLocationManagerComponent } from './features/admin/components/camp-location-manager/camp-location-manager.component';
+import { HeroComponent } from './features/home/components/hero/hero.component';
 
 
 export const routes: Routes = [
-  { path: '**', redirectTo: '/home', pathMatch: 'full'  },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'homelists', component: CampListComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'profile', component: UserProfileComponent },
-    { path: 'admin', component: AdminModule },
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'camps', component: CampListComponent },
+  { path: 'homelists', component: CampListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: UserProfileComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'hero', component: HeroComponent },
-  { path: 'header', component: HeaderComponent },
-  { path: 'footer', component: FooterComponent },
+  { path: 'admin', component: AdminModule },
   { path: 'camp-types', component: CampTypesComponent },
   { path: 'create-camp', component: CreateCampComponent },
-  { path: 'navigation', component: NavigationComponent },
   { path: 'camp-details', component: CampDetailsComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'user-manager', component: UserManagerComponent },
@@ -42,7 +42,8 @@ export const routes: Routes = [
   { path: 'camp-registration', component: CampRegistrationComponent },
   { path: 'user-type-selection', component: UserTypeSelectionComponent },
   { path: 'camp-location-manager', component: CampLocationManagerComponent },
-    {
+  { path: 'hero', component: HeroComponent },
+  {
     path: '',
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
   },
