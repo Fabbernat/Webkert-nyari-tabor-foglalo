@@ -24,8 +24,6 @@ import { HeroComponent } from './features/home/components/hero/hero.component';
 
 
 export const routes: Routes = [
-  { path: '**', redirectTo: '/home', pathMatch: 'full' },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'homelists', component: CampListComponent },
   { path: 'login', component: LoginComponent },
@@ -43,6 +41,8 @@ export const routes: Routes = [
   { path: 'user-type-selection', component: UserTypeSelectionComponent },
   { path: 'camp-location-manager', component: CampLocationManagerComponent },
   { path: 'hero', component: HeroComponent },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: '',
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
