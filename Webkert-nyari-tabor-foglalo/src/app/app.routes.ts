@@ -21,6 +21,14 @@ import { CampRegistrationComponent } from './features/camps/components/camp-regi
 import { UserTypeSelectionComponent } from './features/auth/components/user-type-selection/user-type-selection.component';
 import { CampLocationManagerComponent } from './features/admin/components/camp-location-manager/camp-location-manager.component';
 import { HeroComponent } from './features/home/components/hero/hero.component';
+import { AdminDashboardComponent } from './features/admin/admin-dashboard/admin-dashboard.component';
+import { ParentDashboardComponent } from './features/parent/components/parent-dashboard/parent-dashboard.component';
+import { TeacherDashboardComponent } from './features/parent/components/teacher-dashboard/teacher-dashboard.component';
+import { VolunteerDashboardComponent } from './features/parent/components/volunteer-dashboard/volunteer-dashboard.component';
+import { RoleGuard } from './core/guards/role.guard';
+import { CampFormManagerComponent } from './features/admin/components/camp-form-manager/camp-form-manager.component';
+import { ApplicationComponent } from './shared/models/application/application.component';
+import { DocumentUploadComponent } from './features/parent/components/document/document-upload/document-upload.component';
 
 
 export const routes: Routes = [
@@ -48,9 +56,9 @@ export const routes: Routes = [
   { path: 'profil', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'taborok', component: CampListComponent },
   { path: 'tabor/:id', component: CampDetailsComponent },
-  { path: 'tabor/:id/jelentkezes', component: CampRegisterComponent, canActivate: [AuthGuard] },
+  { path: 'tabor/:id/jelentkezes', component: CampRegistrationComponent, canActivate: [AuthGuard] },
   { path: 'dokumentum-feltoltes', component: DocumentUploadComponent, canActivate: [AuthGuard] },
-  { path: 'jelentkezesek', component: ApplicationsComponent, canActivate: [AuthGuard] },
+  { path: 'jelentkezesek', component: CampFormManagerComponent, canActivate: [AuthGuard] },
   
   // Szülői útvonalak
   { path: 'szulo/dashboard', 
@@ -80,17 +88,22 @@ export const routes: Routes = [
     data: { roles: ['admin'] }
   },
   { path: 'admin/taborok', 
-    component: AdminPanelComponent, 
+    component: CampLocationManagerComponent, 
+    canActivate: [AuthGuard, RoleGuard], 
+    data: { roles: ['admin'] }
+  },
+  { path: 'admin/felhasznalok', 
+    component: UserManagerComponent, 
     canActivate: [AuthGuard, RoleGuard], 
     data: { roles: ['admin'] }
   },
   { path: 'admin/tabor/uj', 
-    component: AdminCampFormComponent, 
+    component: CampFormManagerComponent, 
     canActivate: [AuthGuard, RoleGuard], 
     data: { roles: ['admin'] }
   },
   { path: 'admin/tabor/:id/szerkesztes', 
-    component: AdminCampFormComponent, 
+    component: CampFormManagerComponent, 
     canActivate: [AuthGuard, RoleGuard], 
     data: { roles: ['admin'] }
   },

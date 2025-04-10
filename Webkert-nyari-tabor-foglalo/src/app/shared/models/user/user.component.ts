@@ -16,7 +16,8 @@ enum OrganizerType {
   PROGRAM_COORDINATOR = 'Program-lebonyolító',
   KITCHEN_ASSISTANT = 'Konyhai kisegítő',
   LOGISTICS_MANAGER = 'Tábori logisztikus'
-}
+};
+export { OrganizerType };
 
 // Felhasználó modell
 export interface User {

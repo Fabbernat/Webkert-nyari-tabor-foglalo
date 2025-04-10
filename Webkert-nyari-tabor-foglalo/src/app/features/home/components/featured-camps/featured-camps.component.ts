@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Camp, CampFormat, CampType } from '../../../../shared/models/camp';
+import { Camp, CampType, CampFormat } from '../../../../shared/models/camp/camp.component';
 
 @Component({
   selector: 'app-featured-camps',
@@ -24,8 +24,10 @@ export class FeaturedCampsComponent {
       minAge: 12,
       maxAge: 99,
       organizerId: 'bestSzervezo369',
-      dailyProgram: []
-
+      dailyProgram: [],
+      kepek: [],
+      napokLebontasa: [],
+      jelentkezesiHatarido: new Date
     }
   ];
 }
