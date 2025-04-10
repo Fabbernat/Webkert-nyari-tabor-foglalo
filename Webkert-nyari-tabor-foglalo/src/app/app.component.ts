@@ -1,7 +1,6 @@
 // src/app/app.component.ts
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
@@ -18,8 +17,10 @@ import { StatsDashboardComponent } from './features/admin/components/stats-dashb
 import { CampRegistrationComponent } from './features/camps/components/camp-registration/camp-registration.component';
 import { UserTypeSelectionComponent } from './features/auth/components/user-type-selection/user-type-selection.component';
 import { CampLocationManagerComponent } from './features/admin/components/camp-location-manager/camp-location-manager.component';
-import { UserComponent } from './models/user/user.component';
+import { UserComponent } from './shared/models/user/user.component';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -58,7 +59,7 @@ import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 export class AppComponent implements OnInit {
   title = "Nyári tábor foglaló"
   isLoggedIn = false;
-  
+
   
   ngOnInit(): void {
     this.checkLoginStatus();

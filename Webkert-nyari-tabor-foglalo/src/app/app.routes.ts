@@ -41,6 +41,61 @@ export const routes: Routes = [
   { path: 'user-type-selection', component: UserTypeSelectionComponent },
   { path: 'camp-location-manager', component: CampLocationManagerComponent },
   { path: 'hero', component: HeroComponent },
+
+  { path: '', component: HomeComponent },
+  { path: 'bejelentkezes', component: LoginComponent },
+  { path: 'regisztracio', component: RegisterComponent },
+  { path: 'profil', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'taborok', component: CampListComponent },
+  { path: 'tabor/:id', component: CampDetailsComponent },
+  { path: 'tabor/:id/jelentkezes', component: CampRegisterComponent, canActivate: [AuthGuard] },
+  { path: 'dokumentum-feltoltes', component: DocumentUploadComponent, canActivate: [AuthGuard] },
+  { path: 'jelentkezesek', component: ApplicationsComponent, canActivate: [AuthGuard] },
+  
+  // Szülői útvonalak
+  { path: 'szulo/dashboard', 
+    component: ParentDashboardComponent, 
+    canActivate: [AuthGuard, RoleGuard], 
+    data: { roles: ['szulo'] }
+  },
+  
+  // Pedagógus útvonalak
+  { path: 'pedagogus/dashboard', 
+    component: TeacherDashboardComponent, 
+    canActivate: [AuthGuard, RoleGuard], 
+    data: { roles: ['pedagogus'] }
+  },
+  
+  // Önkéntes útvonalak
+  { path: 'onkentes/dashboard', 
+    component: VolunteerDashboardComponent, 
+    canActivate: [AuthGuard, RoleGuard], 
+    data: { roles: ['onkentes'] }
+  },
+  
+  // Admin útvonalak
+  { path: 'admin/dashboard', 
+    component: AdminDashboardComponent, 
+    canActivate: [AuthGuard, RoleGuard], 
+    data: { roles: ['admin'] }
+  },
+  { path: 'admin/taborok', 
+    component: AdminPanelComponent, 
+    canActivate: [AuthGuard, RoleGuard], 
+    data: { roles: ['admin'] }
+  },
+  { path: 'admin/tabor/uj', 
+    component: AdminCampFormComponent, 
+    canActivate: [AuthGuard, RoleGuard], 
+    data: { roles: ['admin'] }
+  },
+  { path: 'admin/tabor/:id/szerkesztes', 
+    component: AdminCampFormComponent, 
+    canActivate: [AuthGuard, RoleGuard], 
+    data: { roles: ['admin'] }
+  },
+  
+  // Fallback útvonal  
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {

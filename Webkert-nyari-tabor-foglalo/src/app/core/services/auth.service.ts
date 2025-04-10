@@ -12,10 +12,14 @@ import { User, UserType } from '../../shared/models/user';
   providedIn: 'root'
 })
 export class AuthService {
+  isLoggedIn(): boolean {
+    throw new Error('Method not implemented.');
+  }
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
   private readonly API_URL = 'https://api.nyaritaborfoglalo.com';
   private readonly TOKEN_KEY = 'auth_token';
+  currentUserValue: any;
 
   constructor(private http: HttpClient, private router: Router) {
     this.loadUserFromStorage();
