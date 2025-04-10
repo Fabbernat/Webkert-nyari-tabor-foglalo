@@ -5,26 +5,29 @@ import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import UserType, { User, UserRole } from '../../shared/models/user/user.component';
+import { environment } from '../../../environments/environment.prod';
 
-import { User, UserType } from '../../shared/models/user';
+interface AuthResponse {
+  token: string;
+  user: User;
+}
+
 
 @Injectable({
   providedIn: 'root'
-})
+})  
 export class AuthService {
-  isLoggedIn(): boolean {
-    throw new Error('Method not implemented.');
-  }
+  
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
-  private readonly API_URL = 'https://api.nyaritaborfoglalo.com';
   private readonly TOKEN_KEY = 'auth_token';
   currentUserValue: any;
-
+  
   constructor(private http: HttpClient, private router: Router) {
     this.loadUserFromStorage();
   }
-
+  
   private loadUserFromStorage(): void {
     const token = localStorage.getItem(this.TOKEN_KEY);
     if (token) {
@@ -33,9 +36,13 @@ export class AuthService {
       this.getUserProfile().subscribe();
     }
   }
+  
+  isLoggedIn(): boolean {
+    throw new Error('Method not implemented.');
+  }
 
   login(email: string, password: string): Observable<User> {
-    return this.http.post<{ token: string, user: User }>(`${this.API_URL}/auth/login`, { email, password })
+    return this.http.post<{ token: string, user: User }>(`${environment.apiUrl}/auth/login`, { email, password })
       .pipe(
         tap(response => {
           localStorage.setItem(this.TOKEN_KEY, response.token);
@@ -55,7 +62,7 @@ export class AuthService {
     userType: UserType;
     organizerType?: string;
   }): Observable<User> {
-    return this.http.post<{ token: string, user: User }>(`${this.API_URL}/auth/register`, userData)
+    return this.http.post<{ token: string, user: User }>(`${environment.apiUrl}/auth/register`, userData)
       .pipe(
         tap(response => {
           localStorage.setItem(this.TOKEN_KEY, response.token);
@@ -73,7 +80,7 @@ export class AuthService {
   }
 
   getUserProfile(): Observable<User> {
-    return this.http.get<User>(`${this.API_URL}/users/me`)
+    return this.http.get<User>(`${environment.apiUrl}/users/me`)
       .pipe(
         tap(user => this.currentUserSubject.next(user)),
         catchError(error => {
@@ -84,7 +91,7 @@ export class AuthService {
   }
 
   updateUserProfile(userData: Partial<User>): Observable<User> {
-    return this.http.put<User>(`${this.API_URL}/users/me`, userData)
+    return this.http.put<User>(`${environment.apiUrl}/users/me`, userData)
       .pipe(
         tap(user => this.currentUserSubject.next(user)),
         catchError(this.handleError)
@@ -92,7 +99,7 @@ export class AuthService {
   }
 
   deleteAccount(): Observable<boolean> {
-    return this.http.delete<void>(`${this.API_URL}/users/me`)
+    return this.http.delete<void>(`${environment.apiUrl}/users/me`)
       .pipe(
         tap(() => this.logout()),
         map(() => true),
@@ -133,7 +140,7 @@ export class AuthService {
     const formData = new FormData();
     formData.append('consentForm', file);
 
-    return this.http.post<{ fileUrl: string }>(`${this.API_URL}/users/consent-form`, formData)
+    return this.http.post<{ fileUrl: string }>(`${environment.apiUrl}/users/consent-form`, formData)
       .pipe(
         map(response => response.fileUrl),
         catchError(this.handleError)
@@ -152,5 +159,58 @@ export class AuthService {
     }
     
     return throwError(() => new Error(errorMessage));
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public get getCurrentUserValue(): User | null {
+    return this.currentUserSubject.value;
+  }
+
+  hasRole(role: UserRole): boolean {
+    return this.currentUserValue?.szerepkor === role;
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  updateProfile(user: Partial<User>): Observable<User> {
+    return this.http.put<User>(`${environment.apiUrl}/profile`, user)
+      .pipe(
+        tap(updatedUser => {
+          const currentUser = this.currentUserValue;
+          if (currentUser) {
+            const mergedUser = { ...currentUser, ...updatedUser };
+            localStorage.setItem('currentUser', JSON.stringify(mergedUser));
+            this.currentUserSubject.next(mergedUser);
+          }
+        })
+      );
+  }
+
+  refreshToken(): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${environment.apiUrl}/refresh-token`, {})
+      .pipe(
+        tap(response => {
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('currentUser', JSON.stringify(response.user));
+          this.currentUserSubject.next(response.user);
+        }),
+        catchError(error => {
+          this.logout();
+          return of(error);
+        })
+      );
   }
 }

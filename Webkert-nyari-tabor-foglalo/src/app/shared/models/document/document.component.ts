@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../user/user.component';
 
 @Component({
   selector: 'app-document',
