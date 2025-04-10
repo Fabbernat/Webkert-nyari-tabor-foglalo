@@ -4,13 +4,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth.service';
-import { UserType, OrganizerType } from '../../../../shared/models/user';
+import UserType, { OrganizerType } from '../../../../shared/models/user/user.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
-})
+  styleUrls: ['./register.component.scss'],
+  imports: [CommonModule]
+}
+)
 export class RegisterComponent implements OnInit {
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

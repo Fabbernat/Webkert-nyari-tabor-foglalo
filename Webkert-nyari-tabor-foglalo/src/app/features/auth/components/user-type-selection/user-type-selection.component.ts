@@ -2,7 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserType } from '../../../../shared/models/user';
+import UserType from '../../../../shared/models/user/user.component';
 
 @Component({
   selector: 'app-user-type-selection',

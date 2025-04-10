@@ -34,7 +34,7 @@
 
 
             <nav class="home-embed-navigation">
-                @if (signedIn) {
+                @if (isLoggedIn) {
                 <div class="horizontal-group" id="signedin-user-options">
                     <ul>
                         <li><a routerLink="/camps">Táborok böngészése</a></li>
@@ -55,7 +55,7 @@
 
 
             <div id="user-options">
-                @if (signedIn) {
+                @if (isLoggedIn) {
                 <div class="horizontal-group" id="signedin-user-options">
                     <ul>
                         <li><a routerLink="/camps" clickable="True">Táborok böngészése</a></li>
