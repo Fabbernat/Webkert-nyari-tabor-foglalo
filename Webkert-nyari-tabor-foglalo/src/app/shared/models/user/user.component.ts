@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { OrganizerType, UserType } from '../../shared/models/user';
 
 @Component({
   selector: 'app-user',
@@ -21,6 +20,7 @@ enum OrganizerType {
 
 // Felhasználó modell
 export interface User {
+  birthDate: string | number | Date;
   id?: string;
   email: string;
   nev: string;
@@ -54,6 +54,7 @@ enum UserType {
   CAMP_ORGANIZER = 'tábori szervező/animátor',
   ADMIN = 'adminisztrátor'
 }
+export default UserType;
 
 
 

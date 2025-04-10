@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Camp } from '../../shared/models/camp';
-import { User } from '../../shared/models/user';
+import { Child, TeacherGroup, User } from '../user/user.component';
+import { Camp } from '../camp/camp.component';
 
 @Component({
   selector: 'app-application',

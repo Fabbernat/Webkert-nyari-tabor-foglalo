@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { CampService } from '../../core/services/camp.service';
-import { Camp, CampType } from '../../shared/models/camp';
+import { UserRole } from '../../shared/models/user/user.component';
+import { Camp, CampType } from '../../shared/models/camp/camp.component';
 
 @Component({
   selector: 'app-home',
