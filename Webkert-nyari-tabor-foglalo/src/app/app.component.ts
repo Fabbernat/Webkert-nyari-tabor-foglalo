@@ -19,7 +19,7 @@ import { CampRegistrationComponent } from './features/camps/components/camp-regi
 import { UserTypeSelectionComponent } from './features/auth/components/user-type-selection/user-type-selection.component';
 import { CampLocationManagerComponent } from './features/admin/components/camp-location-manager/camp-location-manager.component';
 import { UserComponent } from './models/user/user.component';
-
+import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -49,6 +49,7 @@ import { UserComponent } from './models/user/user.component';
     UserTypeSelectionComponent,
     CampLocationManagerComponent,
     UserComponent,
+    MatSidenavModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -56,7 +57,7 @@ import { UserComponent } from './models/user/user.component';
 
 export class AppComponent implements OnInit {
   title = "Nyári tábor foglaló"
-  signedIn = false;
+  isLoggedIn = false;
   
   
   ngOnInit(): void {
@@ -68,12 +69,12 @@ export class AppComponent implements OnInit {
   }
 
   logout(): void{
-    localStorage.setItem('isLoggedIn') === 'false';
+   localStorage.setItem('isLoggedIn', 'false');
     this.isLoggedIn = false;
     window.location.href = '/home';
   }
 
-  onToggleSidenav(sidenav: MatSideNav){
+  onToggleSidenav(sidenav: MatSidenav){
     sidenav.toggle();
   }
 }
