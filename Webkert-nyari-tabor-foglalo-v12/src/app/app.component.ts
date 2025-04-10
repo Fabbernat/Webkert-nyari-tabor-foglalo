@@ -48,7 +48,7 @@ import { UserComponent } from './models/user/user.component';
     CampRegistrationComponent,
     UserTypeSelectionComponent,
     CampLocationManagerComponent,
-    UserComponent
+    UserComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -59,6 +59,21 @@ export class AppComponent implements OnInit {
   signedIn = false;
   
   
-  ngOnInit() {
+  ngOnInit(): void {
+    this.checkLoginStatus();
+  }
+
+  checkLoginStatus(): void {
+    this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  }
+
+  logout(): void{
+    localStorage.setItem('isLoggedIn') === 'false';
+    this.isLoggedIn = false;
+    window.location.href = '/home';
+  }
+
+  onToggleSidenav(sidenav: MatSideNav){
+    sidenav.toggle();
   }
 }
