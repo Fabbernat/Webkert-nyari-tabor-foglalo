@@ -1,7 +1,7 @@
 // src/app/app.component.ts
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { NavigationComponent } from './core/components/navigation/navigation.component';
@@ -50,7 +50,8 @@ import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
     UserTypeSelectionComponent,
     CampLocationManagerComponent,
     UserComponent,
-    MatSidenavModule
+    MatSidenavModule,
+    NgFor
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
