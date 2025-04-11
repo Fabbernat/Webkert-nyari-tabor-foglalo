@@ -18,7 +18,7 @@ Nyári tábor foglaló alkalmazás
 - **Core Funkciók:**
   - **Core komponensek**: `footer`, `header`, `navigation`
   - **Core guardok, interceptorok és szervizek**
-- **CRUD Műveletek**: `jelentkezések, táborok, táborhelyszínek, dokumentumok és felhasználók` létrehozása, olvasása, frissítése és törlése
+- **CRUD Műveletek**: `jelentkezések, táborok, táborhelyszínek, dokumentumok, felhasználók` létrehozása, olvasása, frissítése és törlése
 - **Adatmodell**: 
   - Létrehozva és tesztelve
 - **Multimédia**: 
