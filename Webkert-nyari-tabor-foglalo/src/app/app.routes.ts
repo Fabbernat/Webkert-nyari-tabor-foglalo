@@ -4,6 +4,13 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './features/auth/components/login/login.component';
 import { RegisterComponent } from './features/auth/components/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AdminDashboardComponent } from './features/admin/admin-dashboard/admin-dashboard.component';
+import { StatsDashboardComponent } from './features/admin/components/stats-dashboard/stats-dashboard.component';
+import { ParentDashboardComponent } from './features/parent/components/parent-dashboard/parent-dashboard.component';
+import { TeacherDashboardComponent } from './features/parent/components/teacher-dashboard/teacher-dashboard.component';
+import { VolunteerDashboardComponent } from './features/parent/components/volunteer-dashboard/volunteer-dashboard.component';
+import { AuthGuard } from './core/guards/auth.guard';
+import { RoleGuard } from './core/guards/role.guard';
 
 
 // export const routes: Routes = [
@@ -115,6 +122,11 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
+  { path: 'admindashboard', component: AdminDashboardComponent, canActivate: [AuthGuard, RoleGuard]  },
+  { path: 'statsdashboard', component: StatsDashboardComponent, canActivate: [AuthGuard, RoleGuard]  },
+  { path: 'parentdashboard', component: ParentDashboardComponent, canActivate: [AuthGuard, RoleGuard]  },
+  { path: 'teacherdashboard', component: TeacherDashboardComponent, canActivate: [AuthGuard, RoleGuard]  },
+  { path: 'volunteerdashboard', component: VolunteerDashboardComponent, canActivate: [AuthGuard, RoleGuard]  },
 
 
   // Fallback

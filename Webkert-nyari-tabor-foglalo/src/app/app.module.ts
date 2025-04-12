@@ -1,8 +1,9 @@
+// Webkert-nyari-tabor-foglalo\src\app\app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -41,68 +42,92 @@ import { CampDetailsComponent } from './features/camps/components/camp-details/c
 import { CampListComponent } from './features/camps/components/camp-list/camp-list.component';
 import { UserProfileComponent } from './features/profile/components/user-profile/user-profile.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HeaderComponent } from './core/components/header/header.component';
+import { AdminDashboardComponent } from './features/admin/admin-dashboard/admin-dashboard.component';
+import { DocumentUploadComponent } from './features/parent/components/document/document-upload/document-upload.component';
+import { ParentDashboardComponent } from './features/parent/components/parent-dashboard/parent-dashboard.component';
+import { TeacherDashboardComponent } from './features/parent/components/teacher-dashboard/teacher-dashboard.component';
+import { VolunteerDashboardComponent } from './features/parent/components/volunteer-dashboard/volunteer-dashboard.component';
+import { ApplicationComponent } from './shared/models/application/application.component';
+import { CampFormManagerComponent } from './features/admin/components/camp-form-manager/camp-form-manager.component';
+import { RoleGuard } from './core/guards/role.guard';
 
-// @NgModule({
-//   declarations: [
-//     AppComponent,
-//     NavbarComponent,
-//     FooterComponent,
-//     HomeComponent,
-//     LoginComponent,
-//     RegisterComponent,
-//     UserProfileComponent,
-//     CampListComponent,
-//     CampDetailsComponent,
-//     CampRegisterComponent,
-//     AdminPanelComponent,
-//     AdminCampFormComponent,
-//     ParentDashboardComponent,
-//     TeacherDashboardComponent,
-//     VolunteerDashboardComponent,
-//     AdminDashboardComponent,
-//     DocumentUploadComponent,
-//     MapComponent,
-//     ApplicationsComponent
-//   ],
-//   imports: [
-//     BrowserModule,
-//     BrowserAnimationsModule,
-//     FormsModule,
-//     ReactiveFormsModule,
-//     HttpClientModule,
-//     RouterModule.forRoot(appRoutes),
-//     // Angular Material imports
-//     MatButtonModule,
-//     MatCardModule,
-//     MatIconModule,
-//     MatInputModule,
-//     MatFormFieldModule,
-//     MatSelectModule,
-//     MatDatepickerModule,
-//     MatNativeDateModule,
-//     MatSnackBarModule,
-//     MatProgressSpinnerModule,
-//     MatTabsModule,
-//     MatTableModule,
-//     MatPaginatorModule,
-//     MatSortModule,
-//     MatDialogModule,
-//     MatChipsModule,
-//     MatStepperModule,
-//     MatToolbarModule,
-//     MatSidenavModule,
-//     MatListModule,
-//     MatExpansionModule,
-//     MatBadgeModule,
-//     MatCheckboxModule,
-//     MatProgressBarModule,
-//     MatRadioModule
-//   ],
-//   providers: [
-//     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-//     AuthGuard,
-//     RoleGuard
-//   ],
-//   bootstrap: [AppComponent]
-// })
-export class AppModule { }
+const appRoutes = [
+    { path: '', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'profile', component: UserProfileComponent },
+    { path: 'camps', component: CampListComponent },
+    { path: 'camps/:id', component: CampDetailsComponent },
+    { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard, RoleGuard] },
+    { path: 'parent', component: ParentDashboardComponent, canActivate: [AuthGuard, RoleGuard] },
+    { path: 'teacher', component: TeacherDashboardComponent, canActivate: [AuthGuard, RoleGuard] },
+    { path: 'volunteer', component: VolunteerDashboardComponent, canActivate: [AuthGuard, RoleGuard] },
+    { path: '**', redirectTo: '' }, // fallback route
+  ];
+  
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserProfileComponent,
+    CampListComponent,
+    CampDetailsComponent,
+    RegisterComponent,
+    AdminDashboardComponent,
+    CampFormManagerComponent,
+    ParentDashboardComponent,
+    TeacherDashboardComponent,
+    VolunteerDashboardComponent,
+    AdminDashboardComponent,
+    DocumentUploadComponent,
+    ApplicationComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+
+    // Angular Material imports
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    MatBadgeModule,
+    MatCheckboxModule,
+    MatProgressBarModule,
+    MatRadioModule
+  ],
+  providers: [
+    AuthGuard,
+    RoleGuard
+  ],
+  bootstrap: [AppComponent]
+})  
+export class AppModule { 
+    
+}

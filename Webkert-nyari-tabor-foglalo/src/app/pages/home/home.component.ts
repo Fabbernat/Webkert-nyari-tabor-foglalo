@@ -5,11 +5,15 @@ import { AuthService } from '../../core/services/auth.service';
 import { CampService } from '../../core/services/camp.service';
 import { UserRole } from '../../shared/models/user/user.component';
 import { Camp, CampType } from '../../shared/models/camp/camp.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  imports: [
+    CommonModule
+  ]
 })
 export class HomeComponent implements OnInit {
   popularCamps: Camp[] = [];
