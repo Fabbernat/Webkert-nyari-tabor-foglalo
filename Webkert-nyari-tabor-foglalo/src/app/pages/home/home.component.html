@@ -35,7 +35,6 @@
               <!-- v1 -->
             <nav class="home-embed-navigation">
               <div id="user-options">
-                @if (isLoggedIn) {
                   <div class="horizontal-group" id="signedin-user-options">
                     <ul>
                       <li><a routerLink="/camps" clickable="True">Táborok böngészése</a></li>
@@ -43,7 +42,6 @@
                       <li><a routerLink="/logout">Kijelentkezés</a></li>
                     </ul>
                 </div>
-                } @else {
                   <div class="horizontal-group" id="nosignin-user-options">
                     <ul>
                       <li><a routerLink="/camps">Táborok böngészése</a></li>
@@ -51,7 +49,6 @@
                       <li><a routerLink="/login">Bejelentkezés</a></li>
                     </ul>
                   </div>
-                }
               </div>
             </nav>
             <!-- v2 -->
