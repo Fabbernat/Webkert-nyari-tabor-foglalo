@@ -3,14 +3,56 @@
 Nyári tábor foglaló alkalmazás
 
 ## **1. Mérföldkő: Fejlesztett Funkciók**
-- **Komponensek és Oldalak:**
-  - **MainComponent** és több további komponens
+**Komponensek:**
+    * AppComponent
+    * MenuComponent
+    * HeaderComponent
+    * FooterComponent
+    * NavigationComponent
+    * AdminDashboard
+    * Gallery
+    * Form
+    * camp-form-manager
+    * camp-location-manager
+    * stats-dashboard
+    * user-manager
+    * login
+    * register
+    * user-type-selection
+    * camp-card
+    * camp-details
+    * camp-list
+    * camp-registration
+    * create-camp
+    * camp-types
+    * featured-camps
+    * hero
+    * document-upload (document)
+    * parent-dashboard
+    * teacher-dashboard
+    * volunteer-dashboard
+    * edit-profile
+    * my-registrations
+    * user-profile
+* **Oldalak:**
+    * form
+    * home
+    * infogallery
+    * menu
+    * application
+    * camp-location
+    * camp
+    * document
+    * reservation
+    * user
   - Tartalommal teli **HTML oldalak**
   - **Home Page** implementálása
 - **Modulok és Funkciók:**
-  - **Shared modulok**: `application`, `camp`, `camp-location`, `document`, `user` komponensek
+  - **AgeCategoryPipe** az automatikus életkor-szerinti besoroláshoz.
+  - **CampCardComponent** Adatáramlás @Input és @Output direktívák használatával.
+  - **Shared modulok**: `application`, `camp`, `camp-location`, `document`, `reservation`, `user` komponensek
   - **Admin modul**: 
-  - `admin-dashboard` és 4 további komponens
+  - `admin-dashboard`, `parent-dashboard`, `teacher-dashboard`, `volunteer-dashboard` 
   - Guardok implementálása
   - **Auth modul**: Felhasználói autentikáció
   - **Parent modul**: Szülői felület
