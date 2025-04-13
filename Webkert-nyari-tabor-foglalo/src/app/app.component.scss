@@ -1,5 +1,4 @@
 /* Webkert-nyari-tabor-foglalo\src\app\app.component.scss */
-
 h1 {
   font-size: 3.125rem;
   color: var(--gray-900);
@@ -11,11 +10,9 @@ h1 {
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 }
-
 h2{
   font-size: 2.125rem;
 }
-
 .large-margin{
   margin: 80px;
   padding: 20px;
@@ -23,7 +20,6 @@ h2{
   border-radius: 20px;
   background-color: aqua;
 }
-
 .large-margin-green{
   margin: 60px;
   padding: 20px;
@@ -31,12 +27,10 @@ h2{
   border-radius: 35px;
   background-color: rgb(9, 255, 0);
 }
-
 p {
-  margin: 0;
+  margin: 10px;
   color: var(--gray-700);
 }
-
 .content {
   display: flex;
   justify-content: space-around;
@@ -44,28 +38,22 @@ p {
   max-width: 700px;
   margin-bottom: 3rem;
 }
-
 .content h1 {
   margin-top: 1.75rem;
 }
-
 .content p {
   margin-top: 1.5rem;
 }
-
 .divider {
   width: 1px;
   background: var(--red-to-pink-to-purple-vertical-gradient);
   margin-inline: 0.5rem;
 }
-
-
 @media screen and (max-width: 650px) {
   .content {
     flex-direction: column;
     width: max-content;
   }
-
   .divider {
     height: 1px;
     width: 100%;
@@ -73,7 +61,6 @@ p {
     margin-block: 1.5rem;
   }
 }
-
 /* Styling for navigation links */
 nav a {
   padding: 8px;
@@ -89,7 +76,6 @@ nav a {
     color: #555; /* Slight color change on hover for better UX */
   }
 }
-
 /* Styling for main content area */
 .main-content {
   padding: 2rem;
@@ -142,6 +128,68 @@ mat-form-field {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+a {
+  color: #ffeb3b; /* sárga */
+  background-color: #001f4d; /* sötétkék */
+  padding: 0.2rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #ffeb3b80;
+  animation: linkPulse 2s infinite ease-in-out;
+}
+
+a:hover,
+a:focus,
+a:active {
+  background-color: #002b80;
+  box-shadow: 0 0 20px #ffff00cc, 0 0 10px #ffeb3b;
+  transform: scale(1.05);
+  text-shadow: 0 0 6px #fff176;
+}
+
+/* Link pulzáló animáció */
+@keyframes linkPulse {
+  0% {
+    box-shadow: 0 0 10px #ffeb3b80;
+  }
+  50% {
+    box-shadow: 0 0 20px #ffff00cc;
+  }
+  100% {
+    box-shadow: 0 0 10px #ffeb3b80;
+  }
+}
+
+/* Képek animációja */
+.gallery-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  animation: fadeZoomIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+/* Fade+Zoom-in animáció a képekre */
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 mat-card {
