@@ -25,9 +25,10 @@ export class FeaturedCampsComponent {
       maxAge: 99,
       organizerId: 'bestSzervezo369',
       dailyProgram: [],
-      kepek: [],
+      imageUrls: [],
       napokLebontasa: [],
-      jelentkezesiHatarido: new Date
+      jelentkezesiHatarido: new Date,
+      maxParticipants: 0
     }
   ];
 }

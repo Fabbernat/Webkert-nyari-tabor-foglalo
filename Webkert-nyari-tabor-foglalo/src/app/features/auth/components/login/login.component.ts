@@ -13,6 +13,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
+  public static _isLoggedIn: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
