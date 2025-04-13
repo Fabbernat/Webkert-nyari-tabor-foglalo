@@ -1,3 +1,4 @@
+// C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo\src\app\features\home\components\camp-types\camp-types.component.ts
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
@@ -7,8 +8,12 @@ import { Component } from '@angular/core';
     CommonModule
   ],
   templateUrl: './camp-types.component.html',
-  styleUrl: './camp-types.component.scss'
+  styleUrls: ['./camp-types.component.scss']
 })
 export class CampTypesComponent {
-
+  campTypes = [
+    { name: 'Adventure' },
+    { name: 'Sports' },
+    { name: 'Technology' },
+  ];
 }
