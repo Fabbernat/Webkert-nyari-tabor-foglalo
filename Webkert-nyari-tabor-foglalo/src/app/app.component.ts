@@ -18,13 +18,14 @@ import { CampLocationManagerComponent } from './features/admin/components/camp-l
 import { UserComponent } from './shared/models/user/user.component';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { HomeComponent } from './pages/home/home.component';
-import { GalleryComponent } from "./shared/gallery/gallery.component";
+import { GALLERY_IMAGES, GalleryComponent } from "./shared/gallery/gallery.component";
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MenuComponent } from './shared/menu/menu.component';
+import { MatGridList, MatGridTile, MatGridTileText } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-root',
@@ -49,7 +50,12 @@ import { MenuComponent } from './shared/menu/menu.component';
     GalleryComponent,
     MatIcon,
     MatToolbar,
-    MatSidenav
+    MatSidenav,
+    MatGridList,
+    MatGridTile,
+    MatCard,
+    MatCardContent,
+    GalleryComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -61,6 +67,7 @@ export class AppComponent implements OnInit {
   currentYear!: number;
   loading: boolean = false;
   reservationForm: FormGroup;
+  images = GALLERY_IMAGES;
 
   
   constructor(private fb: FormBuilder) {
