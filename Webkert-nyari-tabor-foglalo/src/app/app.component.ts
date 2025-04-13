@@ -77,3 +77,52 @@ export class AppComponent implements OnInit {
     sidenav.toggle();
   }
 }
+
+/* TODO
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  reservationForm: FormGroup;
+  loading = false;
+
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) {
+    this.reservationForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      date: ['', Validators.required],
+      campType: ['heti', Validators.required],
+      paymentMethod: ['card', Validators.required],
+      terms: [false, Validators.requiredTrue]
+    });
+  }
+
+  submitForm() {
+    if (this.reservationForm.valid) {
+      this.loading = true;
+      // Szimuláljuk a backend hívást
+      setTimeout(() => {
+        this.loading = false;
+        this.snackBar.open('Sikeres foglalás!', 'Bezár', {
+          duration: 3000
+        });
+        this.reservationForm.reset({
+          campType: 'heti',
+          paymentMethod: 'card',
+          terms: false
+        });
+      }, 2000);
+    } else {
+      this.snackBar.open('Kérjük töltsd ki az összes kötelező mezőt!', 'Bezár', {
+        duration: 3000
+      });
+    }
+  }
+}
+  */
