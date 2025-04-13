@@ -124,53 +124,55 @@ export class AppComponent implements OnInit {
   onToggleSidenav(sidenav: MatSidenav){
     sidenav.toggle();
   }
-}
 
-/* TODO
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent {
-  reservationForm: FormGroup;
-  loading = false;
-
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) {
-    this.reservationForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      date: ['', Validators.required],
-      campType: ['heti', Validators.required],
-      paymentMethod: ['card', Validators.required],
-      terms: [false, Validators.requiredTrue]
-    });
-  }
-
-  submitForm() {
-    if (this.reservationForm.valid) {
-      this.loading = true;
-      // Szimuláljuk a backend hívást
-      setTimeout(() => {
-        this.loading = false;
-        this.snackBar.open('Sikeres foglalás!', 'Bezár', {
-          duration: 3000
-        });
-        this.reservationForm.reset({
-          campType: 'heti',
-          paymentMethod: 'card',
-          terms: false
-        });
-      }, 2000);
-    } else {
-      this.snackBar.open('Kérjük töltsd ki az összes kötelező mezőt!', 'Bezár', {
-        duration: 3000
-      });
+  galleryImages  = [
+    { 
+      path: 'cserkesztabor.jpg', 
+      title: 'Cserkésztábor', 
+      description: 'Kalandok és természetfelfedezés cserkésztáborunkban' 
+    },
+    { 
+      path: 'group_of_children_lying_in_the_grass_in_a_circle.jpg', 
+      title: 'Közösségi programok', 
+      description: 'Gyermekeink élményei a táborban' 
+    },
+    { 
+      path: 'island_camp.jpg', 
+      title: 'Cserkésztábor Izlandon', 
+      description: 'Ez egy egyedülálló kép az izlandi cserkésztáborokról.' 
+    },
+    { 
+      path: 'szinjatszotabor.jpg', 
+      title: 'Színjátszó tábor', 
+      description: 'A múlt évi nyári tábor legjobb pillanatai' 
+    },
+    { 
+      path: 'nyari_tabor_2022.jpg', 
+      title: 'Nyári tábor 2022', 
+      description: 'A múlt évi nyári tábor legjobb pillanatai' 
+    },
+    { 
+      path: 'Zankai_Elmenytabor_2019.jpg', 
+      title: 'Erzsébet-táborok', 
+      description: 'Minden évben egész nyáron várjuk a gyermekeket.' 
+    },
+    { 
+      path: 'drcode.jpg', 
+      title: 'Programozás és robotika táborok', 
+      description: 'Programozás és robotika tematikájú táborok a Dr. Code szervezésével!' 
+    },
+    { 
+      path: 'forest-summer-camp.jpg', 
+      title: 'Erdei vándortábor', 
+      description: 'A múlt évi nyári tábor legjobb pillanatai' 
+    },
+    { 
+      path: 'szent_margit.jpg', 
+      title: 'Szent Margit', 
+      description: 'Táborhelyszínünk a gyönyörű szigeten' 
     }
-  }
+  ];
 }
-  */
+
+
+ 
