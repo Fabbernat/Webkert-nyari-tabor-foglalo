@@ -156,3 +156,89 @@
 </main>
 
 <router-outlet></router-outlet>
+
+
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Webkert Nyári Tábor Foglaló</span>
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>login</mat-icon>
+      <span>Bejelentkezés</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Beállítások</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">Kezdőlap</a>
+      <a mat-list-item routerLink="/foglalas">Foglalás</a>
+      <a mat-list-item routerLink="/programok">Programok</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <div class="content">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Nyári tábor foglalás</mat-card-title>
+          <mat-card-subtitle>Webkert 2025</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="reservationForm">
+            <mat-form-field appearance="fill">
+              <mat-label>Név</mat-label>
+              <input matInput formControlName="name" required>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="email" required>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+              <mat-label>Dátum</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+              <mat-label>Tábor típusa</mat-label>
+              <mat-select formControlName="campType">
+                <mat-option value="heti">Heti program</mat-option>
+                <mat-option value="napi">Napi program</mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+            <mat-radio-group formControlName="paymentMethod">
+              <mat-radio-button value="card">Bankkártya</mat-radio-button>
+              <mat-radio-button value="transfer">Átutalás</mat-radio-button>
+            </mat-radio-group>
+            
+            <mat-checkbox formControlName="terms">Elfogadom a feltételeket</mat-checkbox>
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="submitForm()">Foglalás</button>
+          <button mat-button color="warn">Mégse</button>
+        </mat-card-actions>
+      </mat-card>
+      
+      <div *ngIf="loading" class="spinner-container">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
