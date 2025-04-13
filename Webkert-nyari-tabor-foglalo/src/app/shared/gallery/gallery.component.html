@@ -1,7 +1,7 @@
 <section class="gallery-section">
     <h2 class="section-title">Tábori Galéria</h2>
     <mat-grid-list cols="3" rowHeight="350px" gutterSize="16px">
-      <mat-grid-tile *ngFor="let image of images">
+      <mat-grid-tile *ngFor="let image of GALLERY_IMAGES">
         <mat-card class="gallery-card">
           <img mat-card-image [src]="'/' + image.path" [alt]="image.title">
           <mat-card-content>

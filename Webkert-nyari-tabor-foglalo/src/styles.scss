@@ -1,29 +1,129 @@
 /* C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo\src\styles.scss */
-/* You can add global styles to this file, and also import other style files */
-// @use '@angular/material' as mat;
-// @use '@angular/material/core' as mat-core;
 
-
-// // Include core styles (required)
-// @include mat-core.core();
-
-// $primary-palette: mat-core.define-palette(mat-core.$indigo-palette);
-// $accent-palette: mat-core.define-palette(mat-core.$pink-palette, A200, A100, A400);
-// $warn-palette: mat-core.define-palette(mat-core.$red-palette);
-
-// $theme: mat-core.define-light-theme((
-//   color: (
-//     primary: $primary-palette,
-//     accent: $accent-palette,
-//     warn: $warn-palette,
-//   )
-// ));
-
-// @include mat.all-component-themes($theme);
 
 html, body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: beige;
+}
+
+@import url(https://db.onlinewebfonts.com/c/3567d4a22b8d7e0d857a16df0afbaa1d?family=Curlz+MT);
+
+html, body, h1, h2, p, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-family: "Curlz MT", serif;
+    color: rgb(5, 183, 238);
+    text-align: center; /* Center the text content within each element */
+    transform: skewX(-10deg);
+    margin: 0 auto; /* Horizontally center the elements */
+    display: block; /* Ensure they take up the full width */
+    font-size: 40px;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    /*max-divs-in-a-row: 2;*/
+}
+
+
+
+#buy-ticket {
+    margin-top: 20px; /* Add some space above the section */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+}
+
+#buy-ticket .buy {
+    width: 280px;
+    height: 36px;
+    background-color: #FFD85F;
+    color: black;
+    font-size: 18px;
+    border: none;
+    text-transform: uppercase;
+    display: block; /* Ensure they take up the full width */
+    text-align: center; /* Center the text content within each element */
+    margin: 22px auto 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Change button background color on hover */
+#buy-ticket .buy:active {
+    background-color: #FFFFE0; /* Slightly whiter color */
+}
+
+#buy-ticket .buy:hover {
+    transform: translateY(-5px); /* Move button up by 5 pixels */
+}
+
+.price {
+    justify-content: center;
+    vertical-align: center;
+    font-family: unset;
+    text-align: center; /* Center the text content within each element */
+    color: rgb(250, 245, 207);
+    margin-bottom: 20px;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.price:before {
+    content: "$ ";
+}
+
+
+
+/* 1.5. feladat: reszponzivitás */
+@media screen and (max-width: 638px) { /*637 a minta_mobile szélessége*/
+    .container {
+        flex-direction: column;
+        margin: 0;
+        display: block;
+    }
+
+    
+}
+
+@keyframes loadHighBar {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 90%; /* End with the desired width */
+    }
+}
+
+@keyframes loadMediumBar {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 60%; /* End with the desired width */
+    }
+}
+
+@keyframes loadLowBar {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 30%; /* End with the desired width */
+    }
 }
