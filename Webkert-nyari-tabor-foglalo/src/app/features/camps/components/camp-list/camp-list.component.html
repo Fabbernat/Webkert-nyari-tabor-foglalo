@@ -1,5 +1,15 @@
 <!-- camp-list.component.html -->
-<h2>Elérhető Táborok</h2>
-<ul>
-  <li *ngFor="let camp of camps">{{ camp.name }} - {{ camp.location }}</li>
-</ul>
+<div class="container">
+  <h1 class="page-title">Nyári Táborok</h1>
+  <h2>Elérhető Táborok</h2>
+  <div class="camp-list">
+    <app-camp-card 
+          *ngFor="let camp of camps" 
+          [camp]="camp"
+          (bookNow)="navigateToBooking($event)">
+        </app-camp-card>
+    <ul>
+      <li *ngFor="let camp of camps">{{ camp.name }} - {{ camp.location }}</li>
+    </ul>
+  </div>
+</div>

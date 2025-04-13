@@ -19,35 +19,31 @@ import { UserComponent } from './shared/models/user/user.component';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { HomeComponent } from './pages/home/home.component';
 import { GalleryComponent } from "./shared/gallery/gallery.component";
+import { MatIcon } from '@angular/material/icon';
+import { MatToolbar } from '@angular/material/toolbar';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 
 
 @Component({
   selector: 'app-root',
+
+  // modifiable
   standalone: true,
 
   imports: [
     CommonModule,
     RouterOutlet,
     RouterLink,
-    RouterLinkActive,
     HeaderComponent,
     FooterComponent,
     NavigationComponent,
     AdminModule,
-    HeroComponent,
-    CampTypesComponent,
-    EditProfileComponent,
-    UserManagerComponent,
-    FeaturedCampsComponent,
-    StatsDashboardComponent,
-    CampRegistrationComponent,
-    UserTypeSelectionComponent,
-    CampLocationManagerComponent,
-    UserComponent,
     MatSidenavModule,
-    NgFor,
-    HomeComponent,
-    GalleryComponent
+    GalleryComponent,
+    MatIcon,
+    MatToolbar,
+    MatSidenav
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -57,16 +53,52 @@ export class AppComponent implements OnInit {
   title = "Nyári tábor foglaló"
   isLoggedIn = false;
   currentYear!: number;
+  loading: boolean = false;
+  reservationForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.reservationForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      date: ['', Validators.required],
+      campType: ['', Validators.required],
+      paymentMethod: ['', Validators.required],
+      terms: [false, Validators.requiredTrue]
+    });
+  }
 
   
   ngOnInit(): void {
     this.checkLoginStatus();
-    
-        this.currentYear = new Date().getFullYear();
+    this.currentYear = new Date().getFullYear();
   }
 
   checkLoginStatus(): void {
     this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  }
+
+  submitForm(): void {
+    if (this.reservationForm.invalid) {
+
+      // Mark all fields as touched to show validation messages
+      this.reservationForm.markAllAsTouched();
+      return;
+    }
+
+    this.loading = true;
+    
+    // Send the data to the backend
+    const formData = this.reservationForm.value;
+    console.log('Form elküldve:', formData);
+    
+    // Simulate API call
+    setTimeout(() => {
+      this.loading = false;
+      
+      // Show success message or redirect
+      alert('Sikeres foglalás! Köszönjük!');
+      this.reservationForm.reset();
+    }, 1500);
   }
 
   logout(): void{

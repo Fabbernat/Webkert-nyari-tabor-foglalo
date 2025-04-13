@@ -12,17 +12,18 @@ export class CampComponent {
 
 // Tábor modell
 export interface Camp {
-    id?: string;
-    name: string;
-    campType: CampType;
-    campFormat: CampFormat;
-    location: string; // tábor helyszín ID
-    startDate: Date;
-    endDate: Date;
-    description: string;
-    price: number;
-    capacity: number;
-    registeredParticipants: number;
+  id?: string;
+  name: string;
+  campType: CampType;
+  campFormat: CampFormat;
+  location: string; // tábor helyszín ID
+  startDate: Date;
+  endDate: Date;
+  description: string;
+  price: number;
+  capacity: number;
+  registeredParticipants: number;
+  maxParticipants: number;
     minAge: number;
     maxAge: number;
     organizerId: string; // A tábort létrehozó személy ID-ja
@@ -38,7 +39,7 @@ export interface Camp {
     lat: number;
     lng: number;
   };
-  kepek: string[];
+  imageUrls: string[];
   napokLebontasa: NapiLetszam[];
   jelentkezesiHatarido: Date;
   szuksegesEszkozok?: string[];
