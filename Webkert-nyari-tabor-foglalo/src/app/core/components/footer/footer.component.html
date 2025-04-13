@@ -1,11 +1,23 @@
-<div class="footer">
+  <!--C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo\src\app\core\components\footer\footer.component.html-->
+  <footer class="footer, site-footer">
     <div class="footer-content">
-      <p>© 2025 Nyári Tábor Foglaló - Minden jog fenntartva</p>
+      <div class="footer-logo">
+        <h3>Nyári Tábor Foglaló</h3>
+        <p>© {{currentYear}}Nyári Tábor Foglaló - Minden jog fenntartva</p>
+      </div>
       <div class="watermark">
         <p class="name">Fábián Bernát</p>
       </div>
       <div class="watermark">
         <p class="email">fabbernat&commat;gmail.com</p>
       </div>
+      <div class="footer-links">
+        <ul>
+          <li><a routerLink="/about">Rólunk</a></li>
+          <li><a routerLink="/privacy">Adatvédelem</a></li>
+          <li><a routerLink="/terms">Felhasználási feltételek</a></li>
+          <li><a routerLink="/contact">Kapcsolat</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </footer>

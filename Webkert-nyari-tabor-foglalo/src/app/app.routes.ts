@@ -15,6 +15,10 @@ import { TeacherDashboardComponent } from './features/parent/components/teacher-
 import { VolunteerDashboardComponent } from './features/parent/components/volunteer-dashboard/volunteer-dashboard.component';
 import { AdminGuard } from './core/guards/admin.guard';
 import { DocumentComponent } from './shared/models/document/document.component';
+import { AboutComponent } from './pages/info/about/about.component';
+import { ContactComponent } from './pages/info/contact/contact.component';
+import { PrivacyComponent } from './pages/info/privacy/privacy.component';
+import { TermsComponent } from './pages/info/terms/terms.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
