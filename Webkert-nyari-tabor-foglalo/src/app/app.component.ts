@@ -19,16 +19,25 @@ import { UserComponent } from './shared/models/user/user.component';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { HomeComponent } from './pages/home/home.component';
 import { GalleryComponent } from "./shared/gallery/gallery.component";
-import { MatIcon } from '@angular/material/icon';
-import { MatToolbar } from '@angular/material/toolbar';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MenuComponent } from './shared/menu/menu.component';
 
 @Component({
   selector: 'app-root',
 
   imports: [
+    CommonModule,
+    RouterOutlet,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterLink,
+    MenuComponent,
     CommonModule,
     RouterOutlet,
     RouterLink,
@@ -53,6 +62,7 @@ export class AppComponent implements OnInit {
   loading: boolean = false;
   reservationForm: FormGroup;
 
+  
   constructor(private fb: FormBuilder) {
     this.reservationForm = this.fb.group({
       name: ['', Validators.required],
