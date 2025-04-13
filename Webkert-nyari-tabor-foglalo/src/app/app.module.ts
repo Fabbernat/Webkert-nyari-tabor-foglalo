@@ -7,10 +7,13 @@ import { routes } from './app.routes';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
-    
+    AppComponent,
+    HomeComponent
 
   ],
   imports: [
@@ -25,6 +28,6 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
-  bootstrap: []
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

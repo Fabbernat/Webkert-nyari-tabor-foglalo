@@ -28,9 +28,6 @@ import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle
 @Component({
   selector: 'app-root',
 
-  // modifiable
-  standalone: true,
-
   imports: [
     CommonModule,
     RouterOutlet,
