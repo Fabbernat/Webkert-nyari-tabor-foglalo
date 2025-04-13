@@ -165,11 +165,6 @@ export class AppComponent implements OnInit {
       path: 'forest-summer-camp.jpg', 
       title: 'Erdei vándortábor', 
       description: 'A múlt évi nyári tábor legjobb pillanatai' 
-    },
-    { 
-      path: 'szent_margit.jpg', 
-      title: 'Szent Margit', 
-      description: 'Táborhelyszínünk a gyönyörű szigeten' 
     }
   ];
 }
