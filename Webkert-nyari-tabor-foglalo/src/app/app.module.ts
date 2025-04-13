@@ -12,8 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    
 
   ],
   imports: [
@@ -28,6 +27,6 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }

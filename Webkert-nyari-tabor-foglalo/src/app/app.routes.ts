@@ -19,10 +19,12 @@ import { AboutComponent } from './pages/info/about/about.component';
 import { ContactComponent } from './pages/info/contact/contact.component';
 import { PrivacyComponent } from './pages/info/privacy/privacy.component';
 import { TermsComponent } from './pages/info/terms/terms.component';
+import { AppComponent } from './app.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'app', component: AppComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'camp', component: CampComponent },
   { path: 'camps', component: CampComponent },
   { path: 'camps/detail', component: CampDetailsComponent },
   { path: 'taborok', redirectTo: 'camps', pathMatch: 'full' },
@@ -73,5 +75,5 @@ export const routes: Routes = [
 
   
   // Fallback route (should be last)
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'home' }
 ];
