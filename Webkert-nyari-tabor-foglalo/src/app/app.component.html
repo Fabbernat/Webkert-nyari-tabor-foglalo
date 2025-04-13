@@ -1,15 +1,158 @@
-<!-- src/app/app.component.html -->
-<app-header></app-header>
-<app-navigation></app-navigation>
+<!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo\src\app\app.component.html -->
+<main class="app-container">
+  <!-- Header Section -->
+  <header class="site-header">
+    <div class="logo-container">
+      <img src="public/favicon.ico" alt="Nyári Tábor Foglaló" class="site-logo">
+      <h1 class="site-title">Nyári Tábor Foglaló</h1>
+    </div>
+    
+    <!-- Navigation based on authentication state -->
+    <nav class="main-nav">
+      <ng-container *ngIf="isLoggedIn; else loggedOutNav">
+        <ul class="nav-links">
+          <li><a routerLink="/camps" routerLinkActive="active">Táborok böngészése</a></li>
+          <li><a routerLink="/profile" routerLinkActive="active">Profilom</a></li>
+          <li><a routerLink="/logout" routerLinkActive="active">Kijelentkezés</a></li>
+        </ul>
+      </ng-container>
+      
+      <ng-template #loggedOutNav>
+        <ul class="nav-links">
+          <li><a routerLink="/camps" routerLinkActive="active">Táborok böngészése</a></li>
+          <li><a routerLink="/signup" routerLinkActive="active">Regisztráció</a></li>
+          <li><a routerLink="/login" routerLinkActive="active">Bejelentkezés</a></li>
+        </ul>
+      </ng-template>
+    </nav>
+  </header>
 
-<div class="main-content">
-  <router-outlet></router-outlet>
-</div>
-<div class="auxiliary-section-1">
-  <CreateCampComponent></CreateCampComponent>
-</div>
-<div class="auxiliary-section-2">
-  <CampDetailsComponent></CampDetailsComponent>
-</div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2 class="hero-title">Találd meg a tökéletes tábori élményt gyermeked számára!</h2>
+      <div class="hero-buttons">
+        <a routerLink="/regisztracio" class="btn btn-primary">Regisztráció</a>
+        <a routerLink="/bejelentkezes" class="btn btn-outline">Bejelentkezés</a>
+      </div>
+    </div>
+  </section>
 
-<app-footer></app-footer>
+  <!-- Featured Camps Section -->
+  <section class="section featured-camps">
+    <div class="section-container">
+      <h2 class="section-title">Kiemelt Táborok</h2>
+      <div class="camps-grid">
+        <!-- Camp cards would be loaded here -->
+        <div class="camp-card">
+          <div class="camp-image placeholder"></div>
+          <div class="camp-details">
+            <h3 class="camp-title">Tábor név</h3>
+            <p class="camp-info">Helyszín, Időpont</p>
+            <a routerLink="/camps/detail" class="camp-link">Részletek</a>
+          </div>
+        </div>
+        <!-- More camp cards... -->
+      </div>
+      <div class="section-footer">
+        <a routerLink="/camps" class="view-all-link">Összes tábor megtekintése</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Camp Types Section -->
+  <section class="section camp-types">
+    <div class="section-container">
+      <h2 class="section-title">Tábor típusok felfedezése</h2>
+      <div class="type-cards">
+        <a routerLink="/camp-types/sport" class="type-card">
+          <div class="type-icon sport-icon"></div>
+          <h3>Sport táborok</h3>
+        </a>
+        <a routerLink="/camp-types/art" class="type-card">
+          <div class="type-icon art-icon"></div>
+          <h3>Művészeti táborok</h3>
+        </a>
+        <a routerLink="/camp-types/science" class="type-card">
+          <div class="type-icon science-icon"></div>
+          <h3>Tudományos táborok</h3>
+        </a>
+        <a routerLink="/camp-types" class="type-card view-all">
+          <div class="type-icon browse-icon"></div>
+          <h3>Összes tábor típus</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links Section -->
+  <section class="section quick-links">
+    <div class="section-container">
+      <h2 class="section-title">Gyorslinkek</h2>
+      <div class="links-grid">
+        <!-- Main Navigation -->
+        <div class="links-card">
+          <h3 class="links-title">Fő navigáció</h3>
+          <ul class="links-list">
+            <li><a routerLink="/home">Kezdőlap</a></li>
+            <li><a routerLink="/taborok">Táborlista</a></li>
+            <li><a routerLink="/profil">Profilom</a></li>
+            <li><a routerLink="/jelentkezesek">Jelentkezéseim</a></li>
+          </ul>
+        </div>
+        
+        <!-- Role-specific Links -->
+        <div class="links-card">
+          <h3 class="links-title">Felhasználói vezérlőpultok</h3>
+          <ul class="links-list">
+            <li><a routerLink="/szulo/dashboard">Szülői vezérlőpult</a></li>
+            <li><a routerLink="/pedagogus/dashboard">Pedagógus vezérlőpult</a></li>
+            <li><a routerLink="/onkentes/dashboard">Önkéntes vezérlőpult</a></li>
+          </ul>
+        </div>
+        
+        <!-- Admin Links -->
+        <div class="links-card">
+          <h3 class="links-title">Adminisztráció</h3>
+          <ul class="links-list">
+            <li><a routerLink="/admin/dashboard">Admin vezérlőpult</a></li>
+            <li><a routerLink="/admin/taborok">Táborok kezelése</a></li>
+            <li><a routerLink="/admin/users">Felhasználók kezelése</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">Készen állsz, hogy megtaláld a tökéletes tábort?</h2>
+      <p class="cta-text">Böngéssz táboraink között vagy hozz létre egy fiókot a kezdéshez.</p>
+      <div class="cta-buttons">
+        <a routerLink="/taborok" class="btn btn-primary">Táborok böngészése</a>
+        <a routerLink="/regisztracio" class="btn btn-secondary">Fiók létrehozása</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3>Nyári Tábor Foglaló</h3>
+        <p>© {{currentYear}} Minden jog fenntartva</p>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a routerLink="/about">Rólunk</a></li>
+          <li><a routerLink="/privacy">Adatvédelem</a></li>
+          <li><a routerLink="/terms">Felhasználási feltételek</a></li>
+          <li><a routerLink="/contact">Kapcsolat</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<router-outlet></router-outlet>

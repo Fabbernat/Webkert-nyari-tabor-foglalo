@@ -17,6 +17,7 @@ import { UserTypeSelectionComponent } from './features/auth/components/user-type
 import { CampLocationManagerComponent } from './features/admin/components/camp-location-manager/camp-location-manager.component';
 import { UserComponent } from './shared/models/user/user.component';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
+import { HomeComponent } from './pages/home/home.component';
 
 
 @Component({
@@ -43,7 +44,8 @@ import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
     CampLocationManagerComponent,
     UserComponent,
     MatSidenavModule,
-    NgFor
+    NgFor,
+    HomeComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -52,10 +54,13 @@ import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 export class AppComponent implements OnInit {
   title = "Nyári tábor foglaló"
   isLoggedIn = false;
+  currentYear!: number;
 
   
   ngOnInit(): void {
     this.checkLoginStatus();
+    
+        this.currentYear = new Date().getFullYear();
   }
 
   checkLoginStatus(): void {
