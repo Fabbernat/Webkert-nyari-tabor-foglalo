@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Camp, CampType } from '../../../shared/models/camp/camp.component';
 import { UserRole } from '../../../shared/models/user/user.component';
 import { AuthService } from '../../services/auth.service';
 import { CampService } from '../../services/camp.service';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -16,10 +17,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navigation.component.scss'
 })
 
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
+  isLoggedIn: boolean = false;
+  private authSubscription: Subscription | undefined;
+
+
   popularCamps: Camp[] = [];
   upcomingCamps: Camp[] = [];
-  isLoggedIn = false;
   userRole: UserRole | null = null;
   CampType = CampType;
   loading = true;
@@ -30,6 +34,7 @@ export class NavigationComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) { }
+  
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
@@ -37,6 +42,12 @@ export class NavigationComponent implements OnInit {
     
     this.loadPopularCamps();
     this.loadUpcomingCamps();
+  }
+
+  ngOnDestroy(): void {
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
+    }
   }
 
   loadPopularCamps(): void {

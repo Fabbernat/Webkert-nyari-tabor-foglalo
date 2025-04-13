@@ -18,6 +18,7 @@ import { CampLocationManagerComponent } from './features/admin/components/camp-l
 import { UserComponent } from './shared/models/user/user.component';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { HomeComponent } from './pages/home/home.component';
+import { GalleryComponent } from "./shared/gallery/gallery.component";
 
 
 @Component({
@@ -45,8 +46,9 @@ import { HomeComponent } from './pages/home/home.component';
     UserComponent,
     MatSidenavModule,
     NgFor,
-    HomeComponent
-  ],
+    HomeComponent,
+    GalleryComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
