@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, throwError, from } from 'rxjs';
-import { catchError, map, tap, switchMap } from 'rxjs/operators';
+import { catchError, map, tap, switchMap, take } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -49,12 +49,19 @@ export class AuthService {
   }
   
   private loadUserFromStorage(): void {
-    const token = localStorage.getItem(this.TOKEN_KEY);
-    if (token) {
-      // Ideális esetben itt token validálás lenne
-      // Most egyszerűsítve csak az alapján ellenőrizzük, hogy van-e token
-      this.getUserProfile().subscribe();
-    }
+    this.afAuth.authState.pipe(
+      take(1),
+      switchMap(user => {
+        if (user) {
+          return this.getUserProfile(user.uid);
+        }
+        return of(null);
+      })
+    ).subscribe(user => {
+      if (user) {
+        this.currentUserSubject.next(user);
+      }
+    });
   }
   
   isLoggedIn(): Observable<boolean> {
