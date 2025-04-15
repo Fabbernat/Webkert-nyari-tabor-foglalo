@@ -7,7 +7,7 @@ import { CampService } from '../../services/camp.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCard, MatCardContent } from '@angular/material/card';
+import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 import { MatIconModule, MatIcon } from '@angular/material/icon';
 import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
@@ -46,7 +46,8 @@ import { HeaderComponent } from '../header/header.component';
     MatGridTile,
     MatCard,
     MatCardContent,
-    GalleryComponent
+    GalleryComponent,
+    MatCardTitle
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
