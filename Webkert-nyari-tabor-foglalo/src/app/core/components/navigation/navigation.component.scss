@@ -103,3 +103,27 @@ main {
 .home-embed-navigation.horizontal-group {
     color: black;
 }
+
+.belesbeall{
+    display: block;
+    margin: 10px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  mat-card {
+    padding: 16px;
+    margin: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .block{
+    display: block;
+  }
