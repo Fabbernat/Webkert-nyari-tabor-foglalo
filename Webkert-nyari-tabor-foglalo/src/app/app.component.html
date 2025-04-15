@@ -1,34 +1,5 @@
 <!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo\src\app\app.component.html -->
 <!--FALLBACK PLAN-->
-<header class="site-header">
-  <mat-toolbar color="primary" class="header-toolbar">
-    <div class="logo-container">
-      <img src="favicon.ico" alt="Nyári Tábor Foglaló" class="site-logo">
-      <h1 class="site-title">Üdvözöllek a Nyári Tábor Foglaló honlapján!</h1>
-      <h2>Kezdőlap</h2>
-      <p>Itt böngészhetsz táborokat, regisztrálhatsz, és kezelheted a profilod.</p>
-    </div>
-  </mat-toolbar>
-
-  <!-- Navigation based on authentication state -->
-  <nav class="main-nav">
-    <ng-container *ngIf="isLoggedIn; else loggedOutNav">
-      <ul class="nav-links">
-        <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
-        <li><a href="/profile" hrefActive="active">Profilom</a></li>
-        <li><a href="/logout" hrefActive="active">Kijelentkezés</a></li>
-      </ul>
-    </ng-container>
-    <ng-template #loggedOutNav>
-      <ul class="nav-links">
-        <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
-        <li><a href="/signup" hrefActive="active">Regisztráció</a></li>
-        <li><a href="/login" hrefActive="active">Bejelentkezés</a></li>
-      </ul>
-    </ng-template>
-  </nav>
-</header>
-
 <section class="gallery-section large-margin-green">
   <h2 class="section-title">Tábori Galéria</h2>
 
@@ -92,6 +63,37 @@
       <h3>Zánkai élménytábor</h3>
       <p>Vidám és változatos programok Magyarország legnagyobb táborában, a Balaton partján – ahol az élmények születnek!</p>
     </div>
+  </div>
+</section>
+<section>
+  <div class="site-header">
+
+    <mat-toolbar color="primary" class="header-toolbar">
+      <div class="logo-container">
+        <img src="web/favicon-96.png" alt="Nyári Tábor Foglaló" class="site-logo">
+        <h1 class="site-title">Üdvözöllek a Nyári Tábor Foglaló honlapján!</h1>
+        <h2>Kezdőlap</h2>
+        <p class="itt-bongeszhetsz">Itt böngészhetsz táborokat, regisztrálhatsz, és kezelheted a profilod.</p>
+      </div>
+    </mat-toolbar>
+    <hr>
+    <!-- Navigation based on authentication state -->
+    <nav class="main-nav">
+      <ng-container *ngIf="isLoggedIn; else loggedOutNav">
+        <ul class="nav-links">
+          <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
+          <li><a href="/profile" hrefActive="active">Profilom</a></li>
+          <li><a href="/logout" hrefActive="active">Kijelentkezés</a></li>
+        </ul>
+      </ng-container>
+      <ng-template #loggedOutNav>
+        <ul class="nav-links">
+          <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
+          <li><a href="/signup" hrefActive="active">Regisztráció</a></li>
+          <li><a href="/login" hrefActive="active">Bejelentkezés</a></li>
+        </ul>
+      </ng-template>
+    </nav>
   </div>
 </section>
 <main class="main">
