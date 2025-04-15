@@ -5,7 +5,7 @@ import { UserRole } from '../../../shared/models/user/user.component';
 import { AuthService } from '../../services/auth.service';
 import { CampService } from '../../services/camp.service';
 import { CommonModule } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
@@ -57,7 +57,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
   submitForm() {
     throw new Error('Method not implemented.');
   }
-  isLoggedIn: boolean = false;
+  isLoggedIn$: Observable<boolean> = new Observable<boolean>;
   private authSubscription: Subscription | undefined;
 
 
@@ -74,11 +74,13 @@ export class NavigationComponent implements OnInit, OnDestroy {
     private campService: CampService,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {
+    this.isLoggedIn$ = this.authService.isLoggedIn();
+   }
 
 
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn();
+    this.isLoggedIn$ = this.authService.isLoggedIn();
     this.userRole = this.authService.currentUserValue?.szerepkor || null;
 
     this.loadPopularCamps();

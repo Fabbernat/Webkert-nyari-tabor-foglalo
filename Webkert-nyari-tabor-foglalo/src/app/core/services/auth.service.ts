@@ -1,11 +1,14 @@
 // src/app/core/services/auth.service.ts
 
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of, throwError, from } from 'rxjs';
+import { catchError, map, tap, switchMap, take } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import UserType, { User, UserRole } from '../../shared/models/user/user.component';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
+
+import UserType, { OrganizerType, User, UserRole } from '../../shared/models/user/user.component';
 import { environment } from '../../../environments/environment.prod';
 
 interface AuthResponse {
@@ -24,33 +27,59 @@ export class AuthService {
   private readonly TOKEN_KEY = 'auth_token';
   currentUserValue: any;
   
-  constructor(private http: HttpClient, private router: Router) {
-    this.loadUserFromStorage();
+  constructor(
+    private http: HttpClient, 
+    private router: Router,
+    private afAuth: AngularFireAuth
+  ) {
+    this.initializeAuthState();
+  }
+
+  private initializeAuthState(): void {
+    this.afAuth.authState.pipe(
+      switchMap(firebaseUser => {
+        if (firebaseUser) {
+          return this.getUserProfile(firebaseUser.uid);
+        } else {
+          this.currentUserSubject.next(null);
+          return of(null);
+        }
+      })
+    ).subscribe();
   }
   
   private loadUserFromStorage(): void {
-    const token = localStorage.getItem(this.TOKEN_KEY);
-    if (token) {
-      // Ideális esetben itt token validálás lenne
-      // Most egyszerűsítve csak az alapján ellenőrizzük, hogy van-e token
-      this.getUserProfile().subscribe();
-    }
+    this.afAuth.authState.pipe(
+      take(1),
+      switchMap(user => {
+        if (user) {
+          return this.getUserProfile(user.uid);
+        }
+        return of(null);
+      })
+    ).subscribe(user => {
+      if (user) {
+        this.currentUserSubject.next(user);
+      }
+    });
   }
   
-  isLoggedIn(): boolean {
-    throw new Error('Method not implemented.');
+  isLoggedIn(): Observable<boolean> {
+    return this.afAuth.authState.pipe(
+      map(user => !!user)
+    );
   }
 
   login(email: string, password: string): Observable<User> {
-    return this.http.post<{ token: string, user: User }>(`${environment.apiUrl}/auth/login`, { email, password })
-      .pipe(
-        tap(response => {
-          localStorage.setItem(this.TOKEN_KEY, response.token);
-          this.currentUserSubject.next(response.user);
-        }),
-        map(response => response.user),
-        catchError(this.handleError)
-      );
+    return from(this.afAuth.signInWithEmailAndPassword(email, password)).pipe(
+      switchMap(userCredential => {
+        if (userCredential.user) {
+          return this.getUserProfile(userCredential.user.uid);
+        }
+        return throwError(() => new Error('No user returned from authentication'));
+      }),
+      catchError(this.handleError)
+    );
   }
 
   register(userData: {
@@ -62,32 +91,59 @@ export class AuthService {
     userType: UserType;
     organizerType?: string;
   }): Observable<User> {
-    return this.http.post<{ token: string, user: User }>(`${environment.apiUrl}/auth/register`, userData)
-      .pipe(
-        tap(response => {
-          localStorage.setItem(this.TOKEN_KEY, response.token);
-          this.currentUserSubject.next(response.user);
-        }),
-        map(response => response.user),
-        catchError(this.handleError)
-      );
+    return from(this.afAuth.createUserWithEmailAndPassword(userData.email, userData.password)).pipe(
+      switchMap(userCredential => {
+        if (userCredential.user) {
+          const today = new Date();
+
+          const newUser: User = {
+            id: userCredential.user.uid,
+            birthDate: userData.birthDate,
+            email: userData.email,
+            nev: userData.username,
+            userType: userData.userType,
+            userRole: UserRole.SZULO,
+            organizerType: OrganizerType.CAMP_ANIMATOR, // Default role
+            telefonszam: "06621234567",
+            regisztracioIdopontja: new Date(),
+            aktivitas: true
+          };
+          return this.http.post<User>(`${environment.apiUrl}/users`, newUser);
+        }
+        return throwError(() => new Error('Registration failed'));
+      }),
+      tap(user => this.currentUserSubject.next(user)),
+      catchError(this.handleError)
+    );
   }
 
-  logout(): void {
-    localStorage.removeItem(this.TOKEN_KEY);
-    this.currentUserSubject.next(null);
-    this.router.navigate(['/']);
+  logout(): Observable<void> {
+    return from(this.afAuth.signOut()).pipe(
+      tap(() => {
+        this.currentUserSubject.next(null);
+        this.router.navigate(['/']);
+      })
+    );
   }
 
-  getUserProfile(): Observable<User> {
-    return this.http.get<User>(`${environment.apiUrl}/users/me`)
-      .pipe(
-        tap(user => this.currentUserSubject.next(user)),
-        catchError(error => {
-          this.logout();
-          return this.handleError(error);
-        })
-      );
+  // Firebase specific methods
+  sendPasswordResetEmail(email: string): Observable<void> {
+    return from(this.afAuth.sendPasswordResetEmail(email));
+  }
+
+  getCurrentFirebaseUser(): Observable<firebase.User | null> {
+    return this.afAuth.authState;
+  }
+
+  // methods not directly using firebase
+  getUserProfile(uid: string): Observable<User> {
+    return this.http.get<User>(`${environment.apiUrl}/users/${uid}`).pipe(
+      tap(user => this.currentUserSubject.next(user)),
+      catchError(error => {
+        this.logout();
+        return this.handleError(error);
+      })
+    );
   }
 
   updateUserProfile(userData: Partial<User>): Observable<User> {

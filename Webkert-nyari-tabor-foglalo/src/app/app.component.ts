@@ -16,7 +16,7 @@ import { CampRegistrationComponent } from './features/camps/components/camp-regi
 import { UserTypeSelectionComponent } from './features/auth/components/user-type-selection/user-type-selection.component';
 import { CampLocationManagerComponent } from './features/admin/components/camp-location-manager/camp-location-manager.component';
 import { UserComponent } from './shared/models/user/user.component';
-import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { HomeComponent } from './pages/home/home.component';
 import { GALLERY_IMAGES, GalleryComponent } from "./shared/gallery/gallery.component";
 import { MatIcon, MatIconModule } from '@angular/material/icon';
@@ -56,7 +56,7 @@ import { MatGridList, MatGridTile, MatGridTileText } from '@angular/material/gri
     MatCard,
     MatCardContent,
     GalleryComponent
-],
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -64,12 +64,13 @@ import { MatGridList, MatGridTile, MatGridTileText } from '@angular/material/gri
 export class AppComponent implements OnInit {
   title = "Nyári tábor foglaló"
   isLoggedIn = false;
-  currentYear!: number;
+  currentYear!: number;
   loading: boolean = false;
   reservationForm: FormGroup;
   images = GALLERY_IMAGES;
+  showNavigation: boolean = true;
 
-  
+
   constructor(private fb: FormBuilder) {
     this.reservationForm = this.fb.group({
       name: ['', Validators.required],
@@ -81,10 +82,10 @@ export class AppComponent implements OnInit {
     });
   }
 
-  
+
   ngOnInit(): void {
     this.checkLoginStatus();
-    this.currentYear = new Date().getFullYear();
+    this.currentYear = new Date().getFullYear();
   }
 
   checkLoginStatus(): void {
@@ -100,74 +101,73 @@ export class AppComponent implements OnInit {
     }
 
     this.loading = true;
-    
+
     // Send the data to the backend
     const formData = this.reservationForm.value;
     console.log('Form elküldve:', formData);
-    
+
     // Simulate API call
     setTimeout(() => {
       this.loading = false;
-      
+
       // Show success message or redirect
       alert('Sikeres foglalás! Köszönjük!');
       this.reservationForm.reset();
     }, 1500);
   }
 
-  logout(): void{
-   localStorage.setItem('isLoggedIn', 'false');
+  logout(): void {
+    localStorage.setItem('isLoggedIn', 'false');
     this.isLoggedIn = false;
     window.location.href = '/home';
   }
 
-  onToggleSidenav(sidenav: MatSidenav){
+  onToggleSidenav(sidenav: MatSidenav) {
     sidenav.toggle();
   }
 
-  galleryImages  = [
-    { 
-      path: 'cserkesztabor.jpg', 
-      title: 'Cserkésztábor', 
-      description: 'Kalandok és természetfelfedezés cserkésztáborunkban' 
+  galleryImages = [
+    {
+      path: 'cserkesztabor.jpg',
+      title: 'Cserkésztábor',
+      description: 'Kalandok és természetfelfedezés cserkésztáborunkban'
     },
-    { 
-      path: 'group_of_children_lying_in_the_grass_in_a_circle.jpg', 
-      title: 'Közösségi programok', 
-      description: 'Gyermekeink élményei a táborban' 
+    {
+      path: 'group_of_children_lying_in_the_grass_in_a_circle.jpg',
+      title: 'Közösségi programok',
+      description: 'Gyermekeink élményei a táborban'
     },
-    { 
-      path: 'island_camp.jpg', 
-      title: 'Cserkésztábor Izlandon', 
-      description: 'Ez egy egyedülálló kép az izlandi cserkésztáborokról.' 
+    {
+      path: 'island_camp.jpg',
+      title: 'Cserkésztábor Izlandon',
+      description: 'Ez egy egyedülálló kép az izlandi cserkésztáborokról.'
     },
-    { 
-      path: 'szinjatszotabor.jpg', 
-      title: 'Színjátszó tábor', 
-      description: 'A múlt évi nyári tábor legjobb pillanatai' 
+    {
+      path: 'szinjatszotabor.jpg',
+      title: 'Színjátszó tábor',
+      description: 'A múlt évi nyári tábor legjobb pillanatai'
     },
-    { 
-      path: 'nyari_tabor_2022.jpg', 
-      title: 'Nyári tábor 2022', 
-      description: 'A múlt évi nyári tábor legjobb pillanatai' 
+    {
+      path: 'nyari_tabor_2022.jpg',
+      title: 'Nyári tábor 2022',
+      description: 'A múlt évi nyári tábor legjobb pillanatai'
     },
-    { 
-      path: 'Zankai_Elmenytabor_2019.jpg', 
-      title: 'Erzsébet-táborok', 
-      description: 'Minden évben egész nyáron várjuk a gyermekeket.' 
+    {
+      path: 'Zankai_Elmenytabor_2019.jpg',
+      title: 'Erzsébet-táborok',
+      description: 'Minden évben egész nyáron várjuk a gyermekeket.'
     },
-    { 
-      path: 'drcode.jpg', 
-      title: 'Programozás és robotika táborok', 
-      description: 'Programozás és robotika tematikájú táborok a Dr. Code szervezésével!' 
+    {
+      path: 'drcode.jpg',
+      title: 'Programozás és robotika táborok',
+      description: 'Programozás és robotika tematikájú táborok a Dr. Code szervezésével!'
     },
-    { 
-      path: 'forest-summer-camp.jpg', 
-      title: 'Erdei vándortábor', 
-      description: 'A múlt évi nyári tábor legjobb pillanatai' 
+    {
+      path: 'forest-summer-camp.jpg',
+      title: 'Erdei vándortábor',
+      description: 'A múlt évi nyári tábor legjobb pillanatai'
     }
   ];
 }
 
 
- 
