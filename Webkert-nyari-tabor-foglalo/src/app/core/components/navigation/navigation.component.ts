@@ -53,9 +53,9 @@ import { HeaderComponent } from '../header/header.component';
 })
 
 export class NavigationComponent implements OnInit, OnDestroy {
-submitForm() {
-throw new Error('Method not implemented.');
-}
+  submitForm() {
+    throw new Error('Method not implemented.');
+  }
   isLoggedIn: boolean = false;
   private authSubscription: Subscription | undefined;
 
@@ -66,20 +66,20 @@ throw new Error('Method not implemented.');
   CampType = CampType;
   loading = true;
   errorMessage = '';
-reservationForm: any;
-currentYear: any;
+  reservationForm: any;
+  currentYear: any;
 
   constructor(
     private campService: CampService,
     private authService: AuthService,
     private router: Router
   ) { }
-  
+
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
     this.userRole = this.authService.currentUserValue?.szerepkor || null;
-    
+
     this.loadPopularCamps();
     this.loadUpcomingCamps();
   }
