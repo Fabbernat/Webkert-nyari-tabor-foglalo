@@ -66,12 +66,10 @@ nav a {
   padding: 8px;
   text-decoration: none;
   color: black;
-
   &.active {
     font-weight: bold;
     color: darkblue;
   }
-
   &:hover {
     color: #555; /* Slight color change on hover for better UX */
   }
@@ -85,24 +83,10 @@ nav a {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-
-/* Styling for auxiliary section 1 */
-.auxiliary-section-1 {
-  padding: 1rem;
-  background-color: #e0f7fa;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.site-header {
+  position: relative;
+  z-index: 10; /* Ensure header stays above other content */
 }
-
-/* Styling for auxiliary section 2 */
-.auxiliary-section-2 {
-  padding: 2rem;
-  background-color: #fff3e0;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 .spacer {
   flex: 1 1 auto;
 }
