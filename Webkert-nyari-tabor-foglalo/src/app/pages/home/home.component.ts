@@ -6,6 +6,7 @@ import { CampService } from '../../core/services/camp.service';
 import { UserRole } from '../../shared/models/user/user.component';
 import { Camp, CampType } from '../../shared/models/camp/camp.component';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,8 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class HomeComponent implements OnInit {
+  isLoggedIn$: Observable<boolean> = new Observable<boolean>;
+
   popularCamps: Camp[] = [];
   upcomingCamps: Camp[] = [];
   isLoggedIn = false;
@@ -28,12 +31,14 @@ export class HomeComponent implements OnInit {
     private campService: CampService,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {
+    this.isLoggedIn$ = this.authService.isLoggedIn();
+  }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn();
+    this.isLoggedIn$ = this.authService.isLoggedIn();
     this.userRole = this.authService.currentUserValue?.szerepkor || null;
-    
+
     this.loadPopularCamps();
     this.loadUpcomingCamps();
   }

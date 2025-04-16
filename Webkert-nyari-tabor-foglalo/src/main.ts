@@ -6,4 +6,5 @@ import { provideHttpClient } from '@angular/common/http';
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
-provideHttpClient(); // hiányzik valahonnan (valszeg ngmodule-ban vagy az applicationconfigban) egy provideHttpClient(
+
+// provideHttpClient(); // kell 1 helyre (valszeg ngmodule-ba vagy az applicationconfigba) egy provideHttpClient()
