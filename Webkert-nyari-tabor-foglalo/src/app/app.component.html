@@ -83,14 +83,14 @@
     <!-- Navigation based on authentication state -->
     <nav class="main-nav">
       <ng-container *ngIf="isLoggedIn; else loggedOutNav">
-        <ul class="nav-links">
+        <ul class="nav-links block">
           <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
           <li><a href="/profile" hrefActive="active">Profilom</a></li>
           <li><a href="/logout" hrefActive="active">Kijelentkezés</a></li>
         </ul>
       </ng-container>
       <ng-template #loggedOutNav>
-        <ul class="nav-links">
+        <ul class="nav-links block">
           <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
           <li><a href="/signup" hrefActive="active">Regisztráció</a></li>
           <li><a href="/login" hrefActive="active">Bejelentkezés</a></li>
@@ -101,15 +101,16 @@
 </section>
 <main class="main">
   <div class="content">
-    <div class="left-side">
-      <nav class="main-nav">
-        <ng-container *ngIf="isLoggedIn; else loggedOutNav">
-          <ul class="nav-links">
-            <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
-            <li><a href="/profile" hrefActive="active">Profilom</a></li>
-            <li><a href="/logout" hrefActive="active">Kijelentkezés</a></li>
-          </ul>
-        </ng-container>
+      <div class="left-side">
+          <nav class="main-nav">
+            <ng-container *ngIf="isLoggedIn; else loggedOutNav">
+              <ul class="nav-links block">
+                <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
+                <li><a href="/profile" hrefActive="active">Profilom</a></li>
+                <li><a href="/logout" hrefActive="active">Kijelentkezés</a></li>
+              </ul>
+            </ng-container>
+          
 
         <ng-template #loggedOutNav>
           <ul class="nav-links">

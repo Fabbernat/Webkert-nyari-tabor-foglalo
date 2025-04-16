@@ -223,21 +223,21 @@ mat-radio-group {
   text-align: center;
   padding-bottom: 1rem;
 }
-
 .gallery-card img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
-
 .gallery-card h3 {
   font-size: 1.2rem;
   margin-top: 1rem;
   color: #2d3748;
 }
-
 .gallery-card p {
   font-size: 0.95rem;
   color: #4a5568;
   padding: 0 1rem;
+}
+.block{
+  display: block;
 }
