@@ -71,3 +71,8 @@ Nyári tábor foglaló alkalmazás
 ## 2. mérföldkő feljesített funkciók:
 - Reszponzív alkalmazás, álló és fekvő módban is megfelelően jelenik meg minden GUI elem, az oldalak legalább 90%-án
 - UI Animációk a főoldalon
+
+# **User Experience** képek
+![image](https://github.com/user-attachments/assets/0ef3f7ee-782e-485d-9702-6766d0f299e3)
+![image](https://github.com/user-attachments/assets/8e2128a1-e7b4-44d8-910c-2b032b7e7364)
+![image](https://github.com/user-attachments/assets/df5ba2a2-a261-4758-b5f1-42d5940eca55)
