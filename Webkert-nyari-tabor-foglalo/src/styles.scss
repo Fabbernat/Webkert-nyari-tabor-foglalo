@@ -1,5 +1,9 @@
 /* C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo\src\styles.scss */
 
+body {
+    display: flex;
+    flex-direction: column;
+  }
 
 html, body {
   height: 100%;

@@ -69,16 +69,17 @@
   <div class="site-header">
 
     <mat-toolbar color="primary" class="header-toolbar">
-      <div class="logo-container">
+      <div class="logo-container block">
         <img src="web/favicon-96.png" alt="Nyári Tábor Foglaló" class="site-logo">
         <h1 class="site-title">Üdvözöllek a Nyári Tábor Foglaló honlapján!</h1>
+        <br>
         <h2>Kezdőlap</h2>
         <p class="itt-bongeszhetsz">Itt böngészhetsz táborokat, regisztrálhatsz, és kezelheted a profilod.</p>
       </div>
     </mat-toolbar>
     <hr>
     <!-- Navigation based on authentication state -->
-    <nav class="main-nav">
+    <nav class="main-nav block">
       <ng-container *ngIf="isLoggedIn; else loggedOutNav">
         <ul class="nav-links block">
           <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
@@ -145,6 +146,8 @@
     <div>
       <hr><hr>
     </div>
+    <app-create-camp></app-create-camp>
+    <div class="block">
       <!-- Featured Camps Section -->
       <article class="large-margin">
         <h1 class="text-2xl font-bold mb-4">Kiemelt Táborok</h1>
@@ -155,7 +158,8 @@
           </div>
         </div>
       </article>
-    
+    </div>
+
       <hr>
       <!-- Camp Types Section -->
       <article class="large-margin">
