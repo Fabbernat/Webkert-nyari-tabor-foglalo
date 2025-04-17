@@ -1,14 +1,11 @@
+// src/app/features/camps/camps.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CampsRoutingModule } from './camps-routing.module';
-
+import { CreateCampComponent } from './components/create-camp/create-camp.component';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    CampsRoutingModule
-  ]
+  imports: [CreateCampComponent, CommonModule],
+  exports: [CreateCampComponent] // <-- important if used outside this module
 })
-export class CampsModule { }
+export class CampsModule {}
