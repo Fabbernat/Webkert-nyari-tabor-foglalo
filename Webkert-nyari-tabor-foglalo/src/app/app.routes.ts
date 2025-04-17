@@ -20,6 +20,7 @@ import { ContactComponent } from './pages/info/contact/contact.component';
 import { PrivacyComponent } from './pages/info/privacy/privacy.component';
 import { TermsComponent } from './pages/info/terms/terms.component';
 import { AppComponent } from './app.component';
+import { ProcessApplicationComponent } from './features/admin/process-application/process-application.component';
 
 export const routes: Routes = [
   { path: 'app', component: AppComponent },
@@ -72,6 +73,8 @@ export const routes: Routes = [
   { path: 'terms', component: TermsComponent },
   { path: 'contact', component: ContactComponent },
   
+  // Process application
+  { path: 'process-application', component: ProcessApplicationComponent},
 
   
   // Fallback route (should be last)

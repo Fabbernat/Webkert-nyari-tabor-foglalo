@@ -1,6 +1,6 @@
 <!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo\src\app\app.component.html -->
 <!--FALLBACK PLAN-->
-<section class="gallery-section large-margin-green">
+<section class="large-margin-green">
   <h2 class="section-title">Tábori Galéria</h2>
 
   <app-gallery></app-gallery>
@@ -14,10 +14,15 @@
         <h1 class="site-title">Üdvözöllek a Nyári Tábor Foglaló honlapján!</h1>
         <br>
         <h2>Kezdőlap</h2>
-        <p class="itt-bongeszhetsz">Itt böngészhetsz táborokat, regisztrálhatsz, és kezelheted a profilod.</p>
+        <article class="block itt-bongeszhetsz">
+          <p class="">Itt böngészhetsz táborokat, regisztrálhatsz, és kezelheted a profilod.</p>
+        </article>
       </div>
     </mat-toolbar>
-    <hr>
+  </div>
+  <hr>
+  <hr>
+<div class="block">
     <!-- Navigation based on authentication state -->
     <nav class="main-nav block">
       <ng-container *ngIf="isLoggedIn; else loggedOutNav">
@@ -35,8 +40,12 @@
         </ul>
       </ng-template>
     </nav>
-  </div>
+</div>
 </section>
+<div class="container">
+  <app-hero></app-hero>
+</div>
+
 <main class="main">
   <div class="content">
       <div class="left-side">
@@ -65,6 +74,10 @@
       </div>
   </div>
 
+  <div class="container" style="    background-color: #4caf50; margin-top: 200px auto; margin-bottom: 0; display: flexbox; flex-wrap: wrap; flex-direction: column;
+">
+    <app-camp-card></app-camp-card>
+  </div>
 
   <div class="container mx-auto px-4 py-8">
       <!-- Hero Section -->

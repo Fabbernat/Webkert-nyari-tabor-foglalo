@@ -66,9 +66,14 @@ p {
   }
 }
 .itt-bongeszhetsz{
+  background-color: rgb(0, 225, 255);
+  border: solid black 2px;
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 20px auto;
   display: block;
+  z-index: 11;
 }
-/* Styling for navigation links */
 nav a {
   text-decoration: none;
   &.active {
@@ -79,7 +84,14 @@ nav a {
     color: #555; /* Slight color change on hover for better UX */
   }
 }
-/* Styling for main content area */
+.main-nav {
+  margin-top: 100px; /* távolság az előző tartalomtól */
+  margin-bottom: 100px; /* távolság a következő tartalomtól */
+  padding: 20px 0; /* extra belső tér */
+  display: block;
+  background-color: transparent; /* opcionális */
+  z-index: 1; /* ha szükséges */
+}
 .main-content {
   padding: 2rem;
   background-color: #f9f9f9;
@@ -95,25 +107,20 @@ nav a {
 .spacer {
   flex: 1 1 auto;
 }
-
 mat-sidenav-container {
   height: calc(100vh - 64px);
 }
-
 mat-sidenav {
   width: 250px;
 }
-
 .content {
   display: flex;
   gap: 20px;
 }
-
 mat-form-field {
   width: 100%;
   margin-bottom: 15px;
 }
-
 .spinner-container {
   display: flex;
   justify-content: center;
@@ -141,7 +148,6 @@ a {
   box-shadow: 0 0 10px #ffeb3b80;
   animation: linkPulse 2s infinite ease-in-out;
 }
-
 a:hover,
 a:focus,
 a:active {
@@ -150,8 +156,6 @@ a:active {
   transform: scale(1.05);
   text-shadow: 0 0 6px #fff176;
 }
-
-/* Link pulzáló animáció */
 @keyframes linkPulse {
   0% {
     box-shadow: 0 0 10px #ffeb3b80;
@@ -163,8 +167,6 @@ a:active {
     box-shadow: 0 0 10px #ffeb3b80;
   }
 }
-
-/* Képek animációja */
 .gallery-card img {
   width: 100%;
   height: auto;
@@ -174,13 +176,10 @@ a:active {
   animation: fadeZoomIn 1s ease-out forwards;
   opacity: 0;
 }
-
 .gallery-card:hover img {
   transform: scale(1.03);
   filter: brightness(1.1);
 }
-
-/* Fade+Zoom-in animáció a képekre */
 @keyframes fadeZoomIn {
   0% {
     opacity: 0;
@@ -191,12 +190,10 @@ a:active {
     transform: scale(1);
   }
 }
-
 mat-card {
   max-width: 800px;
   margin: 20px auto;
 }
-
 mat-radio-group {
   display: flex;
   flex-direction: column;
@@ -206,14 +203,12 @@ mat-radio-group {
     margin: 5px 0;
   }
 }
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
-
 .gallery-card {
   background-color: #fff;
   border-radius: 12px;
@@ -239,4 +234,17 @@ mat-radio-group {
 }
 .block{
   display: block;
+}
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-bottom: 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
 }
