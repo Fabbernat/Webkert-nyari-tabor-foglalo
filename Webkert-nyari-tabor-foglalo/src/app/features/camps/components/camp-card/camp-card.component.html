@@ -40,8 +40,8 @@
         
         <section class="login-system-section">
           <div class="hero-buttons">
-            <a routerLink="/regisztracio" class="btn btn-primary">Regisztráció</a>
-            <a routerLink="/bejelentkezes" class="btn btn-outline">Bejelentkezés</a>
+            <a href="/regisztracio" class="btn btn-primary">Regisztráció</a>
+            <a href="/bejelentkezes" class="btn btn-outline">Bejelentkezés</a>
           </div>
           <div #menu class="belesbeall">
             <button mat-menu-item>
@@ -63,11 +63,11 @@
               <mat-icon>account_circle</mat-icon>
             </button>
             
-              <button mat-menu-item routerLink="/login">
+              <button mat-menu-item href="/login">
                 <mat-icon>login</mat-icon>
                 <span>Bejelentkezés</span>
               </button>
-              <button mat-menu-item routerLink="/signup">
+              <button mat-menu-item href="/signup">
                 <mat-icon>person_add</mat-icon>
                 <span>Regisztráció</span>
               </button>
@@ -76,53 +76,15 @@
   
         </section>
   
-        <!-- Quick Links Section -->
-        <section class="section quick-links">
-          <div class="section-container">
-            <h2 class="section-title">Gyorslinkek</h2>
-            <div class="links-grid">
-              <!-- Main Navigation -->
-              <div class="links-card">
-                <h3 class="links-title">Fő navigáció</h3>
-                <ul class="links-list">
-                  <li><a routerLink="/home">Kezdőlap</a></li>
-                  <li><a routerLink="/taborok">Táborlista</a></li>
-                  <li><a routerLink="/profil">Profilom</a></li>
-                  <li><a routerLink="/jelentkezesek">Jelentkezéseim</a></li>
-                </ul>
-              </div>
-  
-              <!-- Role-specific Links -->
-              <div class="links-card">
-                <h3 class="links-title">Felhasználói vezérlőpultok</h3>
-                <ul class="links-list">
-                  <li><a routerLink="/szulo/dashboard">Szülői vezérlőpult</a></li>
-                  <li><a routerLink="/pedagogus/dashboard">Pedagógus vezérlőpult</a></li>
-                  <li><a routerLink="/onkentes/dashboard">Önkéntes vezérlőpult</a></li>
-                </ul>
-              </div>
-  
-              <!-- Admin Links -->
-              <div class="links-card">
-                <h3 class="links-title">Adminisztráció</h3>
-                <ul class="links-list">
-                  <li><a routerLink="/admin/dashboard">Admin vezérlőpult</a></li>
-                  <li><a routerLink="/admin/taborok">Táborok kezelése</a></li>
-                  <li><a routerLink="/admin/users">Felhasználók kezelése</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-  
+
         <!-- Call to Action -->
         <section class="cta-section">
           <div class="cta-container">
             <h2 class="cta-title">Készen állsz, hogy megtaláld a tökéletes tábort?</h2>
             <p class="cta-text">Böngéssz táboraink között vagy hozz létre egy fiókot a kezdéshez.</p>
             <div class="cta-buttons">
-              <a routerLink="/taborok" class="btn btn-primary">Táborok böngészése</a>
-              <a routerLink="/regisztracio" class="btn btn-secondary">Fiók létrehozása</a>
+              <a href="/taborok" class="btn btn-primary">Táborok böngészése</a>
+              <a href="/regisztracio" class="btn btn-secondary">Fiók létrehozása</a>
             </div>
           </div>
         </section>
@@ -171,3 +133,44 @@
   </mat-card>
 </section>
 </div>
+
+        <!-- Quick Links Section -->
+        <nav class=" main-nav block colorful-background">
+          <section class="section quick-links">
+            <div class="section-container">
+              <h1 class="section-title">Gyorslinkek</h1>
+              <div class="links-grid">
+                <!-- Main Navigation -->
+                <div class="links-card">
+                  <h2 class="links-title">Fő navigáció</h2>
+                  <ul class=" nav-links block">
+                    <li><a href="/home">Kezdőlap</a></li>
+                    <li><a href="/taborok">Táborlista</a></li>
+                    <li><a href="/profil">Profilom</a></li>
+                    <li><a href="/jelentkezesek">Jelentkezéseim</a></li>
+                  </ul>
+                </div>
+    
+                <!-- Role-specific Links -->
+                <div class="links-card">
+                  <h3 class="links-title">Felhasználói vezérlőpultok</h3>
+                  <ul class="  nav-links block">
+                    <li><a href="/szulo/dashboard">Szülői vezérlőpult</a></li>
+                    <li><a href="/pedagogus/dashboard">Pedagógus vezérlőpult</a></li>
+                    <li><a href="/onkentes/dashboard">Önkéntes vezérlőpult</a></li>
+                  </ul>
+                </div>
+    
+                <!-- Admin Links -->
+                <div class="links-card">
+                  <h3 class="links-title">Adminisztráció</h3>
+                  <ul class="nav-links block">
+                    <li><a href="/admin/dashboard">Admin vezérlőpult</a></li>
+                    <li><a href="/admin/taborok">Táborok kezelése</a></li>
+                    <li><a href="/admin/users">Felhasználók kezelése</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </nav>

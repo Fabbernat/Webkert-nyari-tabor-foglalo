@@ -1,70 +1,100 @@
 .header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: relative;
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      
-      h1 {
-        margin: 0;
-        font-size: 24px;
-      }
-      
-      .watermark {
-        margin-left: 15px;
-        font-style: italic;
-        opacity: 0.7;
-        font-size: 14px;
-      }
-    }
-    
-    .header-content {
-      margin-top: 10px;
-      
-      h2 {
-        margin: 0;
-        font-size: 18px;
-        font-weight: normal;
-      }
-    }
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
 
-    .header-toolbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .container {
-      display: flex;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo-link {
-      text-decoration: none;
-      color: white;
-      font-size: 1.2rem;
-    }
-    .nav-links {
-      display: flex;
-      gap: 8px;
-    }
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        padding: 8px 0;
-      }
-      .nav-links {
-        margin-top: 8px;
-      }
-    }
-  }
 
-  .block{
+  .main-nav {
+    margin-top: 100px;
+    /* távolság az előző tartalomtól */
+    margin-bottom: 100px;
+    /* távolság a következő tartalomtól */
+    padding: 20px 0;
+    /* extra belső tér */
     display: block;
+    background-color: transparent;
+    /* opcionális */
+    z-index: 1;
+    /* ha szükséges */
   }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .watermark {
+      margin-left: 15px;
+      font-style: italic;
+      opacity: 0.7;
+      font-size: 14px;
+    }
+  }
+
+  .header-content {
+    margin-top: 10px;
+
+    h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: normal;
+    }
+  }
+
+  .header-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    margi n: 0;
+  }
+  
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 8px 0;
+    }
+
+    .nav-links {
+      margin-top: 8px;
+    }
+  }
+}
+
+
+.block {
+  display: block;
+}
