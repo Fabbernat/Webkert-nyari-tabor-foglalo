@@ -72,6 +72,8 @@ export const routes: Routes = [
   { path: 'terms', component: TermsComponent },
   { path: 'contact', component: ContactComponent },
   
+  // Process application
+  { path: 'process-application', component: ProcessApplicationComponent}
 
   
   // Fallback route (should be last)

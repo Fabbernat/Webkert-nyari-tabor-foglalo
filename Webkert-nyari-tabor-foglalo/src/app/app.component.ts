@@ -58,6 +58,7 @@ import { CreateCampComponent } from './features/camps/components/create-camp/cre
     MatCardContent,
     GalleryComponent,
     CreateCampComponent,
+    HeroComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
