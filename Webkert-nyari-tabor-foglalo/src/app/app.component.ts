@@ -57,7 +57,7 @@ import { CreateCampComponent } from './features/camps/components/create-camp/cre
     MatCard,
     MatCardContent,
     GalleryComponent,
-    CreateCampComponent
+    CreateCampComponent,
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
