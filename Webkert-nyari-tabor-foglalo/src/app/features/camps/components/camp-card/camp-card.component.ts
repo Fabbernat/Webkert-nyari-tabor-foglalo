@@ -5,16 +5,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { Camp } from '../../../../shared/models/camp/camp.component';
+import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-camp-card',
-  standalone: true,
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    MatToolbar
   ],
   templateUrl: './camp-card.component.html',
   styleUrl: './camp-card.component.scss'

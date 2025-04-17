@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MenuComponent } from './shared/menu/menu.component';
 import { MatGridList, MatGridTile, MatGridTileText } from '@angular/material/grid-list';
 import { CreateCampComponent } from './features/camps/components/create-camp/create-camp.component';
+import { CampCardComponent } from './features/camps/components/camp-card/camp-card.component';
 
 @Component({
   selector: 'app-root',
@@ -58,7 +59,8 @@ import { CreateCampComponent } from './features/camps/components/create-camp/cre
     MatCardContent,
     GalleryComponent,
     CreateCampComponent,
-    HeroComponent
+    HeroComponent,
+    CampCardComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
