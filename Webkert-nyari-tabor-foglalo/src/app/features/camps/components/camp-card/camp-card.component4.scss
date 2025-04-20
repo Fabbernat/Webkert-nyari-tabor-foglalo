@@ -1,0 +1,237 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Camp card styling */
+.camp-card {
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.camp-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.camp-card-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.camp-card-content {
+  font-size: 16px;
+}
+
+/* Navigation styles */
+.main-nav {
+  background-color: #0066cc;
+  padding: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: yellow;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Login section */
+.login-system-section {
+  padding: 20px;
+  background: #e3f2fd;
+  border-radius: 8px;
+}
+
+.hero-buttons a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  color: #007bff;
+}
+
+/* Call to Action */
+.cta-section {
+  text-align: center;
+  background-color: #ff9800;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.cta-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+}
+
+.cta-text {
+  font-size: 18px;
+  color: white;
+}
+
+.cta-buttons a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Availability Indicator */
+.availability {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.availability.high {
+  color: green;
+}
+
+.availability.medium {
+  color: orange;
+}
+
+.availability.low {
+  color: red;
+}
+
+/* Progress Bar */
+.progress-bar {
+  height: 10px;
+  background: lightgray;
+  border-radius: 5px;
+}
+
+.progress {
+  height: 10px;
+  background: green;
+  border-radius: 5px;
+}
+
+.very-wide {
+  width: 100%;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  animation: fadeZoomIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+mat-card {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+
+  mat-radio-button {
+    margin: 5px 0;
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.gallery-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.gallery-card h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #2d3748;
+}
+
+.gallery-card p {
+  font-size: 0.95rem;
+  color: #4a5568;
+  padding: 0 1rem;
+}
+
+.block {
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-bottom: 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+}
