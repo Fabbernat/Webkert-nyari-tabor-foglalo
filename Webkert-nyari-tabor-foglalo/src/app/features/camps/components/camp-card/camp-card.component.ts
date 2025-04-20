@@ -18,7 +18,18 @@ import { MatToolbar } from '@angular/material/toolbar';
     MatToolbar
   ],
   templateUrl: './camp-card.component.html',
-  styleUrl: './camp-card.component.scss'
+
+  // Giga file
+  styleUrl: './camp-card.component.scss',
+
+  // Modular
+  // styleUrls: [
+  //   './camp-card.component0.scss',
+  //   './camp-card.component1.scss',
+  //   './camp-card.component2.scss',
+  //   './camp-card.component3.scss',
+  //   './camp-card.component4.scss'
+  // ]
 })
 export class CampCardComponent {
   @Input() camp!: Camp;
