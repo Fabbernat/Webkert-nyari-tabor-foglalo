@@ -3,54 +3,54 @@
 
 
 
-  <!-- Featured Camps Section -->
-  <section class="section featured-camps">
-    <div class="section-container">
-      <h2 class="section-title">Kiemelt Táborok</h2>
-      <div class="camps-grid">
-        <!-- Camp cards would be loaded here -->
-        <div class="camp-card">
-          <div class="camp-image placeholder"></div>
-          <div class="camp-details">
-            <h3 class="camp-title">Tábor név</h3>
-            <p class="camp-info">Helyszín, Időpont</p>
-            <a routerLink="/camps/detail" class="camp-link">Részletek</a>
-          </div>
+<!-- Featured Camps Section -->
+<section class="section featured-camps">
+  <div class="section-container">
+    <h2 class="section-title">Kiemelt Táborok</h2>
+    <div class="camps-grid">
+      <!-- Camp cards would be loaded here -->
+      <div class="camp-card">
+        <div class="camp-image placeholder"></div>
+        <div class="camp-details">
+          <h3 class="camp-title">Tábor név</h3>
+          <p class="camp-info">Helyszín, Időpont</p>
+          <a routerLink="/camps/detail" class="camp-link">Részletek</a>
         </div>
-        <!-- More camp cards... -->
       </div>
-      <div class="section-footer">
-        <a routerLink="/camps" class="view-all-link">Összes tábor megtekintése</a>
-      </div>
+      <!-- More camp cards... -->
     </div>
-  </section>
-
-  <!-- Camp Types Section -->
-  <section class="section camp-types">
-    <div class="section-container">
-      <h2 class="section-title">Tábor típusok felfedezése</h2>
-      <div class="type-cards">
-        <a routerLink="/camp-types/sport" class="type-card">
-          <div class="type-icon sport-icon"></div>
-          <h3>Sport táborok</h3>
-        </a>
-        <a routerLink="/camp-types/art" class="type-card">
-          <div class="type-icon art-icon"></div>
-          <h3>Művészeti táborok</h3>
-        </a>
-        <a routerLink="/camp-types/science" class="type-card">
-          <div class="type-icon science-icon"></div>
-          <h3>Tudományos táborok</h3>
-        </a>
-        <a routerLink="/camp-types" class="type-card view-all">
-          <div class="type-icon browse-icon"></div>
-          <h3>Összes tábor típus</h3>
-        </a>
-      </div>
+    <div class="section-footer">
+      <a routerLink="/camps" class="view-all-link">Összes tábor megtekintése</a>
     </div>
-  </section>
+  </div>
+</section>
 
-<section  class="block">
+<!-- Camp Types Section -->
+<section class="section camp-types">
+  <div class="section-container">
+    <h2 class="section-title">Tábor típusok felfedezése</h2>
+    <div class="type-cards">
+      <a routerLink="/camp-types/sport" class="type-card">
+        <div class="type-icon sport-icon"></div>
+        <h3>Sport táborok</h3>
+      </a>
+      <a routerLink="/camp-types/art" class="type-card">
+        <div class="type-icon art-icon"></div>
+        <h3>Művészeti táborok</h3>
+      </a>
+      <a routerLink="/camp-types/science" class="type-card">
+        <div class="type-icon science-icon"></div>
+        <h3>Tudományos táborok</h3>
+      </a>
+      <a routerLink="/camp-types" class="type-card view-all">
+        <div class="type-icon browse-icon"></div>
+        <h3>Összes tábor típus</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="block">
   <mat-sidenav-container>
     <mat-sidenav mode="side" opened>
       <ul>
@@ -66,7 +66,7 @@
           <span class="mat-card-title">Nyári tábor foglalás</span>
           <span class="mat-card-subtitle">2025</span>
         </div>
-        
+
         <div class="mat-card-content">
           <!--<app-form></app-form>-->
         </div>
@@ -84,10 +84,140 @@
 
 
         <div *ngIf="loading" class="spinner-container">
-          
+
         </div>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </section>
 
+<section class="block">
+  <div class="cards-grid">
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="very-wide">
+        <mat-icon class="very-wide">MENÜ</mat-icon>
+      </button>
+      <div class="mat-card" style="display: none;">
+        <span class="spacer">
+        </span>
+        <button mat-icon-button>
+          <mat-icon>account_circle</mat-icon>
+        </button>
+
+
+
+
+        <mat-card>
+          <mat-card-title>Tábor 1</mat-card-title>
+          <mat-card-content>
+            Leírás az első táborról.
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-title>Tábor 2</mat-card-title>
+          <mat-card-content>
+            Leírás a második táborról.
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-title>Tábor 3</mat-card-title>
+          <mat-card-content>
+            Leírás a harmadik táborról.
+          </mat-card-content>
+        </mat-card>
+
+
+        <section class="login-system-section">
+          <div class="hero-buttons">
+            <a routerLink="/regisztracio" class="btn btn-primary">Regisztráció</a>
+            <a routerLink="/bejelentkezes" class="btn btn-outline">Bejelentkezés</a>
+          </div>
+          <div #menu class="belesbeall">
+            <button mat-menu-item>
+              <mat-icon>login</mat-icon>
+              <p>Bejelentkezés</p>
+            </button>
+            <br>
+            <button mat-menu-item>
+              <mat-icon>settings</mat-icon>
+              <p>Beállítások</p>
+            </button>
+          </div>
+          <hr>
+
+          <mat-toolbar color="accent">
+            <span>Bejelentkezés / Fiók</span>
+            <span class="spacer"></span>
+            <button mat-icon-button>
+              <mat-icon>account_circle</mat-icon>
+            </button>
+
+            <button mat-menu-item routerLink="/login">
+              <mat-icon>login</mat-icon>
+              <span>Bejelentkezés</span>
+            </button>
+            <button mat-menu-item routerLink="/signup">
+              <mat-icon>person_add</mat-icon>
+              <span>Regisztráció</span>
+            </button>
+
+          </mat-toolbar>
+
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="section quick-links">
+          <div class="section-container">
+            <h2 class="section-title">Gyorslinkek</h2>
+            <div class="links-grid">
+              <!-- Main Navigation -->
+              <div class="links-card">
+                <h3 class="links-title">Fő navigáció</h3>
+                <ul class="links-list">
+                  <li><a routerLink="/home">Kezdőlap</a></li>
+                  <li><a routerLink="/taborok">Táborlista</a></li>
+                  <li><a routerLink="/profil">Profilom</a></li>
+                  <li><a routerLink="/jelentkezesek">Jelentkezéseim</a></li>
+                </ul>
+              </div>
+
+              <!-- Role-specific Links -->
+              <div class="links-card">
+                <h3 class="links-title">Felhasználói vezérlőpultok</h3>
+                <ul class="links-list">
+                  <li><a routerLink="/szulo/dashboard">Szülői vezérlőpult</a></li>
+                  <li><a routerLink="/pedagogus/dashboard">Pedagógus vezérlőpult</a></li>
+                  <li><a routerLink="/onkentes/dashboard">Önkéntes vezérlőpult</a></li>
+                </ul>
+              </div>
+
+              <!-- Admin Links -->
+              <div class="links-card">
+                <h3 class="links-title">Adminisztráció</h3>
+                <ul class="links-list">
+                  <li><a routerLink="/admin/dashboard">Admin vezérlőpult</a></li>
+                  <li><a routerLink="/admin/taborok">Táborok kezelése</a></li>
+                  <li><a routerLink="/admin/users">Felhasználók kezelése</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+          <div class="cta-container">
+            <h2 class="cta-title">Készen állsz, hogy megtaláld a tökéletes tábort?</h2>
+            <p class="cta-text">Böngéssz táboraink között vagy hozz létre egy fiókot a kezdéshez.</p>
+            <div class="cta-buttons">
+              <a routerLink="/taborok" class="btn btn-primary">Táborok böngészése</a>
+              <a routerLink="/regisztracio" class="btn btn-secondary">Fiók létrehozása</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </mat-toolbar>
+  </div>
+</section>

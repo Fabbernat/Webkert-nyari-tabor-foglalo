@@ -8,19 +8,21 @@
       <p>Itt böngészhetsz táborokat, regisztrálhatsz, és kezelheted a profilod.</p>
     </div>
   </mat-toolbar>
+  </div>
 
-  <!-- Navigation based on authentication state -->
-  <nav class="main-nav">
-    <ng-container *ngIf="isLoggedIn; else loggedOutNav">
-      <ul class="nav-links block">
-        <li><a routerLink="/camps" routerLinkActive="active">Táborok böngészése</a></li>
-        <li><a routerLink="/profile" routerLinkActive="active">Profilom</a></li>
-        <li><a routerLink="/logout" routerLinkActive="active">Kijelentkezés</a></li>
-      </ul>
-    </ng-container>
-    <ng-template #loggedOutNav>
-      <ul class="nav-links block">
-      </ul>
-    </ng-template>
-  </nav>
+  <div class="block">
+    <!-- Navigation based on authentication state -->
+    <nav class="main-nav">
+      <ng-container *ngIf="isLoggedIn; else loggedOutNav">
+        <ul class="nav-links block">
+          <li><a routerLink="/camps" routerLinkActive="active">Táborok böngészése</a></li>
+          <li><a routerLink="/profile" routerLinkActive="active">Profilom</a></li>
+          <li><a routerLink="/logout" routerLinkActive="active">Kijelentkezés</a></li>
+        </ul>
+      </ng-container>
+      <ng-template #loggedOutNav>
+        <ul class="nav-links block">
+        </ul>
+      </ng-template>
+    </nav>
 </header>

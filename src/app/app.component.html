@@ -1,6 +1,6 @@
 <!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo\src\app\app.component.html -->
 <!--FALLBACK PLAN-->
-<section class="large-margin-green">
+<section class="gallery-section large-margin-green">
   <h2 class="section-title">Tábori Galéria</h2>
 
   <app-gallery></app-gallery>
@@ -14,33 +14,30 @@
         <h1 class="site-title">Üdvözöllek a Nyári Tábor Foglaló honlapján!</h1>
         <br>
         <h2>Kezdőlap</h2>
-        <article class="block itt-bongeszhetsz">
-          <p class="">Itt böngészhetsz táborokat, regisztrálhatsz, és kezelheted a profilod.</p>
-        </article>
+        <p class="itt-bongeszhetsz">Itt böngészhetsz táborokat, regisztrálhatsz, és kezelheted a profilod.</p>
       </div>
     </mat-toolbar>
   </div>
-  <hr>
-  <hr>
-<div class="block">
-    <!-- Navigation based on authentication state -->
-    <nav class="main-nav block">
-      <ng-container *ngIf="isLoggedIn; else loggedOutNav">
-        <ul class="nav-links block">
-          <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
-          <li><a href="/profile" hrefActive="active">Profilom</a></li>
-          <li><a href="/logout" hrefActive="active">Kijelentkezés</a></li>
-        </ul>
-      </ng-container>
-      <ng-template #loggedOutNav>
-        <ul class="nav-links block">
-          <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
-          <li><a href="/signup" hrefActive="active">Regisztráció</a></li>
-          <li><a href="/login" hrefActive="active">Bejelentkezés</a></li>
-        </ul>
-      </ng-template>
-    </nav>
-</div>
+
+  <div class="block"></div>
+  <!-- Navigation based on authentication state -->
+  <nav class="main-nav block">
+    <ng-container *ngIf="isLoggedIn; else loggedOutNav">
+      <ul class="nav-links block">
+        <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
+        <li><a href="/profile" hrefActive="active">Profilom</a></li>
+        <li><a href="/logout" hrefActive="active">Kijelentkezés</a></li>
+      </ul>
+    </ng-container>
+    <ng-template #loggedOutNav>
+      <ul class="nav-links block">
+        <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
+        <li><a href="/signup" hrefActive="active">Regisztráció</a></li>
+        <li><a href="/login" hrefActive="active">Bejelentkezés</a></li>
+      </ul>
+    </ng-template>
+  </nav>
+  </div>
 </section>
 <div class="container">
   <app-hero></app-hero>
@@ -48,30 +45,30 @@
 
 <main class="main">
   <div class="content">
-      <div class="left-side">
-          <nav class="main-nav">
-            <ng-container *ngIf="isLoggedIn; else loggedOutNav">
-              <ul class="nav-links block">
-                <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
-                <li><a href="/profile" hrefActive="active">Profilom</a></li>
-                <li><a href="/logout" hrefActive="active">Kijelentkezés</a></li>
-              </ul>
-            </ng-container>
-          
-            <ng-template #loggedOutNav>
-              <ul class="nav-links block">
-                <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
-                <li><a href="/signup" hrefActive="active">Regisztráció</a></li>
-                <li><a href="/login" hrefActive="active">Bejelentkezés</a></li>
-              </ul>
-            </ng-template>
-          </nav>
+    <div class="left-side">
+      <nav class="main-nav">
+        <ng-container *ngIf="isLoggedIn; else loggedOutNav">
+          <ul class="nav-links block">
+            <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
+            <li><a href="/profile" hrefActive="active">Profilom</a></li>
+            <li><a href="/logout" hrefActive="active">Kijelentkezés</a></li>
+          </ul>
+        </ng-container>
+
+        <ng-template #loggedOutNav>
+          <ul class="nav-links block">
+            <li><a href="/camps" hrefActive="active">Táborok böngészése</a></li>
+            <li><a href="/signup" hrefActive="active">Regisztráció</a></li>
+            <li><a href="/login" hrefActive="active">Bejelentkezés</a></li>
+          </ul>
+        </ng-template>
+      </nav>
 
 
-      </div>
-      <div class="divider" role="separator" aria-label="Divider"></div>
-      <div class="right-side">
-      </div>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+    </div>
   </div>
 
   <div class="container" style="    background-color: #4caf50; margin-top: 200px auto; margin-bottom: 0; display: flexbox; flex-wrap: wrap; flex-direction: column;
@@ -80,24 +77,27 @@
   </div>
 
   <div class="container mx-auto px-4 py-8">
-      <!-- Hero Section -->
-      <section class="bg-blue-600 text-white rounded-lg p-8 mb-8 text-center">
-        <h1 class="text-4xl font-bold mb-4">Üdvözlünk a Nyári Tábor Foglaló oldalán</h1>
-        <br>
-        <h2 class="text-xl mb-6">Találd meg a tökéletes tábori élményt gyermeked számára!</h2>
-        
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="/regisztracio" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition-colors">
-            Regisztráció
-          </a>
-          <hr>
-          <a href="/bejelentkezes" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-6 rounded-lg text-lg transition-colors">
-            Bejelentkezés
-          </a>
-        </div>
-      </section>
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white rounded-lg p-8 mb-8 text-center">
+      <h1 class="text-4xl font-bold mb-4">Üdvözlünk a Nyári Tábor Foglaló oldalán</h1>
+      <br>
+      <h2 class="text-xl mb-6">Találd meg a tökéletes tábori élményt gyermeked számára!</h2>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/regisztracio"
+          class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition-colors">
+          Regisztráció
+        </a>
+        <hr>
+        <a href="/bejelentkezes"
+          class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-6 rounded-lg text-lg transition-colors">
+          Bejelentkezés
+        </a>
+      </div>
+    </section>
     <div>
-      <hr><hr>
+      <hr>
+      <hr>
     </div>
     <app-create-camp></app-create-camp>
     <div class="block">
@@ -113,89 +113,91 @@
       </article>
     </div>
 
-      <hr>
-      <!-- Camp Types Section -->
-      <article class="large-margin">
-        <h2 class="text-2xl font-bold mb-4">Tábor típusok felfedezése</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <a href="/camp-types" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
-            Összes tábor típus megtekintése
-          </a>
+    <hr>
+    <!-- Camp Types Section -->
+    <article class="large-margin">
+      <h2 class="text-2xl font-bold mb-4">Tábor típusok felfedezése</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="/camp-types" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+          Összes tábor típus megtekintése
+        </a>
+      </div>
+    </article>
+    <hr>
+    <!-- Navigation Links Section -->
+    <section class="large-margin">
+      <h2 class="text-2xl font-bold mb-4">Gyorslinkek</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Main Navigation -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-3">Fő navigáció</h3>
+          <ul class="space-y-2">
+            <li><a href="/home" class="text-blue-600 hover:underline">Kezdőlap</a></li>
+            <li><a href="/taborok" class="text-blue-600 hover:underline">Táborlista</a></li>
+            <li><a href="/profil" class="text-blue-600 hover:underline">Profilom</a></li>
+            <li><a href="/jelentkezesek" class="text-blue-600 hover:underline">Jelentkezéseim</a></li>
+          </ul>
         </div>
-      </article>
-      <hr>
-      <!-- Navigation Links Section -->
-      <section class="large-margin">
-        <h2 class="text-2xl font-bold mb-4">Gyorslinkek</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- Main Navigation -->
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="font-bold text-lg mb-3">Fő navigáció</h3>
-            <ul class="space-y-2">
-              <li><a href="/home" class="text-blue-600 hover:underline">Kezdőlap</a></li>
-              <li><a href="/taborok" class="text-blue-600 hover:underline">Táborlista</a></li>
-              <li><a href="/profil" class="text-blue-600 hover:underline">Profilom</a></li>
-              <li><a href="/jelentkezesek" class="text-blue-600 hover:underline">Jelentkezéseim</a></li>
-            </ul>
-          </div>
-          
-          <!-- Role-specific Links -->
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="font-bold text-lg mb-3">Felhasználói vezérlőpultok</h3>
-            <ul class="space-y-2">
-              <li><a href="/szulo/dashboard" class="text-blue-600 hover:underline">Szülői vezérlőpult</a></li>
-              <li><a href="/pedagogus/dashboard" class="text-blue-600 hover:underline">Pedagógus vezérlőpult</a></li>
-              <li><a href="/onkentes/dashboard" class="text-blue-600 hover:underline">Önkéntes vezérlőpult</a></li>
-            </ul>
-          </div>
-          
-          <!-- Admin Links -->
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="font-bold text-lg mb-3">Adminisztráció</h3>
-            <ul class="space-y-2">
-              <li><a href="/admin/dashboard" class="text-blue-600 hover:underline">Admin vezérlőpult</a></li>
-              <li><a href="/admin/taborok" class="text-blue-600 hover:underline">Táborok kezelése</a></li>
-              <li><a href="/user-manager" class="text-blue-600 hover:underline">Felhasználók kezelése</a></li>
-              <li><a href="/stats-dashboard" class="text-blue-600 hover:underline">Statisztikák</a></li>
-              <li><a href="/camp-location-manager" class="text-blue-600 hover:underline">Helyszínek kezelése</a></li>
-            </ul>
-          </div>
+
+        <!-- Role-specific Links -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-3">Felhasználói vezérlőpultok</h3>
+          <ul class="space-y-2">
+            <li><a href="/szulo/dashboard" class="text-blue-600 hover:underline">Szülői vezérlőpult</a></li>
+            <li><a href="/pedagogus/dashboard" class="text-blue-600 hover:underline">Pedagógus vezérlőpult</a></li>
+            <li><a href="/onkentes/dashboard" class="text-blue-600 hover:underline">Önkéntes vezérlőpult</a></li>
+          </ul>
         </div>
-      </section>
-    
-      <hr>
-      <!-- Additional Features Section -->
-      <section class="large-margin">
-        <h2 class="text-2xl font-bold mb-4">Egyéb funkciók</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <a href="/dokumentum-feltoltes" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
-            Dokumentum feltöltése
-          </a>
-          <a href="/create-camp" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
-            Tábor létrehozása
-          </a>
-          <a href="/edit-profile" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
-            Profil szerkesztése
-          </a>
+
+        <!-- Admin Links -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-3">Adminisztráció</h3>
+          <ul class="space-y-2">
+            <li><a href="/admin/dashboard" class="text-blue-600 hover:underline">Admin vezérlőpult</a></li>
+            <li><a href="/admin/taborok" class="text-blue-600 hover:underline">Táborok kezelése</a></li>
+            <li><a href="/user-manager" class="text-blue-600 hover:underline">Felhasználók kezelése</a></li>
+            <li><a href="/stats-dashboard" class="text-blue-600 hover:underline">Statisztikák</a></li>
+            <li><a href="/camp-location-manager" class="text-blue-600 hover:underline">Helyszínek kezelése</a></li>
+          </ul>
         </div>
-      </section>
-    
-      <!-- Call to Action -->
-      <section class="bg-gray-100 rounded-lg p-6 text-center large-margin">
-        <h2 class="text-2xl font-bold mb-4">Készen állsz, hogy megtaláld a tökéletes tábort?</h2>
-        <p class="mb-6">Böngéssz táboraink között vagy hozz létre egy fiókot a kezdéshez.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="/taborok" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
-            Táborok böngészése
-          </a>
-          <hr>
-          <a href="/regisztracio" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
-            Fiók létrehozása
-          </a>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <hr>
+    <!-- Additional Features Section -->
+    <section class="large-margin">
+      <h2 class="text-2xl font-bold mb-4">Egyéb funkciók</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="/dokumentum-feltoltes" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+          Dokumentum feltöltése
+        </a>
+        <a href="/create-camp" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+          Tábor létrehozása
+        </a>
+        <a href="/edit-profile" class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+          Profil szerkesztése
+        </a>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gray-100 rounded-lg p-6 text-center large-margin">
+      <h2 class="text-2xl font-bold mb-4">Készen állsz, hogy megtaláld a tökéletes tábort?</h2>
+      <p class="mb-6">Böngéssz táboraink között vagy hozz létre egy fiókot a kezdéshez.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/taborok"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+          Táborok böngészése
+        </a>
+        <hr>
+        <a href="/regisztracio"
+          class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+          Fiók létrehozása
+        </a>
+      </div>
+    </section>
+  </div>
 </main>
 <!--Minimal but full view-->
 <div class="app-container">
