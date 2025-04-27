@@ -1,6 +1,6 @@
 // home.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { CampService } from '../../core/services/camp.service';
 import { UserRole } from '../../shared/models/user/user.component';
@@ -11,8 +11,10 @@ import { CommonModule } from '@angular/common';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  standalone: true,  // Explicitly mark as standalone
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule  // Needed for routerLink functionality
   ]
 })
 export class HomeComponent implements OnInit {
@@ -40,11 +42,11 @@ export class HomeComponent implements OnInit {
 
   loadPopularCamps(): void {
     this.campService.getPopularCamps().subscribe({
-      next: (camps) => {
-        this.popularCamps = camps;
+      next: (popularCamps: Camp[]) => {
+        this.popularCamps = popularCamps;
         this.loading = false;
       },
-      error: (error) => {
+      error: (error: Error) => {
         this.errorMessage = 'Hiba történt a népszerű táborok betöltése közben. Kérjük, próbálja újra később.';
         this.loading = false;
         console.error('Error loading popular camps:', error);
@@ -54,11 +56,11 @@ export class HomeComponent implements OnInit {
 
   loadUpcomingCamps(): void {
     this.campService.getUpcomingCamps().subscribe({
-      next: (camps) => {
+      next: (camps: Camp[]) => {
         this.upcomingCamps = camps;
         this.loading = false;
       },
-      error: (error) => {
+      error: (error: Error) => {
         this.errorMessage = 'Hiba történt a közelgő táborok betöltése közben. Kérjük, próbálja újra később.';
         this.loading = false;
         console.error('Error loading upcoming camps:', error);
