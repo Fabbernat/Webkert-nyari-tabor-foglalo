@@ -23,6 +23,7 @@ import { AppComponent } from './app.component';
 import { ProcessApplicationComponent } from './features/admin/process-application/process-application.component';
 
 export const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'app', component: AppComponent },
   { path: 'home', component: HomeComponent },
   { path: 'camp', component: CampComponent },

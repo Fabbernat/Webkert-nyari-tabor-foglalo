@@ -6,15 +6,17 @@ import { CampService } from '../../core/services/camp.service';
 import { UserRole } from '../../shared/models/user/user.component';
 import { Camp, CampType } from '../../shared/models/camp/camp.component';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'; // Add this
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: true,  // Explicitly mark as standalone
+  standalone: true,
   imports: [
     CommonModule,
-    RouterModule  // Needed for routerLink functionality
+    RouterModule,
+    HttpClientModule // Add this if your services use HTTP
   ]
 })
 export class HomeComponent implements OnInit {
