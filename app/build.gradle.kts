@@ -51,22 +51,23 @@ dependencies {
 
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
-    implementation("com.google.firebase:firebase-analytics")
 
-    // Add the dependencies for any other desired Firebase products
-    // https://firebase.google.com/docs/android/setup#available-libraries
+    // Firebase
+    implementation(libs.firebase.auth)
+    implementation(libs.google.firebase.analytics)
 
+    // Material Components dependency
+    implementation(libs.material.v1110)
+    
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.firebase.auth)
     implementation(libs.cronet.embedded)
     implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-//    implementation(com.google.firebase:firebase.auth)
 
     implementation(libs.recyclerview)
     implementation(libs.recyclerview.selection)
@@ -74,9 +75,9 @@ dependencies {
     implementation(libs.glide)
 
     /*
-    implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("androidx.recyclerview:recyclerview-selection:1.1.1")
     implementation("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("com.github.bumptech.glide:glide:4.15.1")
      */
 }

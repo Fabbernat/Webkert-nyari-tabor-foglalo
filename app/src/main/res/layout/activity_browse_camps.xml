@@ -1,75 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".activities.BrowseCampsActivity">
 
-    <ImageView
-        android:id="@+id/scout_camp"
-        android:layout_width="wrap_content"
+    <!-- Search Bar -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side_side"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:srcCompat="@drawable/donut_circle" />
+        android:hint="@string/search"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <ImageView
-        android:id="@+id/elisabeth_camp"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Filter Chips -->
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scout_camp"
-        android:srcCompat="@drawable/icecream_circle" />
+        android:layout_marginTop="8dp">
 
-    <ImageView
-        android:id="@+id/programmer_camp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/elisabeth_camp"
-        android:srcCompat="@drawable/froyo_circle" />
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name" />
 
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_date" />
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/end_date" />
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Szervező" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Image Gallery Header -->
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="@dimen/default_margin_side"
-        app:layout_constraintLeft_toLeftOf="@+id/scout_camp"
-        app:layout_constraintTop_toBottomOf="@+id/scout_camp"
-        android:text="@string/camp_description"
-        />
+        android:text="@string/camp_pictures"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
 
+    <!-- Horizontal Image Scroll View -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/circle"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/circle"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/circle"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop"/>
+
+            <!-- Add more images as needed from res/assets/images/ -->
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Camps List Header -->
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="@dimen/default_margin_side"
-        app:layout_constraintLeft_toLeftOf="@+id/elisabeth_camp"
-        app:layout_constraintTop_toBottomOf="@+id/elisabeth_camp"
-        android:text="@string/camp_description"
-        />
+        android:text="Elérhető táborok"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="@dimen/default_margin_side"
-        app:layout_constraintLeft_toLeftOf="@+id/programmer_camp"
-        app:layout_constraintTop_toBottomOf="@+id/programmer_camp"
-        android:text="@string/camp_description"
-        />
-
+    <!-- RecyclerView for Camps -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"/>
+</LinearLayout>
