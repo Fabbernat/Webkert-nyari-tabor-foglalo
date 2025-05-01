@@ -68,6 +68,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!-- Images to add:
+     2025. 04. 24.     16:38         702690 cserkesztabor.jpg
+     2025. 04. 14.     22:06          19810 drcode.jpg
+     2025. 04. 14.     22:05           5102 favicon_96.png
+     2025. 04. 14.     22:06         953320 forest_summer_camp.jpg
+     2025. 04. 14.     22:06         194629 group_of_children_lying_in_the_grass_in_a_circle.jpg
+     2025. 04. 14.     22:05           5102 ic_notification.png
+     2025. 04. 14.     22:06          75120 island_camp.jpg
+     2025. 04. 14.     22:06         440843 nyari_tabor_jatek.jpg
+     2025. 04. 14.     22:06          14612 szent_margit.jpg
+     2025. 04. 08.     22:48          11348 szent_margit_cserkeszcsapat.jpg
+     2025. 04. 14.     22:06          20439 szinjatszotabor.jpg
+     2025. 04. 24.     16:37         418095 tabortuz_jatekok.jpg
+     2025. 04. 14.     22:05         493635 zankai_elmenytabor.jpg
+            -->
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
