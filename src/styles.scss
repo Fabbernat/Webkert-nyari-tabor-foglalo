@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+// styles.scss
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'ngx-toastr/toastr';
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  padding: 2rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+// Camp type colors
+.scout-badge {
+  background-color: #2E7D32;
+  color: white;
+}
+
+.forest-badge {
+  background-color: #4E342E;
+  color: white;
+}
+
+.sailing-badge {
+  background-color: #1565C0;
+  color: white;
+}

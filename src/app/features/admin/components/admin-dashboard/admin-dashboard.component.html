@@ -1,0 +1,35 @@
+<!-- features/admin/components/admin-dashboard/admin-dashboard.component.html -->
+<div class="admin-dashboard">
+    <h1>Adminisztrátori felület</h1>
+    
+    <mat-tab-group>
+      <mat-tab label="Felhasználók">
+        <mat-list>
+          <mat-list-item *ngFor="let user of users$ | async">
+            <h3 mat-line>{{ user.name }}</h3>
+            <p mat-line>{{ user.email }} - {{ user.role }}</p>
+            <button mat-icon-button color="warn" (click)="deleteUser(user.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-tab>
+      
+      <mat-tab label="Táborok">
+        <button mat-raised-button color="primary" routerLink="/camps/create">Új tábor</button>
+        
+        <mat-list>
+          <mat-list-item *ngFor="let camp of camps$ | async">
+            <h3 mat-line>{{ camp.name }}</h3>
+            <p mat-line>{{ camp.startDate | date }} - {{ camp.endDate | date }}</p>
+            <button mat-icon-button color="primary" [routerLink]="['/camps/edit', camp.id]">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteCamp(camp.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-tab>
+    </mat-tab-group>
+  </div>

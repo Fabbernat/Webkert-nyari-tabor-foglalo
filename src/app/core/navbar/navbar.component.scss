@@ -1,0 +1,15 @@
+// core/navbar/navbar.component.scss
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+  
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  
+    .spacer {
+      flex: 1 1 auto;
+    }
+  }

@@ -1,0 +1,15 @@
+<!-- core/navbar/navbar.component.html -->
+<mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">Nyári Tábor Foglaló</span>
+  
+    <span class="spacer"></span>
+  
+    <button mat-button routerLink="/register" *ngIf="!auth.isLoggedIn">Regisztráció</button>
+    <button mat-button routerLink="/login" *ngIf="!auth.isLoggedIn">Bejelentkezés</button>
+    <button mat-button (click)="auth.logout()" *ngIf="auth.isLoggedIn">Kijelentkezés</button>
+  
+    <button mat-button routerLink="/camps/create" *ngIf="auth.isAdmin">Tábor létrehozása</button>
+    <button mat-button routerLink="/camps">Táborok böngészése</button>
+    <button mat-button routerLink="/camps/edit" *ngIf="auth.isAdmin">Tábor módosítása</button>
+    <button mat-button routerLink="/camps/delete" *ngIf="auth.isAdmin">Tábor törlése</button>
+  </mat-toolbar>
