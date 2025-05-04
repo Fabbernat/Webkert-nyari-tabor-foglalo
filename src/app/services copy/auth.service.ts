@@ -1,9 +1,11 @@
-// core/services/auth.service.ts
+// src/app/core/services/auth.service.ts
+
 import { Injectable } from '@angular/core';
-import UserType, { User, UserRole } from '../../shared/models/user/user.component';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, tap, map, catchError, throwError, of } from 'rxjs';
+import UserType, { User, UserRole } from '../../shared/models/user/user.component';
 import { environment } from '../../../environments/environment.prod';
 
 interface AuthResponse {
@@ -11,12 +13,13 @@ interface AuthResponse {
   user: User;
 }
 
+
 @Injectable({
   providedIn: 'root'
-})
+})  
 export class AuthService {
-    userData!: User;
-    private currentUserSubject = new BehaviorSubject<User | null>(null);
+  
+  private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
   private readonly TOKEN_KEY = 'auth_token';
   currentUserValue: any;

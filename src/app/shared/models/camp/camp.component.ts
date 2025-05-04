@@ -35,16 +35,16 @@ export interface Camp {
       programs: string[];
       meals: string[];
     }[];
-  koordinatak?: {
+  coordinates?: {
     lat: number;
     lng: number;
   };
   imageUrls: string[];
-  napokLebontasa: NapiLetszam[];
-  jelentkezesiHatarido: Date;
-  szuksegesEszkozok?: string[];
-  csoportok?: string[];
-  kiserokSzama?: number;
+  headCounts: DailyHeadCounts[];
+  applicationDeadline: Date;
+  necessaryTools?: string[];
+  groups?: string[];
+  numberOfPedagogues?: number;
 }
 
 // Tábor típusok
@@ -61,7 +61,8 @@ export enum CampType {
   PROGRAMOZO_TABOR = 'programozó tábor',
   MATEMATIKA_TABOR = 'matek tábor',
   ROBOTIKA_TABOR = 'robotika tábor',
-  ERZSEBETTABOR = 'Erzsébet-tábor'
+  ERZSEBETTABOR = 'Erzsébet-tábor',
+  // ...
 }
 
 export enum CampFormat {
@@ -72,18 +73,18 @@ export enum CampFormat {
 // Program modell
 export interface Program {
   id?: string;
-  nev: string;
-  leiras: string;
-  kezdoIdopont: Date;
-  vegIdopont: Date;
-  helyszin: string;
-  szuksegesEszkozok?: string[];
-  felelosok?: string[];
+  name: string;
+  description: string;
+  startDate: Date;
+  endDate: Date;
+  location: string;
+  necessaryTools?: string[];
+  campLeaders?: string[]; // Napostiszt
 }
 
 // Napi létszám modell
-export interface NapiLetszam {
-  datum: Date;
-  felnottLetszam: number;
-  gyerekLetszam: number;
+export interface DailyHeadCounts {
+  date: Date;
+  adultHeadCount: number;
+  childHeadCount: number;
 }

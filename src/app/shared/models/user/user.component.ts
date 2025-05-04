@@ -1,3 +1,4 @@
+// TODO angolosítani
 import { Component } from '@angular/core';
 
 @Component({
