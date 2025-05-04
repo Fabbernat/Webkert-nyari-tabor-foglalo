@@ -267,12 +267,6 @@ nav a {
 .spacer {
   flex: 1 1 auto;
 }
-mat-sidenav-container {
-  height: calc(100vh - 64px);
-}
-mat-sidenav {
-  width: 250px;
-}
 .content {
   display: flex;
   gap: 20px;
@@ -1667,4 +1661,26 @@ body {
   .type-card {
     padding: 1rem;
   }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+section.block,
+mat-sidenav-container,
+mat-sidenav-content {
+  height: 100%;
+}
+
+mat-sidenav-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content {
+  padding: 1rem;
+  box-sizing: border-box;
 }
