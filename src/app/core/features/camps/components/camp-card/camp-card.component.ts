@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { Camp } from '../../../../shared/models/camp/camp.component';
+import { Camp } from '../../../../../shared/models/camp/camp.component';
 
 @Component({
   selector: 'app-camp-card',
@@ -24,7 +24,7 @@ export class CampCardComponent {
   @Output() bookNow = new EventEmitter<string>();
 
   get availabilityPercentage(): number {
-    return ((this.camp.maxParticipants - this.camp.registeredParticipants) / this.camp.maxParticipants) * 100;
+    return ((this.camp.maxParticipants - this.camp.registeredCount) / this.camp.maxParticipants) * 100;
   }
 
   onBookNow(): void {

@@ -10,6 +10,14 @@
         </app-camp-card>
     <ul>
       <li *ngFor="let camp of camps">{{ camp.name }} - {{ camp.location }}</li>
+      <mat-card *ngFor="let camp of camps" fxLayout="column" fxLayoutGap="10px">
+        <mat-card-title>{{ camp.nev }}</mat-card-title>
+        <mat-card-content>
+          <p>Helyszín: {{ camp.location }}</p>
+          <p>Dátum: {{ camp.date | date }}</p>
+          <p>Férőhely: {{ camp.capacity }}</p>
+        </mat-card-content>
+      </mat-card>
     </ul>
   </div>
 </div>

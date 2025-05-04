@@ -20,7 +20,7 @@ export class FeaturedCampsComponent {
       endDate: new Date('2025-06-07'),
       capacity: 30,
       price: 35000,
-      registeredParticipants: 20,
+      registeredCount: 20,
       minAge: 12,
       maxAge: 99,
       organizerId: 'bestSzervezo369',

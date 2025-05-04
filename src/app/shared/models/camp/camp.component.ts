@@ -22,7 +22,7 @@ export interface Camp {
   description: string;
   price: number;
   capacity: number;
-  registeredParticipants: number;
+  registeredCount: number;
   maxParticipants: number;
     minAge: number;
     maxAge: number;
