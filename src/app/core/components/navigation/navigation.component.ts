@@ -11,6 +11,8 @@ import { MatToolbarModule, MatToolbar } from '@angular/material/toolbar';
 import { GalleryComponent } from '../../../shared/gallery/gallery.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
+import { Camp } from '../../../shared/models/camp/camp.component';
+import { HighlightDirective } from '../../../directives/highlight.directive';
 
 
 @Component({
@@ -18,34 +20,22 @@ import { HeaderComponent } from '../header/header.component';
   imports: [
     CommonModule,
     CommonModule,
-    RouterOutlet,
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     RouterLink,
-    RouterOutlet,
     RouterLink,
-    HeaderComponent,
-    FooterComponent,
-    NavigationComponent,
     MatSidenavModule,
-    GalleryComponent,
-    MatIcon,
-    MatToolbar,
     MatSidenav,
-    MatGridList,
-    MatGridTile,
-    MatCard,
-    MatCardContent,
-    GalleryComponent,
-    MatCardTitle
-  ],
+    HighlightDirective
+],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
 
 export class NavigationComponent implements OnInit, OnDestroy {
+  camp!: Camp;
   submitForm() {
     throw new Error('Method not implemented.');
   }

@@ -111,6 +111,8 @@
             <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="loading">
               {{ loading ? 'Feldolgozás...' : 'Foglalás' }}
             </button>
+            <button [appHighlight]="camp.capacity < 5">Book</button>
+
           </p>
           <p>
             <button mat-raised-button color="primary" (click)="reservationForm.reset()">Mégse</button>
