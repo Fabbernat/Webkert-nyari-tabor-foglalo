@@ -1,8 +1,10 @@
 // src/app/pages/camp-flow-demo/camp-flow-demo.component.ts
 
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
+  imports: [CommonModule],
   selector: 'app-camp-flow-demo',
   templateUrl: './camp-flow-demo.component.html',
 })

@@ -2,3 +2,13 @@
 <h2>Tábor részletei</h2>
 <p>Név: {{ camp.name }}</p>
 <p>Leírás: {{ camp.description }}</p>
+
+<h3>Tábor neve: {{ campName }}</h3>
+<p>Férőhelyek száma: {{ capacity }}</p>
+<p *ngIf="isAvailable; else full">✅ Elérhető</p>
+<ng-template #full><p>❌ Betelt</p></ng-template>
+
+<!-- Gombok, amelyek eseményeket küldenek a szülőnek -->
+<button (click)="onReserve()">Foglalás</button>
+<button (click)="onCancel()">Foglalás törlése</button>
+<button (click)="onViewed()">Megtekintés naplózása</button>

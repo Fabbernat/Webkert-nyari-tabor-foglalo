@@ -1,7 +1,4 @@
-<!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo\Webkert-nyari-tabor-foglalo-v12\src\app\core\components\navigation\navigation.component.html -->
-<!-- src/app/pages/home/home.component.html -->
-
-
+<!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo3\src\app\core\components\navigation\navigation.component.html -->
 
 <!-- Featured Camps Section -->
 <section class="section featured-camps">
@@ -107,10 +104,6 @@
           <!--<app-form></app-form>-->
         </div>
         <div class="mat-card-actions">
-          <p>
-            <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="loading" [appHighlight]="camp.capacity < 5">
-              {{ loading ? 'Feldolgozás...' : 'Foglalás' }}
-            </button>
           <p [appHighlight]="camp.capacity < 5">Kevesebb, mint 5 hely maradt hátra!</p>
           <p>
             <button mat-raised-button color="primary" (click)="reservationForm.reset()">Mégse</button>

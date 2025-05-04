@@ -4,9 +4,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { CampService } from '../../../../core/services/camp.service';
-import { Camp } from '../../../../shared/models/camp/camp.component';
+
 import { CampCardComponent } from '../camp-card/camp-card.component';
+import { CampService } from '../../../../../services copy/camp.service';
+import { CampDetailsComponent } from '../camp-details/camp-details.component';
 
 @Component({
   selector: 'app-camp-list',
@@ -17,13 +18,19 @@ import { CampCardComponent } from '../camp-card/camp-card.component';
     MatButtonModule,
     MatIconModule,
     RouterModule,
-    CampCardComponent
+    CampCardComponent,
+    CampDetailsComponent
   ],
   templateUrl: './camp-list.component.html',
   styleUrl: './camp-list.component.scss'
 })
 export class CampListComponent implements OnInit {
   camps: any;
+  selectedCamp = {
+    name: 'Kalandtábor',
+    capacity: 25,
+    available: true
+  };
 
   constructor(private campService: CampService) {}
 
@@ -31,6 +38,19 @@ export class CampListComponent implements OnInit {
     this.campService.getCamps().subscribe(camps => {
       this.camps = camps;
     });
+  }
+
+  onReserveCamp() {
+    // ⬅️ Foglalás logika
+    console.log('Foglalás megtörtént!');
+  }
+
+  onCancelReservation(campName: string) {
+    console.log(`A(z) ${campName} foglalása törölve.`);
+  }
+
+  onCampViewed(capacity: number) {
+    console.log(`A tábort megtekintették, férőhely: ${capacity}`);
   }
 
   navigateToBooking(campId: string): void {
