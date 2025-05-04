@@ -1,5 +1,7 @@
 <!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo3\src\app\core\components\navigation\navigation.component.html -->
 
+<div class="main-layout">
+
 <!-- Featured Camps Section -->
 <section class="section featured-camps">
   <div class="section-container">
@@ -103,12 +105,7 @@
         <div class="mat-card-content">
           <!--<app-form></app-form>-->
         </div>
-        <div class="mat-card-actions">
-          <p [appHighlight]="camp.capacity < 5">Kevesebb, mint 5 hely maradt hátra!</p>
-          <p>
-            <button mat-raised-button color="primary" (click)="reservationForm.reset()">Mégse</button>
-          </p>
-        </div>
+        
 
         <div *ngIf="loading" class="spinner-container">
 
@@ -117,3 +114,11 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </section>
+</div>
+<div class="mat-card-actions main-layout">
+  <p [appHighlight]="camp.capacity < 5">Kevesebb, mint 5 hely maradt hátra!</p>
+  <p>
+    <button mat-raised-button color="primary" (click)="reservationForm.reset()">Mégse</button>
+  </p>
+</div>
+<hr>

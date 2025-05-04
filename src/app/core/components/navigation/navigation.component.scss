@@ -655,10 +655,6 @@ body {
   box-sizing: border-box;
 }
 
-.section {
-  padding: 2rem 0;
-}
-
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -875,9 +871,6 @@ body {
   padding: 20px 0;
 }
 
-.section {
-  padding: 20px;
-}
 
 .section-container {
   max-width: 1200px;
@@ -1683,4 +1676,13 @@ mat-sidenav-container {
 .content {
   padding: 1rem;
   box-sizing: border-box;
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  padding: 2rem 0 20px;
 }
