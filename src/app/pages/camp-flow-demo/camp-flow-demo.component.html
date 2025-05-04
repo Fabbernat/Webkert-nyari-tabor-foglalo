@@ -1,0 +1,23 @@
+<!-- src/app/pages/camp-flow-demo/camp-flow-demo.component.html -->
+
+<h1>Tábori státusz és példák vezérlési szerkezetekre</h1>
+
+<!-- *ngIf példa -->
+<div *ngIf="hasSpace; else noSpace">
+  <p>✅ Férőhelyek elérhetők</p>
+</div>
+<ng-template #noSpace>
+  <p>❌ Nincs elérhető férőhely</p>
+</ng-template>
+
+<!-- *ngFor példa -->
+<ul>
+  <li *ngFor="let camp of camps">{{ camp.name }}</li>
+</ul>
+
+<!-- ngSwitch példa -->
+<div [ngSwitch]="campStatus">
+  <p *ngSwitchCase="'active'">🟢 Aktív</p>
+  <p *ngSwitchCase="'cancelled'">🔴 Lemondva</p>
+  <p *ngSwitchDefault>⚪ Ismeretlen státusz</p>
+</div>

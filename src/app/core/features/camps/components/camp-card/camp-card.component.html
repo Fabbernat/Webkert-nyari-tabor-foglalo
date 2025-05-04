@@ -32,10 +32,10 @@
       </div>
     </mat-card-content>
     
-    <div class="camp-card">
+    <div class="camp-card" [appColorHighlight]="camp.capacity">
       <h2>{{ camp.name }}</h2>
       <p>Szabad létszám: {{ camp.capacity - camp.registeredCount }}</p>
-      <button [ngClass]="{'highlighted': camp.capacity < 5}">Jelentkezési adatok mentése</button>
+      <button [ngClass]="{'highlighted': camp.capacity < 5}" [appHighlight]="camp.capacity < 5">Jelentkezési adatok mentése</button>
     </div>
     <mat-card-actions align="end">
       <a mat-button [routerLink]="['/camps', camp.id]">Részletek</a>

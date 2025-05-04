@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { Camp } from '../../../../../shared/models/camp/camp.component';
 import { HighlightDirective } from '../../../../../directives/highlight.directive';
+import { ColorHighlightDirective } from '../../../../../directives/color-highlight.directive';
 
 @Component({
   selector: 'app-camp-card',
@@ -16,7 +17,8 @@ import { HighlightDirective } from '../../../../../directives/highlight.directiv
     MatButtonModule,
     MatIconModule,
     RouterModule,
-    HighlightDirective
+    HighlightDirective,
+    ColorHighlightDirective
   ],
   templateUrl: './camp-card.component.html',
   styleUrl: './camp-card.component.scss'
