@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { Camp } from '../../../../../shared/models/camp/camp.component';
+import { HighlightDirective } from '../../../../../directives/highlight.directive';
 
 @Component({
   selector: 'app-camp-card',
@@ -14,7 +15,8 @@ import { Camp } from '../../../../../shared/models/camp/camp.component';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    HighlightDirective
   ],
   templateUrl: './camp-card.component.html',
   styleUrl: './camp-card.component.scss'

@@ -1,3 +1,4 @@
+<!-- camp-card.component.html -->
 <mat-card class="camp-card" *ngIf="camp">
     <img 
       mat-card-image 
@@ -38,6 +39,6 @@
     </div>
     <mat-card-actions align="end">
       <a mat-button [routerLink]="['/camps', camp.id]">Részletek</a>
-      <button mat-raised-button color="primary" (click)="onBookNow()">Foglalás</button>
+      <button mat-raised-button color="primary" (click)="onBookNow()" [appHighlight]="camp.capacity < 5">Foglalás</button>
     </mat-card-actions>
   </mat-card>
