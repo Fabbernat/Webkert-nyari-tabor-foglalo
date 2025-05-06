@@ -7,6 +7,7 @@ import { LoginComponent } from './core/components/login/login.component';
 import { CampComponent } from './shared/models/camp/camp.component';
 import { NgModule } from '@angular/core';
 import { CampFlowDemoComponent } from './pages/camp-flow-demo/camp-flow-demo.component';
+import { CampListComponent } from './core/features/camps/components/camp-list/camp-list.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +22,7 @@ export const routes: Routes = [
   { path: 'camp', component: CampComponent },
   { path: 'camps', component: CampComponent },
   { path: 'camps/create', component: CampComponent },
+  { path: 'camp-list', component: CampListComponent },
 
   { path: 'control-flow', component: CampFlowDemoComponent },
   { path: 'camp-flow', component: CampFlowDemoComponent },

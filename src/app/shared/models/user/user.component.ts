@@ -86,7 +86,7 @@ export enum VolunteerType {
 // Gyermek modell
 export interface Child {
   id?: string;
-  nev: string;
+  name: string;
   szuletesiDatum: Date;
   taj: string;
   allergia?: string;

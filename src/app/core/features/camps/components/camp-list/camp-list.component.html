@@ -1,25 +1,66 @@
 <!-- camp-list.component.html -->
 <div class="container">
   <h1 class="page-title">Nyári Táborok</h1>
-  <h2>Elérhető Táborok</h2>
-  <div class="camp-list">
-    <app-camp-card *ngFor="let camp of camps" [camp]="camp" (bookNow)="navigateToBooking($event)">
-    </app-camp-card>
-    <ul>
-      <li *ngFor="let camp of camps">{{ camp.name }} - {{ camp.location }}</li>
-      <mat-card *ngFor="let camp of camps" fxLayout="column" fxLayoutGap="10px">
-        <mat-card-title>{{ camp.nev }}</mat-card-title>
-        <mat-card-content>
-          <p>Helyszín: {{ camp.location }}</p>
-          <p>Dátum: {{ camp.date | date }}</p>
-          <p>Férőhely: {{ camp.capacity }}</p>
-        </mat-card-content>
-      </mat-card>
-    </ul>
-  </div>
-  <!-- Gyermek komponens meghívása, adatátadás + eseménykezelés -->
-  <app-camp-details [campName]="selectedCamp.name" [capacity]="selectedCamp.capacity"
-    [isAvailable]="selectedCamp.available" (reserve)="onReserveCamp()" (cancelReservation)="onCancelReservation($event)"
-    (logView)="onCampViewed($event)">
-  </app-camp-details>
+  <main>
+    <div>
+
+      <h2>Elérhető Táborok</h2>
+      <div class="camp-list">
+        <app-camp-card *ngFor="let camp of camps" [camp]="camp" (bookNow)="navigateToBooking($event)">
+        </app-camp-card>
+        <ul>
+          <li *ngFor="let camp of camps">{{ camp.name }} - {{ camp.location }}</li>
+          <mat-card *ngFor="let camp of camps" fxLayout="column" fxLayoutGap="10px">
+            <mat-card-title>{{ camp.name }}</mat-card-title>
+            <mat-card-content>
+              <p>Helyszín: {{ camp.location }}</p>
+              <p>Dátum: {{ camp.date | date }}</p>
+              <p>Férőhely: {{ camp.capacity }}</p>
+            </mat-card-content>
+          </mat-card>
+        </ul>
+      </div>
+      <!-- Gyermek komponens meghívása, adatátadás + eseménykezelés -->
+      <app-camp-details [campName]="selectedCamp.name" [capacity]="selectedCamp.capacity"
+        [isAvailable]="selectedCamp.available" (reserve)="onReserveCamp()"
+        (cancelReservation)="onCancelReservation($event)" (logView)="onCampViewed($event)">
+      </app-camp-details>
+    </div>
+
+    <hr>
+
+    <div>
+      <h2>Részletes tábor információk</h2>
+      <!-- 🔁 Beépített vezérlés: ngFor -->
+      <div *ngFor="let camp of camps" class="camp-card" [ngClass]="{ 'past-camp': !isUpcoming(camp) }"
+        (click)="selectCamp(camp)">
+
+        <h3>{{ camp.name }}</h3>
+        <p>
+          {{ camp.startDate | date }} - {{ camp.endDate | date }}
+        </p>
+
+        <!-- ✅ Direktíva: [hidden] -->
+        <p [hidden]="camp.locationId !== 'loc2'">💡 Ez a tábor különösen népszerű!</p>
+
+        <!-- ✅ Direktíva: ngStyle -->
+        <p [ngStyle]="{ color: isUpcoming(camp) ? 'green' : 'gray' }">
+          {{ isUpcoming(camp) ? 'Közelgő tábor' : 'Már lezajlott' }}
+        </p>
+
+        <!-- ✅ Vezérlés: *ngIf -->
+        <div *ngIf="selectedCamp?.id === camp.id">
+          <strong>✅ Kiválasztva</strong>
+        </div>
+      </div>
+
+      <!-- ✅ Vezérlés: *ngSwitch -->
+      <div [ngSwitch]="filter">
+        <p *ngSwitchCase="'all'">📋 Összes tábor</p>
+        <p *ngSwitchCase="'upcoming'">🟢 Közelgő táborok</p>
+        <p *ngSwitchCase="'past'">🔘 Lezajlott táborok</p>
+        <p *ngSwitchDefault>Ismeretlen szűrés</p>
+      </div>
+    </div>
+  </main>
 </div>
