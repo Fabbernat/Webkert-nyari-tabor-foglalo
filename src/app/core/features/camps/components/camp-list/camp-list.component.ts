@@ -28,6 +28,8 @@ import { Camp } from '../../../../../shared/models/camp/camp.component';
 })
 export class CampListComponent implements OnInit {
   camps: Camp[] = [];
+  available:boolean = true;
+  favorites: Set<string> = new Set();
   selectedCamp: Camp | null = null;
   filter: 'all' | 'upcoming' | 'past' = 'all';
   today = new Date();
@@ -70,5 +72,21 @@ export class CampListComponent implements OnInit {
 
   selectCamp(camp: Camp) {
     this.selectedCamp = camp;
+  }
+
+  handleApply(campId: string) {
+    console.log(`🔔 Jelentkezés táborra: ${campId}`);
+  }
+
+  handleToggleFavorite(campId: string) {
+    if (this.favorites.has(campId)) {
+      this.favorites.delete(campId);
+    } else {
+      this.favorites.add(campId);
+    }
+  }
+
+  handleShowDetails(campId: string) {
+    console.log(`ℹ️ Részletek: ${campId}`);
   }
 }

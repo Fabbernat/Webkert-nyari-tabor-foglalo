@@ -12,6 +12,7 @@ export class CampComponent {
 
 // Tábor modell
 export class Camp {
+  available:boolean = true;
   campType!: CampType;
   campFormat!: CampFormat;
   description!: string;

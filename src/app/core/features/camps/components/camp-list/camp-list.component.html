@@ -41,7 +41,7 @@
         </p>
 
         <!-- ✅ Direktíva: [hidden] -->
-        <p [hidden]="camp.locationId !== 'loc2'">💡 Ez a tábor különösen népszerű!</p>
+        <p [hidden]="camp.location !== 'loc2'">💡 Ez a tábor különösen népszerű!</p>
 
         <!-- ✅ Direktíva: ngStyle -->
         <p [ngStyle]="{ color: isUpcoming(camp) ? 'green' : 'gray' }">
@@ -61,6 +61,13 @@
         <p *ngSwitchCase="'past'">🔘 Lezajlott táborok</p>
         <p *ngSwitchDefault>Ismeretlen szűrés</p>
       </div>
+    </div>
+
+    <div>
+      <!-- TODO FIX <app-camp-card *ngFor="let camp of camps" [camp]="camp" [isFavorite]="favorites.has(camp.id)"
+        [isUpcoming]="isUpcoming(camp)" (apply)="handleApply($event)" (toggleFavorite)="handleToggleFavorite($event)"
+        (showDetails)="handleShowDetails($event)">
+      </app-camp-card> -->
     </div>
   </main>
 </div>

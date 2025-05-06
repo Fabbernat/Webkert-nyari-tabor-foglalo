@@ -3,8 +3,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CampType, Camp } from '../../shared/models/camp/camp.component';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../environments/environment';
+import { CampType, Camp } from '../shared/models/camp/camp.component';
 
 @Injectable({
   providedIn: 'root'
