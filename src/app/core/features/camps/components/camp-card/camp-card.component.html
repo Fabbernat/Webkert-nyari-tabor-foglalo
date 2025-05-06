@@ -1,44 +1,46 @@
 <!-- camp-card.component.html -->
 <mat-card class="camp-card" *ngIf="camp">
-    <img 
-      mat-card-image 
-      [src]="camp.imageUrls[0]" 
-      [alt]="camp.name"
-      class="camp-image"
-    >
-    <mat-card-header>
-      <mat-card-title>{{ camp.name }}</mat-card-title>
-      <mat-card-subtitle>{{ camp.location }}</mat-card-subtitle>
-    </mat-card-header>
-    
-    <mat-card-content>
-      <p>{{ camp.description }}</p>
-      <div class="camp-info">
-        <p><mat-icon>calendar_today</mat-icon> {{ camp.startDate | date:'yyyy.MM.dd' }} - {{ camp.endDate | date:'yyyy.MM.dd' }}</p>
-        <p><mat-icon>person</mat-icon> {{ camp.maxAge - camp.minAge }} éveseknek</p>
-        <p><mat-icon>attach_money</mat-icon> {{ camp.price | currency:'HUF':'symbol':'1.0-0' }} Ft</p>
-        
-        <div class="availability" 
-          [ngClass]="{
+  <img mat-card-image [src]="camp.imageUrls[0]" [alt]="camp.name" class="camp-image">
+  <mat-card-header>
+    <mat-card-title>{{ camp.name }}</mat-card-title>
+    <mat-card-subtitle>{{ camp.location }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ camp.description }}</p>
+    <div class="camp-info">
+      <p><mat-icon>calendar_today</mat-icon> {{ camp.startDate | date:'yyyy.MM.dd' }} - {{ camp.endDate |
+        date:'yyyy.MM.dd' }}</p>
+      <p><mat-icon>person</mat-icon> {{ camp.maxAge - camp.minAge }} éveseknek</p>
+      <p><mat-icon>attach_money</mat-icon> {{ camp.price | currency:'HUF':'symbol':'1.0-0' }} Ft</p>
+
+      <div class="availability" [ngClass]="{
             'high': availabilityPercentage > 50,
             'medium': availabilityPercentage <= 50 && availabilityPercentage > 20,
             'low': availabilityPercentage <= 20
           }">
-          <span>Szabad helyek: {{ camp.maxParticipants - camp.registeredCount }}/{{ camp.maxParticipants }}</span>
-          <div class="progress-bar">
-            <div class="progress" [ngStyle]="{'width': (100 - availabilityPercentage) + '%'}"></div>
-          </div>
+        <span>Szabad helyek: {{ camp.maxParticipants - camp.registeredCount }}/{{ camp.maxParticipants }}</span>
+        <div class="progress-bar">
+          <div class="progress" [ngStyle]="{'width': (100 - availabilityPercentage) + '%'}"></div>
         </div>
       </div>
-    </mat-card-content>
-    
-    <div class="camp-card" [appColorHighlight]="camp.capacity">
-      <h2>{{ camp.name }}</h2>
-      <p>Szabad létszám: {{ camp.capacity - camp.registeredCount }}</p>
-      <button [ngClass]="{'highlighted': camp.capacity < 5}" [appHighlight]="camp.capacity < 5">Jelentkezési adatok mentése</button>
     </div>
-    <mat-card-actions align="end">
-      <a mat-button [routerLink]="['/camps', camp.id]">Részletek</a>
-      <button mat-raised-button color="primary" (click)="onBookNow()" [appHighlight]="camp.capacity < 5">Foglalás</button>
-    </mat-card-actions>
-  </mat-card>
+  </mat-card-content>
+
+  <div class="camp-card" [appColorHighlight]="camp.capacity">
+    <h2>{{ camp.name }}</h2>
+    <p>Szabad létszám: {{ camp.capacity - camp.registeredCount }}</p>
+    <button [ngClass]="{'highlighted': camp.capacity < 5}" [appHighlight]="camp.capacity < 5">Jelentkezési adatok
+      mentése</button>
+  </div>
+  <div>
+    <app-camp-card *ngFor="let camp of camps" [camp]="camp" [isFavorite]="favorites.has(camp.id)"
+      [isUpcoming]="isUpcoming(camp)" (apply)="handleApply($event)" (toggleFavorite)="handleToggleFavorite($event)"
+      (showDetails)="handleShowDetails($event)">
+    </app-camp-card>
+  </div>
+  <mat-card-actions align="end">
+    <a mat-button [routerLink]="['/camps', camp.id]">Részletek</a>
+    <button mat-raised-button color="primary" (click)="onBookNow()" [appHighlight]="camp.capacity < 5">Foglalás</button>
+  </mat-card-actions>
+</mat-card>

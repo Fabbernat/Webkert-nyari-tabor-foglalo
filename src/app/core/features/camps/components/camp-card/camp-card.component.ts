@@ -25,10 +25,27 @@ import { ColorHighlightDirective } from '../../../../../directives/color-highlig
 })
 export class CampCardComponent {
   @Input() camp!: Camp;
+  @Input() isFavorite: boolean = false;
+  @Input() isUpcoming: boolean = true;
+
   @Output() bookNow = new EventEmitter<string>();
+  @Output() toggleFavorite = new EventEmitter<string>();
+  @Output() showDetails = new EventEmitter<string>();
 
   get availabilityPercentage(): number {
     return ((this.camp.maxParticipants - this.camp.registeredCount) / this.camp.maxParticipants) * 100;
+  }
+
+  onApply() {
+    this.apply.emit(this.camp.id);
+  }
+
+  onToggleFavorite() {
+    this.toggleFavorite.emit(this.camp.id);
+  }
+
+  onShowDetails() {
+    this.showDetails.emit(this.camp.id);
   }
 
   onBookNow(): void {
