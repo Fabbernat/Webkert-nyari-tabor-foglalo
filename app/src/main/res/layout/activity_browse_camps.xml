@@ -86,21 +86,21 @@
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/circle"
+                android:src="@drawable-images/budapest_tabor"
                 android:layout_marginEnd="8dp"
                 android:scaleType="centerCrop"/>
 
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/circle"
+                android:src="@drawable-images/gyogyito_szent_erzsebet_tabor_zalaszabar.jpg"
                 android:layout_marginEnd="8dp"
                 android:scaleType="centerCrop"/>
 
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/circle"
+                android:src="@drawable-images/tabortuz_pillecukor_sutes.jpg"
                 android:layout_marginEnd="8dp"
                 android:scaleType="centerCrop"/>
 
