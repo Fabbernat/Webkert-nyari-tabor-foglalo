@@ -42,7 +42,7 @@ export class CampListComponent implements OnInit {
       new Camp('1', 'Balatoni Tábor', 'loc1', new Date('2025-07-01'), new Date('2025-07-07')),
       new Camp('2', 'Erdei Iskola', 'loc2', new Date('2025-05-10'), new Date('2025-05-15')),
       new Camp('3', 'Kézműves Tábor', 'loc3', new Date('2024-08-01'), new Date('2024-08-10')),
-      new Camp('3', 'Cserkész Tábor', 'loc4', new Date('2024-08-01'), new Date('2024-08-15')),
+      new Camp('4', 'Cserkész Tábor', 'loc4', new Date('2024-08-01'), new Date('2024-08-15')),
     ];
   }
 
