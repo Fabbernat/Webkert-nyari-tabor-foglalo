@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CampCardComponent } from '../camp-card/camp-card.component';
 import { CampService } from '../../../../../services copy/camp.service';
 import { CampDetailsComponent } from '../camp-details/camp-details.component';
+import { Camp } from '../../../../../shared/models/camp/camp.component';
 
 @Component({
   selector: 'app-camp-list',
@@ -26,19 +27,23 @@ import { CampDetailsComponent } from '../camp-details/camp-details.component';
   styleUrl: './camp-list.component.scss'
 })
 export class CampListComponent implements OnInit {
-  camps: any;
-  selectedCamp = {
-    name: 'Kalandtábor',
-    capacity: 25,
-    available: true
-  };
+  camps: Camp[] = [];
+  selectedCamp: Camp | null = null;
+  filter: 'all' | 'upcoming' | 'past' = 'all';
+  today = new Date();
 
   constructor(private campService: CampService) {}
 
   ngOnInit(): void {
     this.campService.getCamps().subscribe(camps => {
-      this.camps = camps;
+      camps;
     });
+    this.camps = [
+      new Camp('1', 'Balatoni Tábor', 'loc1', new Date('2025-07-01'), new Date('2025-07-07')),
+      new Camp('2', 'Erdei Iskola', 'loc2', new Date('2025-05-10'), new Date('2025-05-15')),
+      new Camp('3', 'Kézműves Tábor', 'loc3', new Date('2024-08-01'), new Date('2024-08-10')),
+      new Camp('3', 'Cserkész Tábor', 'loc4', new Date('2024-08-01'), new Date('2024-08-15')),
+    ];
   }
 
   onReserveCamp() {
@@ -57,5 +62,13 @@ export class CampListComponent implements OnInit {
   navigateToBooking(campId: string): void {
     console.log(`Navigálás a tábor jelentkezési felületre: ${campId}`);
     // TODO
+  }
+
+  isUpcoming(camp: Camp): boolean {
+    return camp.startDate > this.today;
+  }
+
+  selectCamp(camp: Camp) {
+    this.selectedCamp = camp;
   }
 }
