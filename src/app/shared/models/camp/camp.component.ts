@@ -11,40 +11,43 @@ export class CampComponent {
 }
 
 // Tábor modell
-export interface Camp {
-  id?: string;
-  name: string;
-  campType: CampType;
-  campFormat: CampFormat;
-  location: string; // tábor helyszín ID
-  startDate: Date;
-  endDate: Date;
-  description: string;
-  price: number;
-  capacity: number;
-  registeredCount: number;
-  maxParticipants: number;
-    minAge: number;
-    maxAge: number;
-    organizerId: string; // A tábort létrehozó személy ID-ja
-    dailyProgram: {
-      date: Date;
-      lead: string;
-      estimatedChildren: number;
-      estimatedAdults: number;
-      programs: string[];
-      meals: string[];
-    }[];
+export class Camp {
+  campType!: CampType;
+  campFormat!: CampFormat;
+  description!: string;
+  price!: number;
+  capacity!: number;
+  registeredCount!: number;
+  maxParticipants!: number;
+    minAge!: number;
+    maxAge!: number;
+    organizerId!: string; // A tábort létrehozó személy ID-ja
+    dailyProgram!: {
+    date: Date;
+    lead: string;
+    estimatedChildren: number;
+    estimatedAdults: number;
+    programs: string[];
+    meals: string[];
+  }[];
   coordinates?: {
     lat: number;
     lng: number;
   };
-  imageUrls: string[];
-  headCounts: DailyHeadCounts[];
-  applicationDeadline: Date;
+  imageUrls!: string[];
+  headCounts!: DailyHeadCounts[];
+  applicationDeadline!: Date;
   necessaryTools?: string[];
   groups?: string[];
   numberOfPedagogues?: number;
+
+  constructor(
+    public id: string,
+    public name: string,
+    public location: string,
+    public startDate: Date,
+    public endDate: Date
+  ) {}
 }
 
 // Tábor típusok

@@ -13,18 +13,49 @@ export class ApplicationComponent {
 }
 
 // Jelentkezés modell
-export interface Application {
-  id?: string;
-  tabor: Camp;
-  jelentkezo: User;
-  jelentkezesIdopontja: Date;
-  statusz: ApplicationStatus;
-  fizetesStatusz: PaymentStatus;
-  fizetendoOsszeg: number;
-  gyermekek?: Child[];
-  csoportAdatok?: TeacherGroup;
-  megjegyzes?: string;
-  dokumentumok?: Document[];
+export class Application {
+  
+
+  constructor(
+    public id: string,
+    public user: User,
+    public camp: Camp,
+    public applicationStatus: 'pending' | 'approved' | 'rejected',
+    public paymentStatus: PaymentStatus,
+    public paymentDue: number,
+    public applicationDate: Date,
+    public megjegyzes?: string,
+    public dokumentumok?: Document[],
+  ) {}
+}
+
+export class EtaborApplication extends Application{
+  constructor(
+    public override id: string,
+    public override user: User,
+    public override camp: Camp,
+    public override applicationStatus: 'pending' | 'approved' | 'rejected',
+    public override paymentStatus: PaymentStatus,
+    public override paymentDue: number,
+    public override applicationDate: Date,
+    public groupData?: TeacherGroup,
+    public supervisors?: User[],
+    public children?: Child[],
+    public override megjegyzes?: string,
+    public override dokumentumok?: Document[],
+  ) {
+    super(
+      id,
+      user,
+      camp,
+      applicationStatus,
+      paymentStatus,
+      paymentDue,
+      applicationDate,
+      megjegyzes,
+      dokumentumok
+    );
+  }
 }
 
 // Jelentkezés státusz

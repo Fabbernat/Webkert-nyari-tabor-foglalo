@@ -10,19 +10,23 @@ export class CampLocationComponent {
 
 }
 
-export interface CampLocation {
-  id?: string;
-  name: string;
-  address: string;
-  city: string;
-  zipCode: string;
-  coordinates: {
+export class CampLocation {
+  city!: string;
+  zipCode!: string;
+  coordinates!: {
     latitude: number;
     longitude: number;
   };
-  capacity: number;
-  facilities: string[];
-  images: string[];
-  createdBy: string; // Admin ID-ja
-  createdAt: Date;
+  facilities!: string[];
+  images!: string[];
+  createdBy!: string; // Admin ID-ja
+  createdAt!: Date;
+
+  constructor(
+    public id: string,
+    public name: string,
+    public address: string,
+    public capacity: number,
+    public description?: string
+  ) {}
 }

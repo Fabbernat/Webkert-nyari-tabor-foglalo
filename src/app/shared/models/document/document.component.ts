@@ -12,15 +12,18 @@ export class DocumentComponent {
 }
 
 // Dokumentum modell
-export interface Document {
-  id?: string;
-  nev: string;
-  tipus: DocumentType;
-  url: string;
-  feltoltesIdopontja: Date;
-  lejaratIdopontja?: Date;
-  statusz: DocumentStatus;
-  tulajdonos: User;
+export class Document {
+  
+
+  constructor(
+    public id: string,
+    public tulajdonos: User,
+    public fileName: string,
+    public type: DocumentType,
+    public url: string,
+    public uploadedAt: Date,
+    public status: DocumentStatus;
+  ) {}
 }
 
 // Dokumentum státusz

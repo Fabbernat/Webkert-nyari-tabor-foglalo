@@ -21,20 +21,15 @@ enum OrganizerType {
 export { OrganizerType };
 
 // Felhasználó modell
-export interface User {
-  birthDate: string | number | Date;
-  id?: string;
-  email: string;
-  nev: string;
-  userType: UserType;
-  userRole: UserRole;
-      organizerType?: OrganizerType;
+export class User {
+  birthDate!: string | number | Date;
+  organizerType?: OrganizerType;
   
-  telefonszam: string;
+  
   lakcim?: string;
   szuletesiDatum?: Date;
-  regisztracioIdopontja: Date;
-  aktivitas: boolean;
+  regisztracioIdopontja!: Date;
+  aktivitas!: boolean;
   dokumentumok?: Document[];
   // Önkéntes/munkavállaló specifikus adatok
   onkentesTipus?: VolunteerType;
@@ -47,6 +42,15 @@ export interface User {
   registeredCamps?: string[]; // Tábor ID-k listája
     createdCamps?: string[]; // Létrehozott táborok ID-i
     consentForm?: string; // 16 éves kornál idősebb kiskorúaknál szülői beleegyező nyilatkozat URL-je
+
+    constructor(
+      public id: string,
+      public username: string,
+      public displayName: string,
+      public email: string,
+      public telefonszam: string,
+      public userType: UserType,
+    ) {}
 }
 
 enum UserType {
