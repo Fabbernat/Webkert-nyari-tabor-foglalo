@@ -1,3 +1,4 @@
+// C:\VSCodeProjects\Webkert-nyari-tabor-foglalo3\src\app\core\features\camps\components\camp-card\camp-card.component.ts
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,12 +26,14 @@ import { ColorHighlightDirective } from '../../../../../directives/color-highlig
 })
 export class CampCardComponent {
   @Input() camp!: Camp;
-  @Input() isFavorite: boolean = false;
-  @Input() isUpcoming: boolean = true;
-
-  @Output() bookNow = new EventEmitter<string>();
+  @Input() isFavorite = false;
+  @Input() isUpcoming = false;
+  
+  // Output event emitters
+  @Output() apply = new EventEmitter<string>(); // Changed from onApply
   @Output() toggleFavorite = new EventEmitter<string>();
   @Output() showDetails = new EventEmitter<string>();
+  @Output() bookNow = new EventEmitter<string>(); // Added missing Output
 
   get availabilityPercentage(): number {
     return ((this.camp.maxParticipants - this.camp.registeredCount) / this.camp.maxParticipants) * 100;
@@ -48,7 +51,7 @@ export class CampCardComponent {
     this.showDetails.emit(this.camp.id);
   }
 
-  onBookNow(): void {
+  onBookNow() {
     this.bookNow.emit(this.camp.id);
   }
 }

@@ -55,12 +55,9 @@
     <button [ngClass]="{'highlighted': camp.capacity < 5}" [appHighlight]="camp.capacity < 5">Jelentkezési adatok
       mentése</button>
   </div>
-  <div>
-    <app-camp-card *ngFor="let camp of camps" [camp]="camp" [isFavorite]="favorites.has(camp.id)"
-      [isUpcoming]="isUpcoming(camp)" (apply)="handleApply($event)" (toggleFavorite)="handleToggleFavorite($event)"
-      (showDetails)="handleShowDetails($event)">
-    </app-camp-card>
-  </div>
+  
+  <!-- Removed the nested app-camp-card section that was causing errors -->
+  
   <mat-card-actions align="end">
     <a mat-button [routerLink]="['/camps', camp.id]">Részletek</a>
     <button mat-raised-button color="primary" (click)="onBookNow()" [appHighlight]="camp.capacity < 5">Foglalás</button>

@@ -1,0 +1,64 @@
+<form [formGroup]="campForm" (ngSubmit)="onSubmit()" class="camp-form">
+    <mat-card>
+        <mat-card-title *ngIf="!isEditMode">🆕 Új tábor hozzáadása</mat-card-title>
+        <mat-card-title *ngIf="isEditMode">✏️ Tábor szerkesztése</mat-card-title>
+
+        <mat-form-field appearance="outline">
+            <mat-snackbar-label>Tábor neve</mat-snackbar-label>
+            <input matInput placeholder="Pl. Nyári kalandtábor" formControlName="name" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Helyszín</mat-label>
+            <mat-select formControlName="location">
+                <mat-option *ngFor="let loc of locations" [value]="loc">{{ loc }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Leírás</mat-label>
+            <textarea matInput rows="4" formControlName="description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Kezdés dátuma</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="startDate" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-slide-toggle formControlName="active" color="accent">Aktív tábor?</mat-slide-toggle>
+
+        <div class="button-group">
+            <button mat-raised-button color="primary" type="submit">
+                {{ isEditMode ? 'Frissítés' : 'Hozzáadás' }}
+            </button>
+            <button *ngIf="isEditMode" mat-raised-button color="warn" (click)="deleteCamp()">
+                Törlés
+            </button>
+        </div>
+    </mat-card>
+</form>
+
+<mat-divider class="my-divider"></mat-divider>
+
+<mat-card-subtitle>📍 Helyszínek kezelése</mat-card-subtitle>
+
+<div class="location-manager">
+    <mat-form-field appearance="outline">
+        <mat-label>Új helyszín</mat-label>
+        <input matInput [(ngModel)]="newLocation" placeholder="Pl. Győr" name="newLocation" />
+    </mat-form-field>
+    <button mat-icon-button color="primary" (click)="addLocation()" [disabled]="!newLocation.trim()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+
+<div class="location-list">
+    <mat-chip-list>
+        <mat-chip *ngFor="let loc of locations" [removable]="true" (removed)="removeLocation(loc)">
+            {{ loc }}
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+    </mat-chip-list>
+</div>

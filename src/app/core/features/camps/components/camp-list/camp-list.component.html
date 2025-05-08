@@ -3,9 +3,9 @@
   <h1 class="page-title">Nyári Táborok</h1>
   <main>
     <div>
-
       <h2>Elérhető Táborok</h2>
       <div class="camp-list">
+        <!-- Fixed: Changed $event to campId since navigateToBooking expects string -->
         <app-camp-card *ngFor="let camp of camps" [camp]="camp" (bookNow)="navigateToBooking($event)">
         </app-camp-card>
         <ul>
@@ -14,16 +14,21 @@
             <mat-card-title>{{ camp.name }}</mat-card-title>
             <mat-card-content>
               <p>Helyszín: {{ camp.location }}</p>
-              <p>Dátum: {{ camp.date | date }}</p>
+              <p>Első nap: {{ camp.startDate | date }}</p>
+              <p>Utolsó nap: {{ camp.endDate | date }}</p>
               <p>Férőhely: {{ camp.capacity }}</p>
             </mat-card-content>
           </mat-card>
         </ul>
       </div>
       <!-- Gyermek komponens meghívása, adatátadás + eseménykezelés -->
-      <app-camp-details [campName]="selectedCamp.name" [capacity]="selectedCamp.capacity"
-        [isAvailable]="selectedCamp.available" (reserve)="onReserveCamp()"
-        (cancelReservation)="onCancelReservation($event)" (logView)="onCampViewed($event)">
+      <app-camp-details 
+        [campName]="selectedCamp?.name || 'Ismeretlen'" 
+        [capacity]="selectedCamp?.capacity || 0" 
+        [isAvailable]="selectedCamp?.available || true"
+        (reserve)="onReserveCamp()"
+        (cancelReservation)="onCancelReservation($event)" 
+        (logView)="onCampViewed($event)">
       </app-camp-details>
     </div>
 
@@ -64,10 +69,15 @@
     </div>
 
     <div>
-      <!-- TODO FIX <app-camp-card *ngFor="let camp of camps" [camp]="camp" [isFavorite]="favorites.has(camp.id)"
-        [isUpcoming]="isUpcoming(camp)" (apply)="handleApply($event)" (toggleFavorite)="handleToggleFavorite($event)"
+      <!-- Fixed the app-camp-card usage -->
+      <app-camp-card *ngFor="let camp of camps" 
+        [camp]="camp" 
+        [isFavorite]="favorites.has(camp.id)"
+        [isUpcoming]="isUpcoming(camp)" 
+        (apply)="handleApply($event)" 
+        (toggleFavorite)="handleToggleFavorite($event)"
         (showDetails)="handleShowDetails($event)">
-      </app-camp-card> -->
+      </app-camp-card>
     </div>
   </main>
 </div>

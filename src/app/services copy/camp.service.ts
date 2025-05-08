@@ -71,3 +71,18 @@ export class CampService {
     return this.http.get<Camp[]>(`${this.apiUrl}/upcoming`);
   }
 }
+
+export class FirebaseCampService extends CampService{
+  // addCamp(camp: Camp): Promise<void> {
+  //   const id = this.firestore.createId();
+  //   return this.firestore.collection('camps').doc(id).set({ ...camp, id });
+  // }
+  
+  // updateCamp(id: string, camp: Camp): Promise<void> {
+  //   return this.firestore.collection('camps').doc(id).update(camp);
+  // }
+  
+  // deleteCamp(id: string): Promise<void> {
+  //   return this.firestore.collection('camps').doc(id).delete();
+  // }
+}

@@ -3,10 +3,13 @@ import { Camp } from '../../../../../shared/models/camp/camp.component';
 import { CampService } from '../../../../../services copy/camp.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-camp-details',
-  imports: [],
+  imports: [MatToolbar, MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent, MatCardActions, CommonModule], // , MatpanelTitle, MatExpansionPanel, MatProgressBar
   templateUrl: './camp-details.component.html',
   styleUrl: './camp-details.component.scss'
 })
@@ -33,7 +36,7 @@ export class CampDetailsComponent implements OnInit {
     private campService: CampService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // 🔄 Táborok betöltése Firestore-ból
@@ -74,10 +77,17 @@ export class CampDetailsComponent implements OnInit {
 
   // 🗑️ Tábor törlése
   deleteCamp(campId: string): void {
-    this.campService.deleteCamp(campId).then(() => {
-      this.snackBar.open('Tábor sikeresen törölve.', 'Bezár', {
-        duration: 3000
-      });
+    this.campService.deleteCamp(campId).subscribe({
+      next: () => {
+        this.snackBar.open('Tábor sikeresen törölve.', 'Bezár', {
+          duration: 3000
+        });
+      },
+      error: (err) => {
+        this.snackBar.open('Hiba történt a tábor törlésekor.', 'Bezár', {
+          duration: 3000
+        });
+      }
     });
   }
 }
