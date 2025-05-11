@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { GalleryComponent } from './shared/gallery/gallery.component';
 import { MatGridList } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,10 +25,10 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.authSubscription?.unsubscribe();
   }
-   logout(): void {
+  logout(): void {
     this.authService.signOut();
   }
-  onToggleSidenav(sidenav:any): void{
+  onToggleSidenav(sidenav: any): void {
     throw new Error('Method not implemented.');
   }
 
@@ -37,7 +37,14 @@ export class AppComponent implements OnInit, OnDestroy {
   loginPopupVisible = false;
   private authSubscription?: Subscription;
 
-    constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    public router: Router
+  ) { }
+
+  isLoginPage(): boolean {
+    return this.router.url.includes('/login'); // vagy pl.: this.router.url.includes('/login')
+  }
 
   showLoginPopup() {
     this.loginPopupVisible = true;

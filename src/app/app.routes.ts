@@ -11,6 +11,8 @@ import { CampFlowDemoComponent } from './pages/camp-flow-demo/camp-flow-demo.com
 import { CampListComponent } from './core/features/camps/components/camp-list/camp-list.component';
 import { CampCardComponent } from './core/features/camps/components/camp-card/camp-card.component';
 import { AuthGuard, PublicGuard } from './guards/auth.guard';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 export const routes: Routes = [
   {
@@ -50,11 +52,23 @@ export const routes: Routes = [
   { path: 'camp-flow', component: CampFlowDemoComponent },
 
   { path: 'logout', redirectTo: '', pathMatch: 'full' }, // This should be handled by auth service
-
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: MainLayoutComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'camps', component: CampListComponent },
+      // stb.
+    ]
+  },
+  {
+    path: '',
+    component: LoginLayoutComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent }
+    ],
   },
   // Fallback route (should be last)
   { path: '**', redirectTo: '', pathMatch: 'full' }
