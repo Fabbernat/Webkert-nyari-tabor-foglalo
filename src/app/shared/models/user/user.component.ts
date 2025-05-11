@@ -24,8 +24,8 @@ export { OrganizerType };
 export class User {
   birthDate!: string | number | Date;
   organizerType?: OrganizerType;
-  
-  
+
+
   lakcim?: string;
   szuletesiDatum?: Date;
   regisztracioIdopontja!: Date;
@@ -40,18 +40,18 @@ export class User {
   gyermekek?: Child[];
 
   registeredCamps?: string[]; // Tábor ID-k listája
-    createdCamps?: string[]; // Létrehozott táborok ID-i
-    consentForm?: string; // 16 éves kornál idősebb kiskorúaknál szülői beleegyező nyilatkozat URL-je
-  camps: never[];
+  createdCamps?: string[]; // Létrehozott táborok ID-i
+  consentForm?: string; // 16 éves kornál idősebb kiskorúaknál szülői beleegyező nyilatkozat URL-je
+  camps: never[] = [];
 
-    constructor(
-      public id: string,
-      public username: string,
-      public displayName: string,
-      public email: string,
-      public telefonszam: string,
-      public userType: UserType,
-    ) {}
+  constructor(
+    public id: string,
+    public username: string,
+    public displayName: string,
+    public email: string,
+    public telefonszam: string,
+    public userType: UserType,
+  ) { }
 }
 
 enum UserType {

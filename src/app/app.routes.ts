@@ -71,7 +71,10 @@ export const routes: Routes = [
     ],
   },
   // Fallback route (should be last)
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  {
+    path: '**',
+    loadComponent: () => import('./page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent)
+  }
 ];
 
 @NgModule({
