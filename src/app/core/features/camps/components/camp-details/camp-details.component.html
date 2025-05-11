@@ -29,7 +29,7 @@
         <!-- 🧾 Kiválasztott tábor részletei -->
         <!-- Import MatExpansionModule components in the component -->
         <div *ngIf="selectedCamp" class="camp-details-panel">
-            <h3>{{ selectedCamp.name ?? "name" }} - Részletek</h3>
+            <h3>{{ selectedCamp.name }} - Részletek</h3>
             <p><strong>Helyszín:</strong> {{ selectedCamp.location || "Ismeretlen helyszín"}}</p>
             <p><strong>Leírás:</strong> {{ selectedCamp.description || "Nincs leírás"}}</p>
             <p><strong>Férőhelyek:</strong> {{ selectedCamp.capacity || 0}}</p>

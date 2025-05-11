@@ -11,7 +11,7 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, MatSidenavModule, GalleryComponent, MatToolbarModule, MatIconModule, HeaderComponent, NavigationComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, MatSidenavModule, GalleryComponent, MatToolbarModule, MatIconModule, HeaderComponent, NavigationComponent, FooterComponent, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -54,6 +54,7 @@ import { Subscription } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
+import { MenuComponent } from './shared/menu/menu.component';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
