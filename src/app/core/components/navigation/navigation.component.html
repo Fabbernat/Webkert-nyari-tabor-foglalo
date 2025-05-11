@@ -115,10 +115,11 @@
   </mat-sidenav-container>
 </section>
 </div>
-<div class="mat-card-actions main-layout">
+<div class="mat-card-actions main-layout" *ngIf="camp">
   <p [appHighlight]="camp.capacity < 5">Kevesebb, mint 5 hely maradt hátra!</p>
   <p>
     <button mat-raised-button color="primary" (click)="reservationForm.reset()">Mégse</button>
   </p>
 </div>
+
 <hr>
