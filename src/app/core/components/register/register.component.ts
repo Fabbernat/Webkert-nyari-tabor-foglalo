@@ -170,29 +170,11 @@ export class RegisterComponent implements OnInit {
     const file = formData.consentForm;
     delete formData.consentForm;
 
-    this.authService.uploadParentConsentForm(file).subscribe({
-      next: (fileUrl) => {
-        formData.parentConsentForm = fileUrl;
-        this.register(formData);
-      },
-      error: (error) => {
-        this.isLoading = false;
-        this.errorMessage = `Hiba a szülői beleegyező nyilatkozat feltöltésekor: ${error.message}`;
-      }
-    });
+    this.authService.uploadParentConsentForm(file)
   }
 
   register(formData: any): void {
-    this.authService.register(formData).subscribe({
-      next: () => {
-        this.isLoading = false;
-        this.router.navigate(['/']);
-      },
-      error: (error) => {
-        this.isLoading = false;
-        this.errorMessage = error.message;
-      }
-    });
+    this.authService.signUp("email@gmail.com", "pwd123", formData,);
   }
 
   goBack(): void {

@@ -18,18 +18,7 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login(): void {
-    this.authService.login(this.username, this.password)
-      .subscribe(
-        (        success: any) => {
-          if (success) {
-            this.router.navigate(['/dashboard']);
-          } else {
-            this.errorMessage = 'Invalid credentials';
-          }
-        },
-        (        error: any) => {
-          this.errorMessage = 'Login failed. Please try again.';
-        }
-      );
+    this.authService.signIn(this.username, this.password)
+      
   }
 }

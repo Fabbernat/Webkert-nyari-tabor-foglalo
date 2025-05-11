@@ -1,22 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GalleryComponent } from './shared/gallery/gallery.component';
 import { MatGridList } from '@angular/material/grid-list';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './core/components/header/header.component';
 import { NavigationComponent } from './core/components/navigation/navigation.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, GalleryComponent, MatGridList, HeaderComponent, NavigationComponent, FooterComponent, HomeComponent],
+  imports: [CommonModule, RouterOutlet, MatSidenavModule, GalleryComponent, MatToolbarModule, MatIconModule, HeaderComponent, NavigationComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  logout: any;
+export class AppComponent implements OnInit, OnDestroy {
+  ngOnInit(): void {
+    this.authSubscription = this.authService.currentUser.subscribe((user: any) => {
+      this.isLoggedIn = !!user;
+      localStorage.setItem('isLoggedIn', this.isLoggedIn ? 'true' : 'false');
+    });
+  }
+  ngOnDestroy(): void {
+    this.authSubscription?.unsubscribe();
+  }
+   logout(): void {
+    this.authService.signOut();
+  }
+  onToggleSidenav(sidenav:any): void{
+    throw new Error('Method not implemented.');
+  }
+
   title = 'Webkert-nyari-tabor-foglalo3';
+  isLoggedIn = false;
   loginPopupVisible = false;
+  private authSubscription?: Subscription;
+
+    constructor(private authService: AuthService) {}
 
   showLoginPopup() {
     this.loginPopupVisible = true;
@@ -29,6 +50,10 @@ export class AppComponent {
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { Subscription } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
+import { AuthService } from './services/auth.service';
+import { CommonModule } from '@angular/common';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
