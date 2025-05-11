@@ -42,6 +42,7 @@ export class User {
   registeredCamps?: string[]; // Tábor ID-k listája
     createdCamps?: string[]; // Létrehozott táborok ID-i
     consentForm?: string; // 16 éves kornál idősebb kiskorúaknál szülői beleegyező nyilatkozat URL-je
+  camps: never[];
 
     constructor(
       public id: string,

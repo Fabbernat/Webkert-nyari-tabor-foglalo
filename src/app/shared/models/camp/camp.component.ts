@@ -41,6 +41,8 @@ export class Camp {
   necessaryTools?: string[];
   groups?: string[];
   numberOfPedagogues?: number;
+  dueDate: any;
+  completed: unknown;
 
   constructor(
     public id: string,

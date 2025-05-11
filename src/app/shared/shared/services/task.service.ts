@@ -1,20 +1,20 @@
-import { Camp } from "../shared/models/camp/camp.component";
 import { Injectable } from '@angular/core';
 import { Firestore, collection, doc, addDoc, updateDoc, deleteDoc, getDocs, query, orderBy, getDoc, where } from '@angular/fire/firestore';
 import { Observable, from, switchMap, map, of, take, firstValueFrom } from 'rxjs';
+import { Task } from '../models/Task';
 import { AuthService } from './auth.service';
-import { User } from "../shared/models/user/user.component";
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CampService {
-  private readonly CAMPS_COLLECTION = 'Camps';
+export class TaskService {
+  private readonly TASKS_COLLECTION = 'Tasks';
   private readonly USERS_COLLECTION = 'Users';
 
   constructor(
     private authService: AuthService,
-    private firestore: Firestore
+    private firestore: Firestore      
   ) { }
 
   private formatDateToString(date: Date | string): string {
@@ -32,49 +32,49 @@ export class CampService {
   }
 
   // CREATE
-  async addCamp(camp: Omit<Camp, 'id'>): Promise<Camp> {
+  async addTask(task: Omit<Task, 'id'>): Promise<Task> {
     try {
       const user = await firstValueFrom(this.authService.currentUser.pipe(take(1)));
       if (!user) {
         throw new Error('No authenticated user found');
       }
 
-      const campsCollection = collection(this.firestore, this.CAMPS_COLLECTION);
-
-      const campToSave = {
-        ...camp,
-        dueDate: this.formatDateToString(camp.dueDate as string)
+      const tasksCollection = collection(this.firestore, this.TASKS_COLLECTION);
+      
+      const taskToSave = {
+        ...task,
+        dueDate: this.formatDateToString(task.dueDate as string)
       };
+      
+      const docRef = await addDoc(tasksCollection, taskToSave);
+      const taskId = docRef.id;
+      
+      await updateDoc(docRef, { id: taskId });
+      
+      const newTask = {
+        ...taskToSave,
+        id: taskId
+      } as Task;
 
-      const docRef = await addDoc(campsCollection, campToSave);
-      const campId = docRef.id;
-
-      await updateDoc(docRef, { id: campId });
-
-      const newCamp = {
-        ...campToSave,
-        id: campId
-      } as Camp;
-
-      // Felhasználó camps tömbjének frissítése
+      // Felhasználó tasks tömbjének frissítése
       const userDocRef = doc(this.firestore, this.USERS_COLLECTION, user.uid);
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists()) {
         const userData = userDoc.data() as User;
-        const camps = userData.camps || [];
-        camps.push(campId);
-        await updateDoc(userDocRef, { camps });
+        const tasks = userData.tasks || [];
+        tasks.push(taskId);
+        await updateDoc(userDocRef, { tasks });
       }
 
-      return newCamp;
+      return newTask;
     } catch (error) {
-      console.error('Error adding camp:', error);
+      console.error('Error adding task:', error);
       throw error;
     }
   }
 
   // READ
-  getAllCamps(): Observable<Camp[]> {
+  getAllTasks(): Observable<Task[]> {
     return this.authService.currentUser.pipe(
       switchMap(async user => {
         if (!user) {
@@ -87,43 +87,43 @@ export class CampService {
             return of([]);
           }
           const userData = userDoc.data() as User;
-          const campIds = userData.camps || [];
-          if (campIds.length === 0) {
+          const taskIds = userData.tasks || [];
+          if (taskIds.length === 0) {
             return of([]);
           }
 
-          const campsCollection = collection(this.firestore, this.CAMPS_COLLECTION);
-          const camps: Camp[] = [];
+          const tasksCollection = collection(this.firestore, this.TASKS_COLLECTION);
+          const tasks: Task[] = [];
           const batchSize = 10;
 
-          for (let i = 0; i < campIds.length; i += batchSize) {
-            const batch = campIds.slice(i, i + batchSize);
-            const q = query(campsCollection, where('__name__', 'in', batch));
+          for (let i = 0; i < taskIds.length; i += batchSize) {
+            const batch = taskIds.slice(i, i + batchSize);
+            const q = query(tasksCollection, where('__name__', 'in', batch));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach(doc => {
-              camps.push({ ...doc.data(), id: doc.id } as Camp);
+              tasks.push({ ...doc.data(), id: doc.id } as Task);
             });
           }
 
-          return of(camps.sort((a, b) => {
+          return of(tasks.sort((a, b) => {
             return a.dueDate.localeCompare(b.dueDate);
           }));
         } catch (error) {
-          console.error('Error fetching camps:', error);
+          console.error('Error fetching tasks:', error);
           return of([]);
         }
       }),
-      switchMap(camps => camps)
+      switchMap(tasks => tasks)
     );
   }
 
-  getCompletedCamps(): Observable<Camp[]> {
-    return this.getAllCamps().pipe(
-      map(camps => camps.filter(camp => camp.completed))
+  getCompletedTasks(): Observable<Task[]> {
+    return this.getAllTasks().pipe(
+      map(tasks => tasks.filter(task => task.completed))
     );
   }
 
-  async getCampById(campId: string): Promise<Camp | null> {
+  async getTaskById(taskId: string): Promise<Task | null> {
     try {
       const user = await firstValueFrom(this.authService.currentUser.pipe(take(1)));
       if (!user) {
@@ -135,24 +135,24 @@ export class CampService {
         return null;
       }
       const userData = userDoc.data() as User;
-      if (!userData.camps || !userData.camps.includes(campId)) {
+      if (!userData.tasks || !userData.tasks.includes(taskId)) {
         return null;
       }
 
-      const campDocRef = doc(this.firestore, this.CAMPS_COLLECTION, campId);
-      const campSnapshot = await getDoc(campDocRef);
-      if (campSnapshot.exists()) {
-        return { ...campSnapshot.data(), id: campId } as Camp;
+      const taskDocRef = doc(this.firestore, this.TASKS_COLLECTION, taskId);
+      const taskSnapshot = await getDoc(taskDocRef);
+      if (taskSnapshot.exists()) {
+        return { ...taskSnapshot.data(), id: taskId } as Task;
       }
       return null;
     } catch (error) {
-      console.error('Error fetching camp:', error);
+      console.error('Error fetching task:', error);
       return null;
     }
   }
 
   // UPDATE
-  async updateCamp(campId: string, updatedData: Partial<Camp>): Promise<void> {
+  async updateTask(taskId: string, updatedData: Partial<Task>): Promise<void> {
     try {
       const user = await firstValueFrom(this.authService.currentUser.pipe(take(1)));
       if (!user) {
@@ -164,8 +164,8 @@ export class CampService {
         throw new Error('User not found');
       }
       const userData = userDoc.data() as User;
-      if (!userData.camps || !userData.camps.includes(campId)) {
-        throw new Error('Camp does not belong to the user');
+      if (!userData.tasks || !userData.tasks.includes(taskId)) {
+        throw new Error('Task does not belong to the user');
       }
 
       const dataToUpdate: any = { ...updatedData };
@@ -173,20 +173,20 @@ export class CampService {
         dataToUpdate.dueDate = this.formatDateToString(dataToUpdate.dueDate as any);
       }
 
-      const campDocRef = doc(this.firestore, this.CAMPS_COLLECTION, campId);
-      return updateDoc(campDocRef, dataToUpdate);
+      const taskDocRef = doc(this.firestore, this.TASKS_COLLECTION, taskId);
+      return updateDoc(taskDocRef, dataToUpdate);
     } catch (error) {
-      console.error('Error updating camp:', error);
+      console.error('Error updating task:', error);
       throw error;
     }
   }
 
-  toggleCampCompletion(campId: string, completed: boolean): Promise<void> {
-    return this.updateCamp(campId, { completed });
+  toggleTaskCompletion(taskId: string, completed: boolean): Promise<void> {
+    return this.updateTask(taskId, { completed });
   }
 
   // DELETE
-  async deleteCamp(campId: string): Promise<void> {
+  async deleteTask(taskId: string): Promise<void> {
     try {
       const user = await firstValueFrom(this.authService.currentUser.pipe(take(1)));
       if (!user) {
@@ -198,92 +198,92 @@ export class CampService {
         throw new Error('User not found');
       }
       const userData = userDoc.data() as User;
-      if (!userData.camps || !userData.camps.includes(campId)) {
-        throw new Error('Camp does not belong to the user');
+      if (!userData.tasks || !userData.tasks.includes(taskId)) {
+        throw new Error('Task does not belong to the user');
       }
 
-      const campDocRef = doc(this.firestore, this.CAMPS_COLLECTION, campId);
-      await deleteDoc(campDocRef);
+      const taskDocRef = doc(this.firestore, this.TASKS_COLLECTION, taskId);
+      await deleteDoc(taskDocRef);
 
-      const updatedCamps = userData.camps.filter(id => id !== campId);
-      return updateDoc(userDocRef, { camps: updatedCamps });
+      const updatedTasks = userData.tasks.filter(id => id !== taskId);
+      return updateDoc(userDocRef, { tasks: updatedTasks });
     } catch (error) {
-      console.error('Error deleting camp:', error);
+      console.error('Error deleting task:', error);
       throw error;
     }
   }
 
-  async clearCompletedCamps(): Promise<void> {
+  async clearCompletedTasks(): Promise<void> {
     try {
       const user = await firstValueFrom(this.authService.currentUser.pipe(take(1)));
       if (!user) {
         throw new Error('No authenticated user found');
       }
-
+      
       // Felhasználó adatainak lekérése
       const userDocRef = doc(this.firestore, this.USERS_COLLECTION, user.uid);
       const userDoc = await getDoc(userDocRef);
       if (!userDoc.exists()) {
         throw new Error('User not found');
       }
-
+      
       const userData = userDoc.data() as User;
-      const camps = await firstValueFrom(this.getAllCamps());
-      const completedCamps = camps.filter(camp => camp.completed);
-
-      if (completedCamps.length === 0) {
+      const tasks = await firstValueFrom(this.getAllTasks());
+      const completedTasks = tasks.filter(task => task.completed);
+      
+      if (completedTasks.length === 0) {
         return;
       }
-
-      const completedCampIds = completedCamps.map(camp => camp.id);
-
-      const updatedCamps = userData.camps.filter(id => !completedCampIds.includes(id));
-      await updateDoc(userDocRef, { camps: updatedCamps });
-
-      const deletePromises = completedCamps.map(camp => {
-        const campDocRef = doc(this.firestore, this.CAMPS_COLLECTION, camp.id);
-        return deleteDoc(campDocRef);
+      
+      const completedTaskIds = completedTasks.map(task => task.id);
+      
+      const updatedTasks = userData.tasks.filter(id => !completedTaskIds.includes(id));
+      await updateDoc(userDocRef, { tasks: updatedTasks });
+      
+      const deletePromises = completedTasks.map(task => {
+        const taskDocRef = doc(this.firestore, this.TASKS_COLLECTION, task.id);
+        return deleteDoc(taskDocRef);
       });
-
-      return Promise.all(deletePromises).then(() => { });
+      
+      return Promise.all(deletePromises).then(() => {});
     } catch (error) {
-      console.error('Error clearing completed camps:', error);
+      console.error('Error clearing completed tasks:', error);
       throw error;
     }
   }
 
   // ÖSSZETETT LEKÉRDEZÉSEK valódi Firebase query-kkel
   // Magas prioritású, befejezetlen feladatok
-  getHighPriorityPendingCamps(): Observable<Camp[]> {
+  getHighPriorityPendingTasks(): Observable<Task[]> {
     return this.authService.currentUser.pipe(
       switchMap(user => {
         if (!user) {
           return of([]);
         }
-
-        return from(this.getUserCampIds(user.uid)).pipe(
-          switchMap(campIds => {
-            if (campIds.length === 0) {
+        
+        return from(this.getUserTaskIds(user.uid)).pipe(
+          switchMap(taskIds => {
+            if (taskIds.length === 0) {
               return of([]);
             }
-
-            const campsCollection = collection(this.firestore, this.CAMPS_COLLECTION);
+            
+            const tasksCollection = collection(this.firestore, this.TASKS_COLLECTION);
             const highPriorityQuery = query(
-              campsCollection,
+              tasksCollection,
               where('priority', '==', 'High'),
               where('completed', '==', false),
               orderBy('dueDate', 'asc')
             );
-
+            
             return from(getDocs(highPriorityQuery)).pipe(
               map(querySnapshot => {
-                const camps: Camp[] = [];
+                const tasks: Task[] = [];
                 querySnapshot.forEach(doc => {
-                  if (campIds.includes(doc.id)) {
-                    camps.push({ ...doc.data(), id: doc.id } as Camp);
+                  if (taskIds.includes(doc.id)) {
+                    tasks.push({...doc.data(), id: doc.id} as Task);
                   }
                 });
-                return camps;
+                return tasks;
               })
             );
           })
@@ -293,55 +293,55 @@ export class CampService {
   }
 
   // Segédfüggvény a felhasználó feladat ID-inak lekérdezéséhez
-  private async getUserCampIds(userId: string): Promise<string[]> {
+  private async getUserTaskIds(userId: string): Promise<string[]> {
     const userDocRef = doc(this.firestore, this.USERS_COLLECTION, userId);
     const userDoc = await getDoc(userDocRef);
-
+    
     if (!userDoc.exists()) {
       return [];
     }
-
+    
     const userData = userDoc.data() as User;
-    return userData.camps || [];
+    return userData.tasks || [];
   }
 
   // Következő 7 napon belüli feladatok
-  getCampsForNextWeek(): Observable<Camp[]> {
+  getTasksForNextWeek(): Observable<Task[]> {
     return this.authService.currentUser.pipe(
       switchMap(user => {
         if (!user) {
           return of([]);
         }
-
-        return from(this.getUserCampIds(user.uid)).pipe(
-          switchMap(campIds => {
-            if (campIds.length === 0) {
+        
+        return from(this.getUserTaskIds(user.uid)).pipe(
+          switchMap(taskIds => {
+            if (taskIds.length === 0) {
               return of([]);
             }
-
+            
             const today = new Date();
             const now = this.formatDateToString(today);
             const nextWeek = new Date(today);
             nextWeek.setDate(today.getDate() + 7);
             const in7Days = this.formatDateToString(nextWeek);
-
-            const campsCollection = collection(this.firestore, this.CAMPS_COLLECTION);
+            
+            const tasksCollection = collection(this.firestore, this.TASKS_COLLECTION);
             const nextWeekQuery = query(
-              campsCollection,
+              tasksCollection,
               where('dueDate', '>=', now),
               where('dueDate', '<=', in7Days),
               orderBy('dueDate', 'asc')
             );
-
+            
             return from(getDocs(nextWeekQuery)).pipe(
               map(querySnapshot => {
-                const camps: Camp[] = [];
+                const tasks: Task[] = [];
                 querySnapshot.forEach(doc => {
-                  if (campIds.includes(doc.id)) {
-                    camps.push({ ...doc.data(), id: doc.id } as Camp);
+                  if (taskIds.includes(doc.id)) {
+                    tasks.push({...doc.data(), id: doc.id} as Task);
                   }
                 });
-                return camps;
+                return tasks;
               })
             );
           })
