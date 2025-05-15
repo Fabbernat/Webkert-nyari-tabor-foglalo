@@ -43,7 +43,7 @@
         </button>
       </div>
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Description (optional)</mat-label>
+        <mat-label>Leírás (nem kötelező)</mat-label>
         <textarea matInput formControlName="description" rows="2"></textarea>
       </mat-form-field>
     </form>
@@ -54,12 +54,12 @@
           @if (isLoading) {
           <div class="loading-container">
             <mat-spinner diameter="40"></mat-spinner>
-            <p>Loading tasks...</p>
+            <p>Táborok betöltése...</p>
           </div>
           } @else if (tasks.length === 0) {
           <div class="empty-state">
             <mat-icon>assignment</mat-icon>
-            <p>No tasks available. Add your first task!</p>
+            <p>Még nem adtál hozzá egy tábort sem. Vagy ha igen, elveszett...🤔&#129300;</p>
           </div>
           } @else {
           <table mat-table [dataSource]="tasks" class="task-table">
