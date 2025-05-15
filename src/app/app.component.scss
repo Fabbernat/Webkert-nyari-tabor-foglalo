@@ -48,3 +48,26 @@ mat-sidenav {
         display: none;
     }
 }
+
+/* Side image styles */
+.chat-popup-icon {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 1;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.chat-popup-icon img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border: 3px solid #3498db;
+}
+
+.chat-popup-icon:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
