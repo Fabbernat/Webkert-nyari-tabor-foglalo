@@ -155,17 +155,17 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="Due This Week">
+      <mat-tab label="Táborok a héten">
         <div class="table-container">
           @if (isLoading) {
           <div class="loading-container">
             <mat-spinner diameter="40"></mat-spinner>
-            <p>Loading tasks due this week...</p>
+            <p>Heti táborok betöltése...</p>
           </div>
           } @else if (tasksForNextWeek.length === 0) {
           <div class="empty-state">
             <mat-icon>event</mat-icon>
-            <p>No tasks due this week.</p>
+            <p>Nincsenek táborok ezen a héten. Vagy csak nem tudunk róla 😕</p>
           </div>
           } @else {
           <table mat-table [dataSource]="tasksForNextWeek" class="task-table">
