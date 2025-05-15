@@ -42,12 +42,12 @@ export class LoginComponent implements OnDestroy {
 
   login() {
     if (this.email.invalid) {
-      this.loginError = 'Please enter a valid email address';
+      this.loginError = 'Adjon meg egy valós e-mail címet!';
       return;
     }
     
     if (this.password.invalid) {
-      this.loginError = 'Password must be at least 6 characters long';
+      this.loginError = 'A jelszónak legalább 6 karakterből kell állnia';
       return;
     }
 
