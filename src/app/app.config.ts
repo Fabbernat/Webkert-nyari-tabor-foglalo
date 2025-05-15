@@ -17,11 +17,11 @@ export const appConfig: ApplicationConfig = {
 };
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBSLrSsxpMDFq7_xADx57SK4B5zgkCpmoE",
-  authDomain: "webkert-nyari-tabor-foglalo.firebaseapp.com",
-  projectId: "webkert-nyari-tabor-foglalo",
-  storageBucket: "webkert-nyari-tabor-foglalo.firebasestorage.app",
-  messagingSenderId: "595746910150",
-  appId: "1:595746910150:web:e8edc2ad6fd49d4b594cc7",
-  measurementId: "G-2DV7GR8V8F"
+  apiKey: "AIzaSyD6E1XAIeCbnM9Tk1es_djKwNOKe2qCMcY",
+  authDomain: "webkert-nyari-tabor-fogl-64317.firebaseapp.com",
+  projectId: "webkert-nyari-tabor-fogl-64317",
+  storageBucket: "webkert-nyari-tabor-fogl-64317.firebasestorage.app",
+  messagingSenderId: "207380975799",
+  appId: "1:207380975799:web:c50ff1c5e8824b90c7fd32",
+  measurementId: "G-ETQNDYGNJE"
 };

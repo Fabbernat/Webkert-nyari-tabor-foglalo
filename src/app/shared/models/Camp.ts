@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-camp',
   imports: [],
-  template: './camp.component.html',
-  styles: '{}'
+  template: './camp.component.html'
 })
 export class CampComponent {
 
