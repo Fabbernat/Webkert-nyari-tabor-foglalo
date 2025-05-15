@@ -41,7 +41,7 @@ import { Subscription, combineLatest } from 'rxjs';
   standalone: true
 })
 export class TasksComponent implements OnInit, OnDestroy {
-  title: string = 'Learning Tasks';
+  title: string = 'Új tábor felvétele a rendszerbe';
   displayedColumns: string[] = ['status', 'name', 'priority', 'dueDate', 'actions'];
   specialDisplayedColumns: string[] = ['name', 'priority', 'dueDate', 'actions'];
   taskForm!: FormGroup;
