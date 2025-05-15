@@ -49,7 +49,7 @@
     </form>
 
     <mat-tab-group>
-      <mat-tab label="All Tasks">
+      <mat-tab label="A táboraid">
         <div class="table-container">
           @if (isLoading) {
           <div class="loading-container">
@@ -107,17 +107,17 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="High Priority">
+      <mat-tab label="Táborok nagyoknak">
         <div class="table-container">
           @if (isLoading) {
           <div class="loading-container">
             <mat-spinner diameter="40"></mat-spinner>
-            <p>Loading high priority tasks...</p>
+            <p>AI-alapú trackerünk szerint te a felnőtt korosztályba tartozol. Ezek a számodra ajánlott táborok.</p>
           </div>
           } @else if (highPriorityTasks.length === 0) {
           <div class="empty-state">
             <mat-icon>priority_high</mat-icon>
-            <p>No high priority tasks found.</p>
+            <p>AI-alapú trackerünk szerint te a felnőtt korosztályba tartozol. Nem találtunk neked megfelelő tábort 🙁</p>
           </div>
           } @else {
           <table mat-table [dataSource]="highPriorityTasks" class="task-table">
