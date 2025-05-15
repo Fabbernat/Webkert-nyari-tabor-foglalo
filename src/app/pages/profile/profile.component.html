@@ -1,12 +1,12 @@
 <div class="profile-container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>User Profile</mat-card-title>
+      <mat-card-title>Felhasználói fiók</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       @if (isLoading) {
         <div class="loading-container">
-          <p>Loading profile data...</p>
+          <p>Felhasználói adatok betöltése...</p>
         </div>
       } @else if (user) {
         <div class="profile-info">
