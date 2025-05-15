@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -11,8 +11,38 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent {
-GALLERY_IMAGES: any;
+  GALLERY_IMAGES: any;
+  showArrow = true;
+
+  constructor(private elementRef: ElementRef) { }
+
+  ngOnInit(): void {
+    // Check scroll position initially
+    setTimeout(() => {
+      this.checkScrollPosition();
+    }, 500);
+  }
+
+  // Listen for scroll events
+  @HostListener('window:scroll', ['$event'])
+  checkScrollPosition() {
+    const gallerySection = this.elementRef.nativeElement.querySelector('.gallery-section');
+    if (gallerySection) {
+      const rect = gallerySection.getBoundingClientRect();
+      // Hide arrow when gallery section is fully visible
+      this.showArrow = rect.top > window.innerHeight;
+    }
+  }
+
+  // Scroll to gallery section when arrow is clicked
+  scrollToGallery() {
+    const gallerySection = this.elementRef.nativeElement.querySelector('.gallery-section');
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
+
 
 export const GALLERY_IMAGES  = [
   { 
