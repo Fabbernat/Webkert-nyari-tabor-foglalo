@@ -12,13 +12,13 @@
     @if (showLoginForm) {
       <form (ngSubmit)="login()" class="login-form">
         <mat-form-field appearance="outline">
-          <mat-label>e-mail cím</mat-label>
+          <mat-label>E-mail cím</mat-label>
           <input matInput type="email" [formControl]="email">
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
   
         <mat-form-field appearance="outline">
-          <mat-label>jelszó</mat-label>
+          <mat-label>Jelszó</mat-label>
           <input matInput type="password" [formControl]="password">
           <mat-icon matSuffix>lock</mat-icon>
         </mat-form-field>
