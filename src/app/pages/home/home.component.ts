@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { GalleryComponent } from '../../shared/gallery/gallery.component';
+import { GalleryComponent } from '../../components/gallery/gallery.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
-  imports: [MatButtonModule, RouterLink, CommonModule, GalleryComponent],
+  imports: [MatButtonModule, RouterLink, CommonModule, GalleryComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
