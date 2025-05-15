@@ -55,7 +55,7 @@ export class AuthService {
         ...userData,
         id: userCredential.user.uid,
         email: email,
-        tasks: [],
+        camps: [],
       });
 
       return userCredential;

@@ -69,7 +69,7 @@ export class SignupComponent {
         lastname: this.signUpForm.value.name?.lastname || ''
       },
       email: this.signUpForm.value.email || '',
-      tasks: [],
+      camps: [],
     };
 
     const email = this.signUpForm.value.email || '';

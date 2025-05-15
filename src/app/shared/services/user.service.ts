@@ -67,7 +67,7 @@ export class UserService {
       const userData = userSnapshot.data() as User;
       const user = { ...userData, id: userId };
       
-      if (!user.tasks || user.tasks.length === 0) {
+      if (!user.camps || user.camps.length === 0) {
         return {
           user,
           tasks: [],
@@ -77,7 +77,7 @@ export class UserService {
 
       // Feladatok lekérése a Tasks kollekcióból
       const tasksCollection = collection(this.firestore, 'Tasks');
-      const q = query(tasksCollection, where('id', 'in', user.tasks));
+      const q = query(tasksCollection, where('id', 'in', user.camps));
       const tasksSnapshot = await getDocs(q);
       
       const tasks: Task[] = [];

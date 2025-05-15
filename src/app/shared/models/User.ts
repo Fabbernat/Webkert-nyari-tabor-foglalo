@@ -5,5 +5,5 @@ export interface User {
     lastname: string;
   };
   email: string;
-  tasks: string[];
+  camps: string[];
 }

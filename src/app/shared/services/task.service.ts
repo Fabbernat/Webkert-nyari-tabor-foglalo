@@ -61,7 +61,7 @@ export class TaskService {
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists()) {
         const userData = userDoc.data() as User;
-        const tasks = userData.tasks || [];
+        const tasks = userData.camps || [];
         tasks.push(taskId);
         await updateDoc(userDocRef, { tasks });
       }
@@ -87,7 +87,7 @@ export class TaskService {
             return of([]);
           }
           const userData = userDoc.data() as User;
-          const taskIds = userData.tasks || [];
+          const taskIds = userData.camps || [];
           if (taskIds.length === 0) {
             return of([]);
           }
@@ -135,7 +135,7 @@ export class TaskService {
         return null;
       }
       const userData = userDoc.data() as User;
-      if (!userData.tasks || !userData.tasks.includes(taskId)) {
+      if (!userData.camps || !userData.camps.includes(taskId)) {
         return null;
       }
 
@@ -164,7 +164,7 @@ export class TaskService {
         throw new Error('User not found');
       }
       const userData = userDoc.data() as User;
-      if (!userData.tasks || !userData.tasks.includes(taskId)) {
+      if (!userData.camps || !userData.camps.includes(taskId)) {
         throw new Error('Task does not belong to the user');
       }
 
@@ -198,14 +198,14 @@ export class TaskService {
         throw new Error('User not found');
       }
       const userData = userDoc.data() as User;
-      if (!userData.tasks || !userData.tasks.includes(taskId)) {
+      if (!userData.camps || !userData.camps.includes(taskId)) {
         throw new Error('Task does not belong to the user');
       }
 
       const taskDocRef = doc(this.firestore, this.TASKS_COLLECTION, taskId);
       await deleteDoc(taskDocRef);
 
-      const updatedTasks = userData.tasks.filter(id => id !== taskId);
+      const updatedTasks = userData.camps.filter(id => id !== taskId);
       return updateDoc(userDocRef, { tasks: updatedTasks });
     } catch (error) {
       console.error('Error deleting task:', error);
@@ -237,7 +237,7 @@ export class TaskService {
       
       const completedTaskIds = completedTasks.map(task => task.id);
       
-      const updatedTasks = userData.tasks.filter(id => !completedTaskIds.includes(id));
+      const updatedTasks = userData.camps.filter(id => !completedTaskIds.includes(id));
       await updateDoc(userDocRef, { tasks: updatedTasks });
       
       const deletePromises = completedTasks.map(task => {
@@ -302,7 +302,7 @@ export class TaskService {
     }
     
     const userData = userDoc.data() as User;
-    return userData.tasks || [];
+    return userData.camps || [];
   }
 
   // Következő 7 napon belüli feladatok

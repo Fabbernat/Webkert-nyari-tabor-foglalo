@@ -7,11 +7,12 @@
       <button mat-button (click)="onToggleSidenav(sidenav)" class="menu-toggle-button">
         <mat-icon>menu</mat-icon>
       </button>
-      <div>Nyári Tábor Foglaló</div>
+      <div><a routerLink="/home">Nyári Tábor Foglaló</a></div>
       <nav>
         <ul>
           <li><a routerLink="/home">Főoldal</a></li>
-          <li><a routerLink="/tasks">Táborok</a></li>
+          <li><a routerLink="/camps">Táborok böngészése</a></li>
+          <li><a routerLink="/tasks">Új tábor</a></li>
           <li><a routerLink="/completed">Jelentkezéseim</a></li>
 
           @if (isLoggedIn) {
