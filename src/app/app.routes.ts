@@ -7,8 +7,8 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
     },
     {
-        path: 'tasks',
-        loadComponent: () => import('./pages/tasks/tasks.component').then(m => m.TasksComponent),
+        path: 'camps',
+        loadComponent: () => import('./pages/camps/camps.component').then(m => m.CampsComponent),
         canActivate: [authGuard]
     },
     {

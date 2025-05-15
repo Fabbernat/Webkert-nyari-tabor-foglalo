@@ -7,7 +7,7 @@ import { TeacherGroup, Child } from './CampUser';
   selector: 'app-application',
   imports: [],
   template: './application.component.html',
-  styles: './application.component.scss'
+  styles: '{}'
 })
 export class ApplicationComponent {
 

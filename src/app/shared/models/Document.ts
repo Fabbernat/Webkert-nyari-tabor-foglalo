@@ -6,7 +6,7 @@ import { User } from './User';
   selector: 'app-document',
   imports: [],
   template: './document.component.html',
-  styles: './document.component.scss'
+  styles: '{}'
 })
 export class DocumentComponent {
 

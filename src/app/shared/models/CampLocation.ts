@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-camp-location',
   imports: [],
   template: './camp-location.component.html',
-  styles: './camp-location.component.scss'
+  styles: '{}'
 })
 export class CampLocationComponent {
 
