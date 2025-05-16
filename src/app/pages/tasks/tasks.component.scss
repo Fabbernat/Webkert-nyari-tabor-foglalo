@@ -33,7 +33,7 @@ mat-card-title {
   flex: 2;
 }
 
-.priority-select, .date-picker {
+.korosztaly-select, .date-picker {
   flex: 1;
 }
 
@@ -81,7 +81,7 @@ th.mat-header-cell {
   margin-top: 4px;
 }
 
-.priority-chip {
+.korosztaly-chip {
   display: inline-block;
   padding: 4px 12px;
   border-radius: 16px;
@@ -89,19 +89,19 @@ th.mat-header-cell {
   border: 1px solid;
 }
 
-.priority-chip.high {
+.korosztaly-chip.high {
   color: #d32f2f;
   background-color: rgba(211, 47, 47, 0.08);
   border-color: rgba(211, 47, 47, 0.2);
 }
 
-.priority-chip.medium {
+.korosztaly-chip.medium {
   color: #ed6c02;
   background-color: rgba(237, 108, 2, 0.08);
   border-color: rgba(237, 108, 2, 0.2);
 }
 
-.priority-chip.low {
+.korosztaly-chip.low {
   color: #2e7d32;
   background-color: rgba(46, 125, 50, 0.08);
   border-color: rgba(46, 125, 50, 0.2);
@@ -111,7 +111,7 @@ th.mat-header-cell {
   width: 70px;
 }
 
-.mat-column-priority {
+.mat-column-korosztaly {
   width: 120px;
   text-align: center;
 }
@@ -134,7 +134,7 @@ th.mat-header-cell {
     flex-direction: column;
   }
   
-  .task-input, .priority-select, .date-picker {
+  .task-input, .korosztaly-select, .date-picker {
     width: 100%;
   }
   
@@ -167,7 +167,7 @@ th.mat-header-cell {
     padding: 8px 4px;
   }
   
-  .priority-chip {
+  .korosztaly-chip {
     padding: 2px 8px;
     font-size: 11px;
   }

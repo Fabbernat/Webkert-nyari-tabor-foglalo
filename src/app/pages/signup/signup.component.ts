@@ -44,19 +44,19 @@ export class SignupComponent {
   constructor(
     private router: Router,
     private authService: AuthService
-  ) {}
+  ) { }
 
   signup(): void {
     if (this.signUpForm.invalid) {
-      this.signupError = 'Please correct any errors on the form before submitting.';
+      this.signupError = 'Kérjük, javítsa ki az űrlapon található hibákat a beküldés előtt.';
       return;
     }
 
     const password = this.signUpForm.get('password')?.value;
     const rePassword = this.signUpForm.get('rePassword')?.value;
-    
+
     if (password !== rePassword) {
-      this.signupError = 'The passwords do not match.';
+      this.signupError = 'A jelszavak nem egyeznek meg.';
       return;
     }
 
@@ -77,27 +77,27 @@ export class SignupComponent {
 
     this.authService.signUp(email, pw, userData)
       .then(userCredential => {
-        console.log('Registration succesful:', userCredential.user);
+        console.log('Sikeres regisztráció: ', userCredential.user);
         this.authService.updateLoginStatus(true);
         this.router.navigateByUrl('/home');
       })
       .catch(error => {
-        console.error('Regisztrációs hiba:', error);
+        console.error('Hiba a regisztráció közben: ', error);
         this.isLoading = false;
         this.showForm = true;
-        
-        switch(error.code) {
+
+        switch (error.code) {
           case 'auth/email-already-in-use':
-            this.signupError = 'This email already in use.';
+            this.signupError = 'Ez az email cím már használatban van.';
             break;
           case 'auth/invalid-email':
-            this.signupError = 'Invalid email.';
+            this.signupError = 'Érvénytelen email cím.';
             break;
           case 'auth/weak-password':
-            this.signupError = 'The password is too weak. Use at least 6 characters.';
+            this.signupError = 'A jelszó túl gyenge. Használj legalább 6 karaktert.';
             break;
           default:
-            this.signupError = 'An error has occurred during registration. Please try again later.';
+            this.signupError = 'Hiba történt a regisztráció során. Kérjük próbáld újra később.';
         }
       });
   }

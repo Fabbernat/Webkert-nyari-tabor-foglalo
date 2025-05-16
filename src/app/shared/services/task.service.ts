@@ -254,7 +254,7 @@ export class TaskService {
 
   // ÖSSZETETT LEKÉRDEZÉSEK valódi Firebase query-kkel
   // Magas prioritású, befejezetlen feladatok
-  getHighPriorityPendingTasks(): Observable<Task[]> {
+  getHighKorosztalyPendingTasks(): Observable<Task[]> {
     return this.authService.currentUser.pipe(
       switchMap(user => {
         if (!user) {
@@ -268,14 +268,14 @@ export class TaskService {
             }
             
             const tasksCollection = collection(this.firestore, this.TASKS_COLLECTION);
-            const highPriorityQuery = query(
+            const highKorosztalyQuery = query(
               tasksCollection,
-              where('priority', '==', 'High'),
+              where('korosztaly', '==', 'High'),
               where('completed', '==', false),
               orderBy('dueDate', 'asc')
             );
             
-            return from(getDocs(highPriorityQuery)).pipe(
+            return from(getDocs(highKorosztalyQuery)).pipe(
               map(querySnapshot => {
                 const tasks: Task[] = [];
                 querySnapshot.forEach(doc => {

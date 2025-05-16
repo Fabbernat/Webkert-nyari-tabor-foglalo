@@ -42,11 +42,11 @@ import { Subscription, combineLatest } from 'rxjs';
 })
 export class TasksComponent implements OnInit, OnDestroy {
   title: string = 'Új tábor felvétele a rendszerbe';
-  displayedColumns: string[] = ['status', 'name', 'priority', 'dueDate', 'actions'];
-  specialDisplayedColumns: string[] = ['name', 'priority', 'dueDate', 'actions'];
+  displayedColumns: string[] = ['status', 'name', 'korosztaly', 'dueDate', 'actions'];
+  specialDisplayedColumns: string[] = ['name', 'korosztaly', 'dueDate', 'actions'];
   taskForm!: FormGroup;
   tasks: Task[] = [];
-  highPriorityTasks: Task[] = [];
+  highKorosztalyTasks: Task[] = [];
   tasksForNextWeek: Task[] = [];
   isLoading = false;
   private subscriptions: Subscription[] = [];
@@ -69,7 +69,7 @@ export class TasksComponent implements OnInit, OnDestroy {
   initializeForm(): void {
     this.taskForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
-      priority: ['High', Validators.required],
+      korosztaly: ['High', Validators.required],
       dueDate: [new Date(), Validators.required],
       description: ['', Validators.maxLength(200)]
     });
@@ -79,19 +79,19 @@ export class TasksComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     
     const allTasks$ = this.taskService.getAllTasks();
-    const highPriorityTasks$ = this.taskService.getHighPriorityPendingTasks();
+    const highKorosztalyTasks$ = this.taskService.getHighKorosztalyPendingTasks();
     const nextWeekTasks$ = this.taskService.getTasksForNextWeek();
     
     const combined$ = combineLatest([
       allTasks$,
-      highPriorityTasks$,
+      highKorosztalyTasks$,
       nextWeekTasks$
     ]);
     
     const subscription = combined$.subscribe({
-      next: ([allTasks, highPriorityTasks, nextWeekTasks]) => {
+      next: ([allTasks, highKorosztalyTasks, nextWeekTasks]) => {
         this.tasks = allTasks;
-        this.highPriorityTasks = highPriorityTasks;
+        this.highKorosztalyTasks = highKorosztalyTasks;
         this.tasksForNextWeek = nextWeekTasks;
         this.isLoading = false;
       },
@@ -112,7 +112,7 @@ export class TasksComponent implements OnInit, OnDestroy {
       const newTask: Omit<Task, 'id'> = {
         name: formValue.name,
         completed: false,
-        priority: formValue.priority,
+        korosztaly: formValue.korosztaly,
         dueDate: formValue.dueDate,
         description: formValue.description || ''
       };
@@ -122,7 +122,7 @@ export class TasksComponent implements OnInit, OnDestroy {
           this.loadAllTaskData();
           this.showNotification('Task added successfully', 'success');
           this.taskForm.reset({
-            priority: 'High',
+            korosztaly: 'High',
             dueDate: new Date()
           });
         })
