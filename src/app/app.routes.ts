@@ -12,7 +12,7 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
-        path: 'tasks',
+        path: 'addcamp',
         loadComponent: () => import('./pages/tasks/tasks.component').then(m => m.TasksComponent),
         canActivate: [authGuard]
     },

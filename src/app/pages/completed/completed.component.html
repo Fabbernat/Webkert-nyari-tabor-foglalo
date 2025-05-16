@@ -9,19 +9,19 @@
         [disabled]="completedTasks.length === 0 || isLoading" 
         (click)="clearAllTasks()">
         <mat-icon>delete_sweep</mat-icon>
-        Clear All
+        Összes törlése
       </button>
     </mat-card-header>
     <mat-card-content>
       @if (isLoading) {
         <div class="loading-container">
           <mat-spinner diameter="40"></mat-spinner>
-          <p>Loading completed tasks...</p>
+          <p>Begyújtott tábori jelentkezéseim betöltése...</p>
         </div>
       } @else if (completedTasks.length === 0) {
         <div class="empty-state">
           <mat-icon>done_all</mat-icon>
-          <p>No completed tasks yet.</p>
+          <p>Még nem jelentkeztél egy táborra sem.</p>
         </div>
       } @else {
         <table mat-table [dataSource]="completedTasks" class="mat-elevation-z2">
@@ -34,14 +34,14 @@
           </ng-container>
           
           <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef>Due Date</th>
+            <th mat-header-cell *matHeaderCellDef>Kezdési dátum</th>
             <td mat-cell *matCellDef="let task">
               {{ task.dueDate | dateFormatter }}
             </td>
           </ng-container>
           
           <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <th mat-header-cell *matHeaderCellDef>Lehetőségek</th>
             <td mat-cell *matCellDef="let task">
               <button 
                 mat-icon-button 
@@ -56,7 +56,7 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="3">No completed tasks</td>
+            <td class="mat-cell" colspan="3">Még nem hagyták jóvá jelentkezésed</td>
           </tr>
         </table>
       }
