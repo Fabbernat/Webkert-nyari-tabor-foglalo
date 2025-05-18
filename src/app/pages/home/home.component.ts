@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   changePage() {
-    this.router.navigateByUrl("/tasks");
+    this.router.navigateByUrl("/addcamp");
   }
 
 }
