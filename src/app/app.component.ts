@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './shared/services/auth.service';
 import { Subscription } from 'rxjs';
+import { DietaryLabelPipe } from './shared/pipes/dietary-label.pipe';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,9 @@ import { Subscription } from 'rxjs';
     MatButtonModule,
     MatIconModule,
     RouterLink,
-    MenuComponent
+    MenuComponent,
+    DietaryLabelPipe,
+
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -29,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoggedIn = false;
   private authSubscription?: Subscription;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authSubscription = this.authService.currentUser.subscribe(user => {
@@ -46,7 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.authService.signOut();
   }
 
-  onToggleSidenav(sidenav: MatSidenav){
+  onToggleSidenav(sidenav: MatSidenav) {
     sidenav.toggle();
   }
 }
