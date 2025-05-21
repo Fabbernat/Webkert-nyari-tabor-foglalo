@@ -64,6 +64,42 @@
             </mat-card-content>
           </mat-card>
         </div>
+        <!-- Query Forms Section -->
+        <div class="query-section">
+          <h2>Query Data</h2>
+          <!-- Form to Query Documents -->
+          <mat-card class="query-card">
+            <mat-card-header>
+              <mat-card-title>Query Documents</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form (submit)="onQueryDocuments()">
+                <mat-form-field appearance="outline" class="query-field">
+                  <mat-label>Document Query</mat-label>
+                  <!-- <input matInput [(ngModel)]="documentQuery" name="documentQuery" required> -->
+                  <input matInput name="documentQuery" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Search</button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+          <!-- Form to Query Applications -->
+          <mat-card class="query-card">
+            <mat-card-header>
+              <mat-card-title>Query Applications</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form (submit)="onQueryApplications()">
+                <mat-form-field appearance="outline" class="query-field">
+                  <mat-label>Application Query</mat-label>
+                  <!-- <input matInput [(ngModel)]="applicationQuery" name="applicationQuery" required> -->
+                   <input matInput name="applicationQuery" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Search</button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </div>
       } @else {
         <div class="empty-state">
           <mat-icon>person_off</mat-icon>

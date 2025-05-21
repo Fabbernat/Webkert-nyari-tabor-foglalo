@@ -17,6 +17,11 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
+        path: 'addlocation',
+        loadComponent: () => import('./pages/add-location/add-location.component').then(m => m.AddLocationComponent),
+        canActivate: [authGuard]
+    },
+    {
         path: 'completed',
         loadComponent: () => import('./pages/completed/completed.component').then(m => m.CompletedComponent),
         canActivate: [authGuard]
