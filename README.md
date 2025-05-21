@@ -1,7 +1,8 @@
 # Webkert-nyari-tabor-foglalo
 
+
 # !!!FONTOS:
-A `<ELERESI-UT>\Webkert-nyari-tabor-foglalo\dist\webkert-nyari-tabor-foglalo\browser` mappában megtalálható a deployolt alkalmazás. 
+A webes felület nekem megadta magát, de a `<ELERESI-UT>\Webkert-nyari-tabor-foglalo\dist\webkert-nyari-tabor-foglalo\browser` mappában megtalálható a deployolt alkalmazás. 
 Ha megnyitod a (Windowson) PowerShell, vagy (Linuxon) Bash terminált a `<ELERESI-UT>\Webkert-nyari-tabor-foglalo` mappában, majd kiadod az
 `firebase init hosting` parancsot, output mappának a `dist\webkert-nyari-tabor-foglalo\browser`-t használod, 
 majd
