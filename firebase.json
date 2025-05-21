@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/webkert-nyari-tabor-foglalo/browser",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,5 +12,38 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "firestore": {
+    "database": "(default)",
+    "rules": "tabor.firestore.rules",
+    "indexes": "tabor.firestore.indexes.json"
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "database": {
+      "port": 9000
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true,
+      "port": 420
+    },
+    "singleProjectMode": true
+  },
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
   }
 }
