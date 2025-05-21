@@ -16,9 +16,9 @@ Nyári tábor foglaló alkalmazás
 # GitHub link:
 ## https://github.com/Fabbernat/Mobilalkfejl-nyari-tabor-foglalo
 # FireBase Hostolt weboldal:
-## webkert-nyari-tabor-fogl-64317.web.app
+## https://webkert-nyari-tabor-fogl-64317.web.app
 # Ezen a linken is működik:
-## webkert-nyari-tabor-fogl-64317.firebaseapp.com
+## https://webkert-nyari-tabor-fogl-64317.firebaseapp.com
 # FireStore adatbázis:
 ## https://console.firebase.google.com/project/webkert-nyari-tabor-fogl-64317/firestore/databases/-default-/data/~2Fcamp~2F1
 
