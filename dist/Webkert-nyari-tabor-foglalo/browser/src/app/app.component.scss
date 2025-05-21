@@ -1,0 +1,73 @@
+nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    gap: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+
+mat-sidenav-container {
+    height: 100%;
+}
+
+mat-toolbar{
+    background-color: #005cbb;
+    color: white;
+    mat-icon {
+        color: white;
+    }
+}
+
+mat-sidenav {
+    border-radius: 0;
+}
+
+.menu-toggle-button {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle-button {
+        display: block;
+    }
+    
+    nav ul {
+        display: none;
+    }
+}
+
+/* Side image styles */
+.chat-popup-icon {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 1;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.chat-popup-icon img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border: 3px solid #3498db;
+}
+
+.chat-popup-icon:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}

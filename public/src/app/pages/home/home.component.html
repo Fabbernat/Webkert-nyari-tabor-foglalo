@@ -1,0 +1,21 @@
+<!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo4\src\app\pages\home\home.component.html -->
+<div class="container">
+  <h1>Üdvözlünk a Nyári Tábor Foglaló honlapján!</h1>
+  <p>Itt böngészhetsz táborokat, regisztrálhatsz, vagy kezelheted a profilod.</p>
+  <button mat-flat-button color="primary" class="tasks" (click)="changePage()">Jelentkezéseim megtekintése</button>
+
+  @if (!isLoggedIn) {
+  <button mat-flat-button color="accent" [routerLink]="['/login']" class="tasks">Bejelentkezés</button>
+  }
+
+  @if (isLoggedIn) {
+  <button mat-flat-button color="accent" [routerLink]="['/profile']" class="tasks">Profilom</button>
+  }
+</div>
+<section class="gallery-section large-margin-green">
+  <app-gallery></app-gallery>
+</section>
+
+<section class="footer-section">
+  <app-footer></app-footer>
+</section>

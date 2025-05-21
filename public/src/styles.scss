@@ -1,0 +1,42 @@
+body {
+    margin: 0 !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@media screen and (max-width: 638px) { /*637 a minta_mobile szélessége*/
+    .container {
+        flex-direction: column;
+        margin: 0;
+        display: block;
+    }
+
+    
+}
+
+@keyframes loadHighBar {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 90%; /* End with the desired width */
+    }
+}
+
+@keyframes loadMediumBar {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 60%; /* End with the desired width */
+    }
+}
+
+@keyframes loadLowBar {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 30%; /* End with the desired width */
+    }
+}

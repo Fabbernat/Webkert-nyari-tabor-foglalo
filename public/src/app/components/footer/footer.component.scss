@@ -1,0 +1,195 @@
+body {
+  margin: 1000px;
+  height: 100%;
+  width: 100%;
+  background-color: #333;
+
+}
+
+a {
+  color: blue;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 0.3rem 1.0rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover {
+  color: rgb(0, 102, 255);
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 235, 59, 0.6);
+}
+
+a:visited {
+  color: #7e57c2;
+}
+
+a:active {
+  color: #ffc107;
+  transform: translateY(1px);
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+
+  .footer-toolbar {
+    padding: 0;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    /* This evenly distributes the columns */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      color: white;
+      margin: 5px 0;
+      padding: 5px 0;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      /* mobil nézethez fontos */
+      display: flex;
+      flex-direction: column;
+      padding: 0 15px;
+
+      &.footer-logo {
+        h3 {
+          font-size: 1.4rem;
+          margin-bottom: 10px;
+          color: #fff;
+        }
+
+        p {
+          font-size: 0.9rem;
+          opacity: 0.8;
+        }
+      }
+
+      &.watermark {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .name {
+          font-size: 1.1rem;
+          font-weight: bold;
+          color: #90caf9;
+          margin-bottom: 8px;
+        }
+
+        .link {
+          margin-top: 5px;
+        }
+      }
+
+      &.footer-links {
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            margin-bottom: 12px;
+            text-align: right;
+
+            a {
+              font-size: 0.95rem;
+            }
+          }
+        }
+      }
+
+      &.social-media {
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            margin-bottom: 12px;
+            text-align: left;
+
+            a {
+              font-size: 0.95rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer .footer-content {
+    flex-direction: column;
+    align-items: center;
+
+
+    .footer-column {
+      margin-bottom: 20px;
+      text-align: center;
+
+      &.footer-links ul li {
+        text-align: center;
+      }
+    }
+  }
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  position: relative;
+}
+
+.main-content {
+  flex: 1; // pushes the footer to the bottom
+  overflow: auto;
+}
+
+/* Footer must not allow anything outside */
+.footer {
+  z-index: 1000;
+  position: relative;
+  background-color: #333;
+}
+
+/* Optional: Clamp entire page layout height to screen */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
