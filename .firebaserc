@@ -5,8 +5,12 @@
   "targets": {
     "webkert-nyari-tabor-fogl-64317": {
       "hosting": {
-        "original": ["webkert-nyari-tabor-fogl-64317"],
-        "new": ["webkert-tabor"]
+        "legacy": [
+          "webkert-tabor"
+        ],
+        "app": [
+          "webkert-nyari-tabor-fogl-64317"
+        ]
       }
     }
   }

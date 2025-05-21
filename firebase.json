@@ -1,26 +1,18 @@
 {
-  "hosting": [
-    {
-      "target": "original",  
-      "public": "dist/Webkert-nyari-tabor-foglalo",
-      "rewrites": [{ "source": "**", "destination": "/index.html" }],
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
-    },
-    {
-      "target": "new",       
-      "public": "dist/Webkert-nyari-tabor-foglalo",
-      "rewrites": [{ "source": "**", "destination": "/index.html" }],
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
-    }
-  ],
+  "hosting": {
+    "public": "dist/Webkert-nyari-tabor-foglalo/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
   "database": {
     "rules": "database.rules.json"
   },
