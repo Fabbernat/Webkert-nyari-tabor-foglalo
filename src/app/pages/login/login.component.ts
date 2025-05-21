@@ -71,16 +71,16 @@ export class LoginComponent implements OnDestroy {
         
         switch(error.code) {
           case 'auth/user-not-found':
-            this.loginError = 'No account found with this email address';
+            this.loginError = 'Nem található felhasználói fiók ezzel az e-mail címmel!';
             break;
           case 'auth/wrong-password':
-            this.loginError = 'Incorrect password';
+            this.loginError = 'Hibás jelszó!';
             break;
           case 'auth/invalid-credential':
-            this.loginError = 'Invalid email or password';
+            this.loginError = 'Hibás e-mail cím vagy jelszó!';
             break;
           default:
-            this.loginError = 'Authentication failed. Please try again later.';
+            this.loginError = 'Hiba a bejelentkezés közben. Írj a job.fabbernat@gmail.com e-mail címre a hiba elhárításához! ';
         }
       });
   }
