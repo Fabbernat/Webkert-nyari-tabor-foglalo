@@ -44,3 +44,7 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+node_modules/
+
+# Very secret SSH imagearts
+secrets.txt
