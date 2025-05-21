@@ -1,8 +1,8 @@
-import { AgeCategoryPipePipe } from './age-category.pipe.pipe';
+import { AgeCategoryPipe } from './age-category.pipe.pipe';
 
 describe('AgeCategoryPipePipe', () => {
   it('create an instance', () => {
-    const pipe = new AgeCategoryPipePipe();
+    const pipe = new AgeCategoryPipe();
     expect(pipe).toBeTruthy();
   });
 });
