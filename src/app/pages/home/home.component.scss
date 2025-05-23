@@ -12,7 +12,6 @@
 
 
 p {
-    color: #666;
     font-size: 20px;
     margin-bottom: 40px;
 }
@@ -70,83 +69,83 @@ p {
 .footer-section {
     height: 40%;
     width: 100%;
-  background-color: #333;
+    background-color: #333;
 }
 
 .recommended-camps {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  border-radius: 20px;
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 1200px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  
-  .section-title {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    position: relative;
-    
-    &::after {
-      content: '';
-      display: block;
-      width: 100px;
-      height: 4px;
-      background: #3498db;
-      margin: 10px auto;
-      border-radius: 2px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+    .section-title {
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #3498db;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
     }
-  }
-  
-  .camp-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 0 1rem;
-  }
-  
-  .camp-card {
-    background: white;
-    border-radius: 15px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    .camp-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 0 1rem;
     }
-    
-    .camp-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+
+    .camp-card {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .camp-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        p {
+            color: #7f8c8d;
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
+        }
+
+        .urgent {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .price {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
     }
-    
-    h3 {
-      color: #2c3e50;
-      margin-bottom: 0.5rem;
-      font-size: 1.3rem;
-    }
-    
-    p {
-      color: #7f8c8d;
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
-    }
-    
-    .urgent {
-      color: #e74c3c;
-      font-weight: bold;
-    }
-    
-    .price {
-      color: #27ae60;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-  }
 }
 
 
@@ -157,1120 +156,1595 @@ p {
 
 /* Camp Gallery Section */
 .camp-gallery {
-  padding: 60px 0;
-  background-color: #f8f9fa;
+    padding: 60px 0;
+    background-color: #f8f9fa;
 }
 
 .camp-gallery .section-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .camp-gallery .section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #5a67d8;
-  margin-bottom: 50px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #5a67d8;
+    margin-bottom: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Grid Layout */
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
 /* Gallery Cards */
 .gallery-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
 }
 
 .gallery-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Card Image */
 .gallery-card-image {
-  width: 100%;
-  height: 240px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 .gallery-card-image::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 /* Card Content */
 .gallery-card-content {
-  padding: 24px;
+    padding: 24px;
 }
 
 .gallery-card-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 12px;
-  line-height: 1.3;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 12px;
+    line-height: 1.3;
 }
 
 .gallery-card-description {
-  font-size: 0.95rem;
-  color: #718096;
-  line-height: 1.6;
-  margin: 0;
+    font-size: 0.95rem;
+    color: #718096;
+    line-height: 1.6;
+    margin: 0;
 }
+
 /*************************************************************************/
 
 
 /* Specific card backgrounds based on your images */
 .gallery-card:nth-child(1) .gallery-card-image {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%234CAF50"/><circle cx="200" cy="80" r="30" fill="%23FFF" opacity="0.3"/><rect x="180" y="120" width="40" height="80" fill="%238B4513"/><polygon points="150,200 250,200 220,160 180,160" fill="%23654321"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Scout Camp</text></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%234CAF50"/><circle cx="200" cy="80" r="30" fill="%23FFF" opacity="0.3"/><rect x="180" y="120" width="40" height="80" fill="%238B4513"/><polygon points="150,200 250,200 220,160 180,160" fill="%23654321"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Scout Camp</text></svg>');
 }
 
 .gallery-card:nth-child(2) .gallery-card-image {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%23FF5722"/><circle cx="200" cy="120" r="40" fill="%23FF8A65" opacity="0.8"/><circle cx="150" cy="100" r="15" fill="%23FFB74D"/><circle cx="250" cy="140" r="20" fill="%23FFB74D"/><circle cx="200" cy="80" r="8" fill="%23FFF59D"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Campfire</text></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%23FF5722"/><circle cx="200" cy="120" r="40" fill="%23FF8A65" opacity="0.8"/><circle cx="150" cy="100" r="15" fill="%23FFB74D"/><circle cx="250" cy="140" r="20" fill="%23FFB74D"/><circle cx="200" cy="80" r="8" fill="%23FFF59D"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Campfire</text></svg>');
 }
 
 .gallery-card:nth-child(3) .gallery-card-image {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%232196F3"/><rect x="50" y="100" width="80" height="60" fill="%23FFF" stroke="%23333" stroke-width="2"/><rect x="150" y="120" width="80" height="40" fill="%23FFF" stroke="%23333" stroke-width="2"/><rect x="250" y="80" width="80" height="80" fill="%23FFF" stroke="%23333" stroke-width="2"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Programming</text></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%232196F3"/><rect x="50" y="100" width="80" height="60" fill="%23FFF" stroke="%23333" stroke-width="2"/><rect x="150" y="120" width="80" height="40" fill="%23FFF" stroke="%23333" stroke-width="2"/><rect x="250" y="80" width="80" height="80" fill="%23FFF" stroke="%23333" stroke-width="2"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Programming</text></svg>');
 }
 
 .gallery-card:nth-child(4) .gallery-card-image {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%234CAF50"/><polygon points="100,200 150,100 200,140 250,80 300,200" fill="%232E7D32"/><polygon points="120,200 170,120 220,150 270,90 320,200" fill="%238BC34A"/><circle cx="320" cy="60" r="25" fill="%23FFEB3B" opacity="0.8"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Forest Camp</text></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%234CAF50"/><polygon points="100,200 150,100 200,140 250,80 300,200" fill="%232E7D32"/><polygon points="120,200 170,120 220,150 270,90 320,200" fill="%238BC34A"/><circle cx="320" cy="60" r="25" fill="%23FFEB3B" opacity="0.8"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Forest Camp</text></svg>');
 }
 
 .gallery-card:nth-child(5) .gallery-card-image {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%23E91E63"/><circle cx="120" cy="80" r="25" fill="%23FFF"/><circle cx="200" cy="100" r="25" fill="%23FFF"/><circle cx="280" cy="120" r="25" fill="%23FFF"/><circle cx="160" cy="150" r="25" fill="%23FFF"/><circle cx="240" cy="170" r="25" fill="%23FFF"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Kids Camp</text></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%23E91E63"/><circle cx="120" cy="80" r="25" fill="%23FFF"/><circle cx="200" cy="100" r="25" fill="%23FFF"/><circle cx="280" cy="120" r="25" fill="%23FFF"/><circle cx="160" cy="150" r="25" fill="%23FFF"/><circle cx="240" cy="170" r="25" fill="%23FFF"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Kids Camp</text></svg>');
 }
 
 .gallery-card:nth-child(6) .gallery-card-image {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%23673AB7"/><polygon points="50,200 150,50 250,80 350,200" fill="%239C27B0"/><polygon points="80,200 180,70 280,100 380,200" fill="%23BA68C8"/><circle cx="300" cy="40" r="20" fill="%23FFEB3B" opacity="0.9"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Mountain Camp</text></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%23673AB7"/><polygon points="50,200 150,50 250,80 350,200" fill="%239C27B0"/><polygon points="80,200 180,70 280,100 380,200" fill="%23BA68C8"/><circle cx="300" cy="40" r="20" fill="%23FFEB3B" opacity="0.9"/><text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Mountain Camp</text></svg>');
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 10px;
-  }
-  
-  .camp-gallery .section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-  
-  .gallery-card-image {
-    height: 200px;
-  }
-  
-  .gallery-card-content {
-    padding: 20px;
-  }
-  
-  .gallery-card-title {
-    font-size: 1.2rem;
-  }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .camp-gallery .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .gallery-card-image {
+        height: 200px;
+    }
+
+    .gallery-card-content {
+        padding: 20px;
+    }
+
+    .gallery-card-title {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
-  .camp-gallery {
-    padding: 40px 0;
-  }
-  
-  .camp-gallery .section-container {
-    padding: 0 15px;
-  }
-  
-  .gallery-card-image {
-    height: 180px;
-  }
-  
-  .gallery-card-content {
-    padding: 16px;
-  }
+    .camp-gallery {
+        padding: 40px 0;
+    }
+
+    .camp-gallery .section-container {
+        padding: 0 15px;
+    }
+
+    .gallery-card-image {
+        height: 180px;
+    }
+
+    .gallery-card-content {
+        padding: 16px;
+    }
 }
 
 /* Optional: Add loading animation */
 .gallery-card {
-  animation: fadeInUp 0.6s ease forwards;
-  opacity: 0;
-  transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
 }
 
-.gallery-card:nth-child(1) { animation-delay: 0.1s; }
-.gallery-card:nth-child(2) { animation-delay: 0.2s; }
-.gallery-card:nth-child(3) { animation-delay: 0.3s; }
-.gallery-card:nth-child(4) { animation-delay: 0.4s; }
-.gallery-card:nth-child(5) { animation-delay: 0.5s; }
-.gallery-card:nth-child(6) { animation-delay: 0.6s; }
+.gallery-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.gallery-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.gallery-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.gallery-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.gallery-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.gallery-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
 
 @keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /*************************************************************************/
 
 /* Base icon styling */
 .type-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 16px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Sport Icon - Soccer Ball */
 .sport-icon {
-  background: #fff;
-  border-radius: 50%;
-  border: 3px solid #333;
-  position: relative;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid #333;
+    position: relative;
 }
 
 .sport-icon::before {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #333;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #333;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .sport-icon::after {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border: 2px solid #333;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: transparent;
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
 }
 
 /* Art Icon - Paintbrush */
 .art-icon {
-  background: linear-gradient(45deg, #8B4513 0%, #8B4513 60%, #FFD700 60%, #FFD700 100%);
-  border-radius: 4px 4px 50% 50%;
-  position: relative;
+    background: linear-gradient(45deg, #8B4513 0%, #8B4513 60%, #FFD700 60%, #FFD700 100%);
+    border-radius: 4px 4px 50% 50%;
+    position: relative;
 }
 
 .art-icon::before {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 20px;
-  background: #CD853F;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 4px 4px 0 0;
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 20px;
+    background: #CD853F;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px 4px 0 0;
 }
 
 .art-icon::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 4px;
-  background: #FF6B6B;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background: #FF6B6B;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 /* Science Icon - Flask */
 .science-icon {
-  background: linear-gradient(to bottom, transparent 40%, #4ECDC4 40%);
-  border: 3px solid #333;
-  border-radius: 0 0 50% 50%;
-  position: relative;
+    background: linear-gradient(to bottom, transparent 40%, #4ECDC4 40%);
+    border: 3px solid #333;
+    border-radius: 0 0 50% 50%;
+    position: relative;
 }
 
 .science-icon::before {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 25px;
-  background: #333;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px 2px 0 0;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 25px;
+    background: #333;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px 2px 0 0;
 }
 
 .science-icon::after {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #FFE66D;
-  border-radius: 50%;
-  bottom: 15px;
-  left: 30%;
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FFE66D;
+    border-radius: 50%;
+    bottom: 15px;
+    left: 30%;
 }
 
 /* Scout Icon - Badge/Shield */
 .scout-icon {
-  background: #4CAF50;
-  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-  position: relative;
+    background: #4CAF50;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    position: relative;
 }
 
 .scout-icon::before {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #FFD700;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #FFD700;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
 /* Hiking Icon - Mountain */
 .hiking-icon {
-  background: linear-gradient(135deg, #8BC34A 0%, #4CAF50 50%, #2E7D32 100%);
-  clip-path: polygon(0% 100%, 30% 20%, 50% 40%, 70% 10%, 100% 100%);
-  position: relative;
+    background: linear-gradient(135deg, #8BC34A 0%, #4CAF50 50%, #2E7D32 100%);
+    clip-path: polygon(0% 100%, 30% 20%, 50% 40%, 70% 10%, 100% 100%);
+    position: relative;
 }
 
 .hiking-icon::before {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: #FFF;
-  border-radius: 50%;
-  top: 15px;
-  right: 20px;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #FFF;
+    border-radius: 50%;
+    top: 15px;
+    right: 20px;
 }
 
 /* Sailing Icon - Sailboat */
 .sailing-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .sailing-icon::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 0px solid transparent;
-  border-bottom: 30px solid #2196F3;
-  top: 10px;
-  left: 20px;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 30px solid #2196F3;
+    top: 10px;
+    left: 20px;
 }
 
 .sailing-icon::after {
-  content: '';
-  position: absolute;
-  width: 40px;
-  height: 4px;
-  background: #8B4513;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: #8B4513;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 /* Dance Icon - Musical Note */
 .dance-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .dance-icon::before {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #E91E63;
-  border-radius: 50%;
-  bottom: 15px;
-  left: 20px;
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #E91E63;
+    border-radius: 50%;
+    bottom: 15px;
+    left: 20px;
 }
 
 .dance-icon::after {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 35px;
-  background: #E91E63;
-  bottom: 25px;
-  right: 20px;
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 35px;
+    background: #E91E63;
+    bottom: 25px;
+    right: 20px;
+    border-radius: 2px;
 }
 
 /* Drama Icon - Theater Masks */
 .drama-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .drama-icon::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #FFF;
-  border: 3px solid #333;
-  border-radius: 50% 50% 70% 30%;
-  top: 15px;
-  left: 8px;
-  transform: rotate(-10deg);
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #FFF;
+    border: 3px solid #333;
+    border-radius: 50% 50% 70% 30%;
+    top: 15px;
+    left: 8px;
+    transform: rotate(-10deg);
 }
 
 .drama-icon::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #FFF;
-  border: 3px solid #333;
-  border-radius: 50% 50% 30% 70%;
-  top: 15px;
-  right: 8px;
-  transform: rotate(10deg);
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #FFF;
+    border: 3px solid #333;
+    border-radius: 50% 50% 30% 70%;
+    top: 15px;
+    right: 8px;
+    transform: rotate(10deg);
 }
 
 /* Religion Icon - Cross */
 .religion-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .religion-icon::before {
-  content: '';
-  position: absolute;
-  width: 6px;
-  height: 40px;
-  background: #9C27B0;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 3px;
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    background: #9C27B0;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
 }
 
 .religion-icon::after {
-  content: '';
-  position: absolute;
-  width: 24px;
-  height: 6px;
-  background: #9C27B0;
-  top: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 3px;
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 6px;
+    background: #9C27B0;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
 }
 
 /* Programming Icon - Code Brackets */
 .programming-icon {
-  position: relative;
-  background: transparent;
-  color: #00BCD4;
+    position: relative;
+    background: transparent;
+    color: #00BCD4;
 }
 
 .programming-icon::before {
-  content: '{ }';
-  position: absolute;
-  font-size: 24px;
-  font-weight: bold;
-  color: #00BCD4;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: monospace;
+    content: '{ }';
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: #00BCD4;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: monospace;
 }
 
 /* Math Icon - Pi Symbol */
 .math-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .math-icon::before {
-  content: 'π';
-  position: absolute;
-  font-size: 32px;
-  font-weight: bold;
-  color: #FF9800;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: serif;
+    content: 'π';
+    position: absolute;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FF9800;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: serif;
 }
 
 /* Robotics Icon - Robot Head */
 .robotics-icon {
-  background: #607D8B;
-  border-radius: 8px;
-  position: relative;
+    background: #607D8B;
+    border-radius: 8px;
+    position: relative;
 }
 
 .robotics-icon::before {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #00E676;
-  border-radius: 50%;
-  top: 18px;
-  left: 16px;
-  box-shadow: 20px 0 0 #00E676;
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #00E676;
+    border-radius: 50%;
+    top: 18px;
+    left: 16px;
+    box-shadow: 20px 0 0 #00E676;
 }
 
 .robotics-icon::after {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 4px;
-  background: #333;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 4px;
+    background: #333;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 /* Browse All Icon - Grid */
 .browse-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .browse-icon::before {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: #795548;
-  top: 12px;
-  left: 12px;
-  border-radius: 2px;
-  box-shadow: 
-    18px 0 0 #795548,
-    0 18px 0 #795548,
-    18px 18px 0 #795548;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #795548;
+    top: 12px;
+    left: 12px;
+    border-radius: 2px;
+    box-shadow:
+        18px 0 0 #795548,
+        0 18px 0 #795548,
+        18px 18px 0 #795548;
 }
 
 /* Hover effects */
 .type-card:hover .type-icon {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 /* Color variations for different themes */
-.type-card:hover .sport-icon { filter: hue-rotate(20deg); }
-.type-card:hover .art-icon { filter: brightness(1.1); }
-.type-card:hover .science-icon { filter: hue-rotate(-20deg); }
-.type-card:hover .scout-icon { filter: brightness(1.2); }
-.type-card:hover .hiking-icon { filter: saturate(1.3); }
-.type-card:hover .sailing-icon::before { border-bottom-color: #1976D2; }
+.type-card:hover .sport-icon {
+    filter: hue-rotate(20deg);
+}
+
+.type-card:hover .art-icon {
+    filter: brightness(1.1);
+}
+
+.type-card:hover .science-icon {
+    filter: hue-rotate(-20deg);
+}
+
+.type-card:hover .scout-icon {
+    filter: brightness(1.2);
+}
+
+.type-card:hover .hiking-icon {
+    filter: saturate(1.3);
+}
+
+.type-card:hover .sailing-icon::before {
+    border-bottom-color: #1976D2;
+}
+
 .type-card:hover .dance-icon::before,
-.type-card:hover .dance-icon::after { background: #C2185B; }
+.type-card:hover .dance-icon::after {
+    background: #C2185B;
+}
+
 .type-card:hover .drama-icon::before,
-.type-card:hover .drama-icon::after { border-color: #1976D2; }
+.type-card:hover .drama-icon::after {
+    border-color: #1976D2;
+}
+
 .type-card:hover .religion-icon::before,
-.type-card:hover .religion-icon::after { background: #7B1FA2; }
-.type-card:hover .programming-icon::before { color: #0097A7; }
-.type-card:hover .math-icon::before { color: #F57C00; }
-.type-card:hover .robotics-icon { background: #546E7A; }
-.type-card:hover .browse-icon::before { 
-  background: #5D4037;
-  box-shadow: 
-    18px 0 0 #5D4037,
-    0 18px 0 #5D4037,
-    18px 18px 0 #5D4037;
+.type-card:hover .religion-icon::after {
+    background: #7B1FA2;
+}
+
+.type-card:hover .programming-icon::before {
+    color: #0097A7;
+}
+
+.type-card:hover .math-icon::before {
+    color: #F57C00;
+}
+
+.type-card:hover .robotics-icon {
+    background: #546E7A;
+}
+
+.type-card:hover .browse-icon::before {
+    background: #5D4037;
+    box-shadow:
+        18px 0 0 #5D4037,
+        0 18px 0 #5D4037,
+        18px 18px 0 #5D4037;
 }
 
 /* Camp Types Section Layout */
 .camp-types {
-  padding: 60px 0;
-  width: 100%;
+    padding: 60px 0;
+    width: 100%;
 }
 
 .section-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #2d3748;
-  margin-bottom: 50px;
-  text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 /* Type Cards Grid */
 .type-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  justify-content: center;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 /* Individual Type Card */
 .type-card {
-  background: white;
-  border-radius: 16px;
-  padding: 32px 24px;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    background: white;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .type-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.1;
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.type-card > * {
-  position: relative;
-  z-index: 1;
+.type-card>* {
+    position: relative;
+    z-index: 1;
 }
 
 .type-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .type-card h3 {
-  margin: 16px 0 0 0;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #2d3748;
-  text-align: center;
+    margin: 16px 0 0 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3748;
+    text-align: center;
 }
 
 /* Custom backgrounds for each camp type */
-.type-card:nth-child(1)::before { /* Sport */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%234CAF50"/><circle cx="200" cy="100" r="60" fill="%23FFF" opacity="0.3"/><circle cx="200" cy="100" r="40" fill="%23333" opacity="0.2"/></svg>');
+.type-card:nth-child(1)::before {
+    /* Sport */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%234CAF50"/><circle cx="200" cy="100" r="60" fill="%23FFF" opacity="0.3"/><circle cx="200" cy="100" r="40" fill="%23333" opacity="0.2"/></svg>');
 }
 
-.type-card:nth-child(2)::before { /* Art */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23E91E63"/><circle cx="100" cy="60" r="30" fill="%23FFB74D" opacity="0.4"/><circle cx="300" cy="140" r="40" fill="%234CAF50" opacity="0.4"/><circle cx="200" cy="100" r="35" fill="%232196F3" opacity="0.4"/></svg>');
+.type-card:nth-child(2)::before {
+    /* Art */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23E91E63"/><circle cx="100" cy="60" r="30" fill="%23FFB74D" opacity="0.4"/><circle cx="300" cy="140" r="40" fill="%234CAF50" opacity="0.4"/><circle cx="200" cy="100" r="35" fill="%232196F3" opacity="0.4"/></svg>');
 }
 
-.type-card:nth-child(3)::before { /* Science */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%234ECDC4"/><circle cx="150" cy="80" r="20" fill="%23FFF" opacity="0.6"/><circle cx="250" cy="120" r="25" fill="%23FFD700" opacity="0.5"/><circle cx="200" cy="60" r="15" fill="%23FF6B6B" opacity="0.5"/></svg>');
+.type-card:nth-child(3)::before {
+    /* Science */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%234ECDC4"/><circle cx="150" cy="80" r="20" fill="%23FFF" opacity="0.6"/><circle cx="250" cy="120" r="25" fill="%23FFD700" opacity="0.5"/><circle cx="200" cy="60" r="15" fill="%23FF6B6B" opacity="0.5"/></svg>');
 }
 
-.type-card:nth-child(4)::before { /* Scout */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%234CAF50"/><polygon points="150,160 200,60 250,160" fill="%232E7D32" opacity="0.4"/><polygon points="100,160 150,80 200,160" fill="%238BC34A" opacity="0.4"/><polygon points="250,160 300,80 350,160" fill="%238BC34A" opacity="0.4"/></svg>');
+.type-card:nth-child(4)::before {
+    /* Scout */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%234CAF50"/><polygon points="150,160 200,60 250,160" fill="%232E7D32" opacity="0.4"/><polygon points="100,160 150,80 200,160" fill="%238BC34A" opacity="0.4"/><polygon points="250,160 300,80 350,160" fill="%238BC34A" opacity="0.4"/></svg>');
 }
 
-.type-card:nth-child(5)::before { /* Hiking */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%238BC34A"/><polygon points="50,180 120,50 180,90 250,40 320,80 400,180" fill="%234CAF50" opacity="0.6"/><circle cx="320" cy="40" r="20" fill="%23FFEB3B" opacity="0.8"/></svg>');
+.type-card:nth-child(5)::before {
+    /* Hiking */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%238BC34A"/><polygon points="50,180 120,50 180,90 250,40 320,80 400,180" fill="%234CAF50" opacity="0.6"/><circle cx="320" cy="40" r="20" fill="%23FFEB3B" opacity="0.8"/></svg>');
 }
 
-.type-card:nth-child(6)::before { /* Sailing */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%232196F3"/><polygon points="0,140 400,140 400,200 0,200" fill="%231976D2" opacity="0.6"/><circle cx="100" cy="60" r="15" fill="%23FFF" opacity="0.7"/><circle cx="300" cy="80" r="20" fill="%23FFF" opacity="0.5"/></svg>');
+.type-card:nth-child(6)::before {
+    /* Sailing */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%232196F3"/><polygon points="0,140 400,140 400,200 0,200" fill="%231976D2" opacity="0.6"/><circle cx="100" cy="60" r="15" fill="%23FFF" opacity="0.7"/><circle cx="300" cy="80" r="20" fill="%23FFF" opacity="0.5"/></svg>');
 }
 
-.type-card:nth-child(7)::before { /* Dance */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23E91E63"/><circle cx="120" cy="70" r="25" fill="%23F48FB1" opacity="0.6"/><circle cx="280" cy="130" r="30" fill="%23F48FB1" opacity="0.4"/><circle cx="200" cy="100" r="20" fill="%23FCE4EC" opacity="0.8"/></svg>');
+.type-card:nth-child(7)::before {
+    /* Dance */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23E91E63"/><circle cx="120" cy="70" r="25" fill="%23F48FB1" opacity="0.6"/><circle cx="280" cy="130" r="30" fill="%23F48FB1" opacity="0.4"/><circle cx="200" cy="100" r="20" fill="%23FCE4EC" opacity="0.8"/></svg>');
 }
 
-.type-card:nth-child(8)::before { /* Drama */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%239C27B0"/><rect x="80" y="60" width="60" height="80" fill="%23BA68C8" opacity="0.5"/><rect x="260" y="60" width="60" height="80" fill="%23BA68C8" opacity="0.5"/><circle cx="200" cy="50" r="30" fill="%23E1BEE7" opacity="0.6"/></svg>');
+.type-card:nth-child(8)::before {
+    /* Drama */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%239C27B0"/><rect x="80" y="60" width="60" height="80" fill="%23BA68C8" opacity="0.5"/><rect x="260" y="60" width="60" height="80" fill="%23BA68C8" opacity="0.5"/><circle cx="200" cy="50" r="30" fill="%23E1BEE7" opacity="0.6"/></svg>');
 }
 
-.type-card:nth-child(9)::before { /* Religion */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%239C27B0"/><circle cx="200" cy="100" r="80" fill="%23BA68C8" opacity="0.3"/><circle cx="200" cy="100" r="50" fill="%23E1BEE7" opacity="0.4"/></svg>');
+.type-card:nth-child(9)::before {
+    /* Religion */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%239C27B0"/><circle cx="200" cy="100" r="80" fill="%23BA68C8" opacity="0.3"/><circle cx="200" cy="100" r="50" fill="%23E1BEE7" opacity="0.4"/></svg>');
 }
 
-.type-card:nth-child(10)::before { /* Programming */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%2300BCD4"/><rect x="50" y="50" width="80" height="40" fill="%2300ACC1" opacity="0.6"/><rect x="170" y="80" width="80" height="40" fill="%2300ACC1" opacity="0.6"/><rect x="290" y="110" width="80" height="40" fill="%2300ACC1" opacity="0.6"/></svg>');
+.type-card:nth-child(10)::before {
+    /* Programming */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%2300BCD4"/><rect x="50" y="50" width="80" height="40" fill="%2300ACC1" opacity="0.6"/><rect x="170" y="80" width="80" height="40" fill="%2300ACC1" opacity="0.6"/><rect x="290" y="110" width="80" height="40" fill="%2300ACC1" opacity="0.6"/></svg>');
 }
 
-.type-card:nth-child(11)::before { /* Math */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23FF9800"/><circle cx="150" cy="80" r="35" fill="%23FFB74D" opacity="0.5"/><circle cx="250" cy="120" r="40" fill="%23FFB74D" opacity="0.3"/><rect x="100" y="140" width="200" height="4" fill="%23FFF" opacity="0.6"/></svg>');
+.type-card:nth-child(11)::before {
+    /* Math */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23FF9800"/><circle cx="150" cy="80" r="35" fill="%23FFB74D" opacity="0.5"/><circle cx="250" cy="120" r="40" fill="%23FFB74D" opacity="0.3"/><rect x="100" y="140" width="200" height="4" fill="%23FFF" opacity="0.6"/></svg>');
 }
 
-.type-card:nth-child(12)::before { /* Robotics */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23607D8B"/><rect x="120" y="60" width="60" height="60" fill="%2378909C" opacity="0.6"/><rect x="220" y="80" width="60" height="60" fill="%2378909C" opacity="0.6"/><circle cx="100" cy="40" r="15" fill="%2300E676" opacity="0.8"/><circle cx="300" cy="160" r="20" fill="%2300E676" opacity="0.6"/></svg>');
+.type-card:nth-child(12)::before {
+    /* Robotics */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23607D8B"/><rect x="120" y="60" width="60" height="60" fill="%2378909C" opacity="0.6"/><rect x="220" y="80" width="60" height="60" fill="%2378909C" opacity="0.6"/><circle cx="100" cy="40" r="15" fill="%2300E676" opacity="0.8"/><circle cx="300" cy="160" r="20" fill="%2300E676" opacity="0.6"/></svg>');
 }
 
-.type-card:nth-child(13)::before { /* Browse All */
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23795548"/><rect x="80" y="60" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="150" y="60" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="220" y="60" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="290" y="60" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="80" y="130" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="150" y="130" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="220" y="130" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="290" y="130" width="50" height="50" fill="%238D6E63" opacity="0.6"/></svg>');
+.type-card:nth-child(13)::before {
+    /* Browse All */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23795548"/><rect x="80" y="60" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="150" y="60" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="220" y="60" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="290" y="60" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="80" y="130" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="150" y="130" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="220" y="130" width="50" height="50" fill="%238D6E63" opacity="0.6"/><rect x="290" y="130" width="50" height="50" fill="%238D6E63" opacity="0.6"/></svg>');
 }
 
 /* Base icon styling */
 .type-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 16px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Sport Icon - Soccer Ball */
 .sport-icon {
-  background: #fff;
-  border-radius: 50%;
-  border: 3px solid #333;
-  position: relative;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid #333;
+    position: relative;
 }
 
 .sport-icon::before {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #333;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #333;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .sport-icon::after {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border: 2px solid #333;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: transparent;
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
 }
 
 /* Art Icon - Paintbrush */
 .art-icon {
-  background: linear-gradient(45deg, #8B4513 0%, #8B4513 60%, #FFD700 60%, #FFD700 100%);
-  border-radius: 4px 4px 50% 50%;
-  position: relative;
+    background: linear-gradient(45deg, #8B4513 0%, #8B4513 60%, #FFD700 60%, #FFD700 100%);
+    border-radius: 4px 4px 50% 50%;
+    position: relative;
 }
 
 .art-icon::before {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 20px;
-  background: #CD853F;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 4px 4px 0 0;
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 20px;
+    background: #CD853F;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px 4px 0 0;
 }
 
 .art-icon::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 4px;
-  background: #FF6B6B;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background: #FF6B6B;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 /* Science Icon - Flask */
 .science-icon {
-  background: linear-gradient(to bottom, transparent 40%, #4ECDC4 40%);
-  border: 3px solid #333;
-  border-radius: 0 0 50% 50%;
-  position: relative;
+    background: linear-gradient(to bottom, transparent 40%, #4ECDC4 40%);
+    border: 3px solid #333;
+    border-radius: 0 0 50% 50%;
+    position: relative;
 }
 
 .science-icon::before {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 25px;
-  background: #333;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px 2px 0 0;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 25px;
+    background: #333;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px 2px 0 0;
 }
 
 .science-icon::after {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #FFE66D;
-  border-radius: 50%;
-  bottom: 15px;
-  left: 30%;
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FFE66D;
+    border-radius: 50%;
+    bottom: 15px;
+    left: 30%;
 }
 
 /* Scout Icon - Badge/Shield */
 .scout-icon {
-  background: #4CAF50;
-  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-  position: relative;
+    background: #4CAF50;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    position: relative;
 }
 
 .scout-icon::before {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #FFD700;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #FFD700;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
 /* Hiking Icon - Mountain */
 .hiking-icon {
-  background: linear-gradient(135deg, #8BC34A 0%, #4CAF50 50%, #2E7D32 100%);
-  clip-path: polygon(0% 100%, 30% 20%, 50% 40%, 70% 10%, 100% 100%);
-  position: relative;
+    background: linear-gradient(135deg, #8BC34A 0%, #4CAF50 50%, #2E7D32 100%);
+    clip-path: polygon(0% 100%, 30% 20%, 50% 40%, 70% 10%, 100% 100%);
+    position: relative;
 }
 
 .hiking-icon::before {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: #FFF;
-  border-radius: 50%;
-  top: 15px;
-  right: 20px;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #FFF;
+    border-radius: 50%;
+    top: 15px;
+    right: 20px;
 }
 
 /* Sailing Icon - Sailboat */
 .sailing-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .sailing-icon::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 0px solid transparent;
-  border-bottom: 30px solid #2196F3;
-  top: 10px;
-  left: 20px;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 30px solid #2196F3;
+    top: 10px;
+    left: 20px;
 }
 
 .sailing-icon::after {
-  content: '';
-  position: absolute;
-  width: 40px;
-  height: 4px;
-  background: #8B4513;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: #8B4513;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 /* Dance Icon - Musical Note */
 .dance-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .dance-icon::before {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #E91E63;
-  border-radius: 50%;
-  bottom: 15px;
-  left: 20px;
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #E91E63;
+    border-radius: 50%;
+    bottom: 15px;
+    left: 20px;
 }
 
 .dance-icon::after {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 35px;
-  background: #E91E63;
-  bottom: 25px;
-  right: 20px;
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 35px;
+    background: #E91E63;
+    bottom: 25px;
+    right: 20px;
+    border-radius: 2px;
 }
 
 /* Drama Icon - Theater Masks */
 .drama-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .drama-icon::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #FFF;
-  border: 3px solid #333;
-  border-radius: 50% 50% 70% 30%;
-  top: 15px;
-  left: 8px;
-  transform: rotate(-10deg);
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #FFF;
+    border: 3px solid #333;
+    border-radius: 50% 50% 70% 30%;
+    top: 15px;
+    left: 8px;
+    transform: rotate(-10deg);
 }
 
 .drama-icon::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #FFF;
-  border: 3px solid #333;
-  border-radius: 50% 50% 30% 70%;
-  top: 15px;
-  right: 8px;
-  transform: rotate(10deg);
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #FFF;
+    border: 3px solid #333;
+    border-radius: 50% 50% 30% 70%;
+    top: 15px;
+    right: 8px;
+    transform: rotate(10deg);
 }
 
 /* Religion Icon - Cross */
 .religion-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .religion-icon::before {
-  content: '';
-  position: absolute;
-  width: 6px;
-  height: 40px;
-  background: #9C27B0;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 3px;
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    background: #9C27B0;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
 }
 
 .religion-icon::after {
-  content: '';
-  position: absolute;
-  width: 24px;
-  height: 6px;
-  background: #9C27B0;
-  top: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 3px;
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 6px;
+    background: #9C27B0;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
 }
 
 /* Programming Icon - Code Brackets */
 .programming-icon {
-  position: relative;
-  background: transparent;
-  color: #00BCD4;
+    position: relative;
+    background: transparent;
+    color: #00BCD4;
 }
 
 .programming-icon::before {
-  content: '{ }';
-  position: absolute;
-  font-size: 24px;
-  font-weight: bold;
-  color: #00BCD4;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: monospace;
+    content: '{ }';
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: #00BCD4;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: monospace;
 }
 
 /* Math Icon - Pi Symbol */
 .math-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .math-icon::before {
-  content: 'π';
-  position: absolute;
-  font-size: 32px;
-  font-weight: bold;
-  color: #FF9800;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: serif;
+    content: 'π';
+    position: absolute;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FF9800;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: serif;
 }
 
 /* Robotics Icon - Robot Head */
 .robotics-icon {
-  background: #607D8B;
-  border-radius: 8px;
-  position: relative;
+    background: #607D8B;
+    border-radius: 8px;
+    position: relative;
 }
 
 .robotics-icon::before {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #00E676;
-  border-radius: 50%;
-  top: 18px;
-  left: 16px;
-  box-shadow: 20px 0 0 #00E676;
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #00E676;
+    border-radius: 50%;
+    top: 18px;
+    left: 16px;
+    box-shadow: 20px 0 0 #00E676;
 }
 
 .robotics-icon::after {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 4px;
-  background: #333;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 4px;
+    background: #333;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 /* Browse All Icon - Grid */
 .browse-icon {
-  position: relative;
-  background: transparent;
+    position: relative;
+    background: transparent;
 }
 
 .browse-icon::before {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: #795548;
-  top: 12px;
-  left: 12px;
-  border-radius: 2px;
-  box-shadow: 
-    18px 0 0 #795548,
-    0 18px 0 #795548,
-    18px 18px 0 #795548;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #795548;
+    top: 12px;
+    left: 12px;
+    border-radius: 2px;
+    box-shadow:
+        18px 0 0 #795548,
+        0 18px 0 #795548,
+        18px 18px 0 #795548;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .type-cards {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-  
-  .type-card {
-    padding: 24px 16px;
-    min-height: 180px;
-  }
+    .type-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .type-card {
+        padding: 24px 16px;
+        min-height: 180px;
+    }
 }
 
 @media (max-width: 480px) {
-  .type-cards {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  
-  .camp-types {
-    padding: 40px 0;
-  }
-  
-  .section-container {
-    padding: 0 15px;
-  }
-  
-  .type-card {
-    padding: 20px;
-    min-height: 160px;
-  }
-  
-  .type-card h3 {
-    font-size: 1.1rem;
-  }
+    .type-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .camp-types {
+        padding: 40px 0;
+    }
+
+    .section-container {
+        padding: 0 15px;
+    }
+
+    .type-card {
+        padding: 20px;
+        min-height: 160px;
+    }
+
+    .type-card h3 {
+        font-size: 1.1rem;
+    }
 }
 
 /* Hover effects */
 .type-card:hover .type-icon {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 /* Color variations for different themes */
-.type-card:hover .sport-icon { filter: hue-rotate(20deg); }
-.type-card:hover .art-icon { filter: brightness(1.1); }
-.type-card:hover .science-icon { filter: hue-rotate(-20deg); }
-.type-card:hover .scout-icon { filter: brightness(1.2); }
-.type-card:hover .hiking-icon { filter: saturate(1.3); }
-.type-card:hover .sailing-icon::before { border-bottom-color: #1976D2; }
+.type-card:hover .sport-icon {
+    filter: hue-rotate(20deg);
+}
+
+.type-card:hover .art-icon {
+    filter: brightness(1.1);
+}
+
+.type-card:hover .science-icon {
+    filter: hue-rotate(-20deg);
+}
+
+.type-card:hover .scout-icon {
+    filter: brightness(1.2);
+}
+
+.type-card:hover .hiking-icon {
+    filter: saturate(1.3);
+}
+
+.type-card:hover .sailing-icon::before {
+    border-bottom-color: #1976D2;
+}
+
 .type-card:hover .dance-icon::before,
-.type-card:hover .dance-icon::after { background: #C2185B; }
+.type-card:hover .dance-icon::after {
+    background: #C2185B;
+}
+
 .type-card:hover .drama-icon::before,
-.type-card:hover .drama-icon::after { border-color: #1976D2; }
+.type-card:hover .drama-icon::after {
+    border-color: #1976D2;
+}
+
 .type-card:hover .religion-icon::before,
-.type-card:hover .religion-icon::after { background: #7B1FA2; }
-.type-card:hover .programming-icon::before { color: #0097A7; }
-.type-card:hover .math-icon::before { color: #F57C00; }
-.type-card:hover .robotics-icon { background: #546E7A; }
-.type-card:hover .browse-icon::before { 
-  background: #5D4037;
-  box-shadow: 
-    18px 0 0 #5D4037,
-    0 18px 0 #5D4037,
-    18px 18px 0 #5D4037;
+.type-card:hover .religion-icon::after {
+    background: #7B1FA2;
+}
+
+.type-card:hover .programming-icon::before {
+    color: #0097A7;
+}
+
+.type-card:hover .math-icon::before {
+    color: #F57C00;
+}
+
+.type-card:hover .robotics-icon {
+    background: #546E7A;
+}
+
+.type-card:hover .browse-icon::before {
+    background: #5D4037;
+    box-shadow:
+        18px 0 0 #5D4037,
+        0 18px 0 #5D4037,
+        18px 18px 0 #5D4037;
+}
+
+.giga-draft-camp-wrapper {
+    margin-bottom: 100px;
+    .draft-camp-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+    }
+
+    .header {
+        background: linear-gradient(45deg, #4CAF50, #45a049);
+        color: white;
+        padding: 30px;
+        text-align: center;
+        position: relative;
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .header p {
+        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+    }
+
+    .form-container {
+        padding: 40px;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e1e1e1;
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: #4CAF50;
+        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .create-btn,
+    .update-btn {
+        width: 100%;
+        padding: 18px;
+        background: linear-gradient(45deg, #4CAF50, #45a049);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .update-btn {
+        background: linear-gradient(45deg, #FF9800, #F57C00);
+    }
+
+    .cancel-btn {
+        width: 100%;
+        padding: 18px;
+        background: linear-gradient(45deg, #757575, #616161);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 10px;
+    }
+
+    .create-btn::before,
+    .update-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .create-btn:hover,
+    .update-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+    }
+
+    .update-btn:hover {
+        box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);
+    }
+
+    .create-btn:hover::before,
+    .update-btn:hover::before {
+        left: 100%;
+    }
+
+    .create-btn:active,
+    .update-btn:active {
+        transform: translateY(-1px);
+    }
+
+    .success-message {
+        display: none;
+        background: linear-gradient(45deg, #4CAF50, #45a049);
+        color: white;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 20px;
+        text-align: center;
+        animation: slideIn 0.5s ease;
+    }
+
+    .success-message.show {
+        display: block;
+    }
+
+    .draft-list {
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 2px solid #e1e1e1;
+    }
+
+    .draft-item {
+        background: rgba(76, 175, 80, 0.1);
+        border: 1px solid rgba(76, 175, 80, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .draft-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .draft-item h3 {
+        color: #2e7d32;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    .draft-item p {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .camp-type-badge {
+        display: inline-block;
+        background: linear-gradient(45deg, #4CAF50, #45a049);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+
+    .action-buttons {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+
+    .edit-btn {
+        background: linear-gradient(45deg, #FF9800, #F57C00);
+        color: white;
+    }
+
+    .delete-btn {
+        background: linear-gradient(45deg, #F44336, #D32F2F);
+        color: white;
+    }
+
+    .edit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+    }
+
+    .delete-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 30px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .modal h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .modal p {
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+    }
+
+    .modal-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .confirm-btn {
+        padding: 12px 24px;
+        background: linear-gradient(45deg, #F44336, #D32F2F);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .cancel-modal-btn {
+        padding: 12px 24px;
+        background: linear-gradient(45deg, #757575, #616161);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .editing-mode {
+        border: 2px solid #FF9800;
+        background: rgba(255, 152, 0, 0.1);
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+        }
+
+        .form-container {
+            padding: 20px;
+        }
+
+        .action-buttons {
+            position: static;
+            margin-top: 15px;
+            justify-content: flex-end;
+        }
+
+        .modal-buttons {
+            flex-direction: column;
+        }
+    }
 }
