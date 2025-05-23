@@ -16,6 +16,7 @@ akkor hostolja a weben (terminálban kiírja, hogy melyik URL-en)
 
 **Webfejlesztési keretrendszerek projektmunka**  
 Nyári tábor foglaló alkalmazás
+` npm install @angular/cli` kiadása szükséges abban a mappában, ahol az angular.json van
 
 # GitHub link:
 ## https://github.com/Fabbernat/Mobilalkfejl-nyari-tabor-foglalo
