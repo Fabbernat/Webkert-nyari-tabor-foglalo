@@ -12,6 +12,8 @@
   <button mat-flat-button color="accent" [routerLink]="['/profile']" class="tasks">Profilom</button>
   }
 </div>
+
+<!-- Recommended Camps Section -->
 <section class="recommended-camps">
   <h2 class="section-title">Ajánlott táborok</h2>
   <div class="camp-cards">
@@ -20,20 +22,20 @@
       <h3>Cserkésztábor</h3>
       <p class="urgent">Már csak 2 napig lehet jelentkezni!</p>
     </div>
-    
+
     <div class="camp-card">
       <div class="camp-icon">⛵</div>
       <h3>Vitorlástábor</h3>
       <p>A Balaton-parti piarista szállóban!</p>
     </div>
-    
+
     <div class="camp-card">
       <div class="camp-icon">⛷️</div>
       <h3>Sítábor</h3>
       <p class="price">69 990 Ft</p>
       <p>Helyszín: Magas-Tátra</p>
     </div>
-    
+
     <div class="camp-card">
       <div class="camp-icon">🌲</div>
       <h3>Erzsébettábor</h3>
@@ -42,10 +44,75 @@
   </div>
 </section>
 
+<!-- Camp Types Section -->
+<div style="background-color: lightgreen; border-radius: 30vw; display: flex; align-items: center;">
+  <section class="section camp-types">
+    <div class="section-container">
+      <h2 class="section-title">Tábor típusok felfedezése</h2>
+      <div class="type-cards">
+        <a routerLink="/camp-types/sport" class="type-card">
+          <div class="type-icon sport-icon"></div>
+          <h3>Sport táborok</h3>
+        </a>
+        <a routerLink="/camp-types/art" class="type-card">
+          <div class="type-icon art-icon"></div>
+          <h3>Művészeti táborok</h3>
+        </a>
+        <a routerLink="/camp-types/science" class="type-card">
+          <div class="type-icon science-icon"></div>
+          <h3>Tudományos táborok</h3>
+        </a>
+        <a routerLink="/camp-types/scout" class="type-card">
+          <div class="type-icon scout-icon"></div>
+          <h3>Cserkésztáborok</h3>
+        </a>
+        <a routerLink="/camp-types/hiking" class="type-card">
+          <div class="type-icon hiking-icon"></div>
+          <h3>Erdei vándortáborok</h3>
+        </a>
+        <a routerLink="/camp-types/sailing" class="type-card">
+          <div class="type-icon sailing-icon"></div>
+          <h3>Vitorlástáborok</h3>
+        </a>
+        <a routerLink="/camp-types/dance" class="type-card">
+          <div class="type-icon dance-icon"></div>
+          <h3>Tánctáborok</h3>
+        </a>
+        <a routerLink="/camp-types/drama" class="type-card">
+          <div class="type-icon drama-icon"></div>
+          <h3>Színjátszótáborok</h3>
+        </a>
+        <a routerLink="/camp-types/religion" class="type-card">
+          <div class="type-icon religion-icon"></div>
+          <h3>Hittantáborok</h3>
+        </a>
+        <a routerLink="/camp-types/programming" class="type-card">
+          <div class="type-icon programming-icon"></div>
+          <h3>Programozó táborok</h3>
+        </a>
+        <a routerLink="/camp-types/math" class="type-card">
+          <div class="type-icon math-icon"></div>
+          <h3>Matek táborok</h3>
+        </a>
+        <a routerLink="/camp-types/robotics" class="type-card">
+          <div class="type-icon robotics-icon"></div>
+          <h3>Robotika táborok</h3>
+        </a>
+        <a routerLink="/camp-types" class="type-card view-all">
+          <div class="type-icon browse-icon"></div>
+          <h3>Összes tábor típus</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Gallery Types Section -->
 <section class="gallery-section large-margin-green">
   <app-gallery></app-gallery>
 </section>
 
+<!-- Footer Section -->
 <section class="footer-section">
   <app-footer></app-footer>
 </section>
