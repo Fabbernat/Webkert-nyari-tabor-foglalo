@@ -19,7 +19,7 @@ Nyári tábor foglaló alkalmazás
 ` npm install @angular/cli` kiadása szükséges abban a mappában, ahol az angular.json van
 
 # GitHub link:
-## https://github.com/Fabbernat/Mobilalkfejl-nyari-tabor-foglalo
+## https://github.com/Fabbernat/Webkert-nyari-tabor-foglalo
 # FireBase Hostolt weboldal:
 ## https://webkert-nyari-tabor-fogl-64317.web.app
 # Ezen a linken is működik:
