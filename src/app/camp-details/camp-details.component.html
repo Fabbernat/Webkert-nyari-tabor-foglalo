@@ -1,0 +1,54 @@
+<!-- camp-details.component.html -->
+<main>
+    <!-- 🧭 Navigációs sáv -->
+    <mat-toolbar color="primary">
+        <span>🏕️ Táborok Kezelése</span>
+    </mat-toolbar>
+
+    <!-- 🔄 Betöltés jelző -->
+    <!-- Import MatProgressBar in the component -->
+    <div *ngIf="isLoading" class="loading-indicator">Loading...</div>
+
+    <div class="dashboard-container" *ngIf="!isLoading">
+        <!-- 📋 Táborok listája -->
+        <mat-card *ngFor="let camp of camps" class="camp-card" (click)="selectCamp(camp)">
+            <mat-card-header>
+                <mat-card-title>{{ camp.name }}</mat-card-title>
+                <mat-card-subtitle>{{ camp.location }}</mat-card-subtitle>
+            </mat-card-header>
+            <!-- Fix imageUrl to imageUrls as suggested in the error -->
+            <img mat-card-image [src]="camp.imageUrls" alt="Tábor képe" />
+            <mat-card-content>
+                <p>{{ camp.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="accent" (click)="deleteCamp(camp.id)">Törlés</button>
+            </mat-card-actions>
+        </mat-card>
+
+        <!-- 🧾 Kiválasztott tábor részletei -->
+        <!-- Import MatExpansionModule components in the component -->
+        <div *ngIf="selectedCamp" class="camp-details-panel">
+            <h3>{{ selectedCamp.name }} - Részletek</h3>
+            <p><strong>Helyszín:</strong> {{ selectedCamp.location || "Ismeretlen helyszín"}}</p>
+            <p><strong>Leírás:</strong> {{ selectedCamp.description || "Nincs leírás"}}</p>
+            <p><strong>Férőhelyek:</strong> {{ selectedCamp.capacity || 0}}</p>
+        </div>
+    </div>
+
+    <h2>Tábor részletei</h2>
+    <p>Név: {{ camp.name }}</p>
+    <p>Leírás: {{ camp.description }}</p>
+
+    <h3>Tábor neve: {{ campName }}</h3>
+    <p>Férőhelyek száma: {{ capacity }}</p>
+    <p *ngIf="isAvailable; else full">✅ Elérhető</p>
+    <ng-template #full>
+        <p>❌ Betelt</p>
+    </ng-template>
+
+    <!-- Gombok, amelyek eseményeket küldenek a szülőnek -->
+    <button (click)="onReserve()">Foglalás</button>
+    <button (click)="onCancel()">Foglalás törlése</button>
+    <button (click)="onViewed()">Megtekintés naplózása</button>
+</main>

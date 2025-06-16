@@ -1,0 +1,111 @@
+<div class="profile-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Felhasználói fiók</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @if (isLoading) {
+        <div class="loading-container">
+          <p>Felhasználói adatok betöltése...</p>
+        </div>
+      } @else if (user) {
+        <div class="profile-info">
+          <div class="avatar-container">
+            <div class="avatar mat-elevation-z2">
+              {{ getUserInitials() }}
+            </div>
+          </div>
+          <div class="user-details">
+            <h3 class="user-name">{{ user.name.firstname }} {{ user.name.lastname }}</h3>
+            <div class="user-email">
+              <mat-icon>email</mat-icon>
+              <span>{{ user.email }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="stats-section">
+          <h2>Táboraim</h2>
+          <div class="stats-cards">
+            <mat-card class="stat-card">
+              <mat-card-header>
+                <mat-icon mat-card-avatar>assignment</mat-icon>
+                <mat-card-title>{{ stats.total }}</mat-card-title>
+                <mat-card-subtitle>Összesen</mat-card-subtitle>
+              </mat-card-header>
+            </mat-card>
+            <mat-card class="stat-card">
+              <mat-card-header>
+                <mat-icon mat-card-avatar>done_all</mat-icon>
+                <mat-card-title>{{ stats.completed }}</mat-card-title>
+                <mat-card-subtitle>Jóváhagyott jelentkezések</mat-card-subtitle>
+              </mat-card-header>
+            </mat-card>
+            <mat-card class="stat-card">
+              <mat-card-header>
+                <mat-icon mat-card-avatar>pending</mat-icon>
+                <mat-card-title>{{ stats.pending }}</mat-card-title>
+                <mat-card-subtitle>Függőben</mat-card-subtitle>
+              </mat-card-header>
+            </mat-card>
+          </div>
+          
+          <mat-card class="completion-card">
+            <mat-card-content>
+              <div class="completion-header">
+                <h3>Completion Rate</h3>
+                <div class="completion-value">
+                  {{ stats.completionRate.toFixed(2) }}%
+                </div>
+              </div>
+              <mat-progress-bar 
+                mode="determinate" 
+                [value]="stats.completionRate">
+              </mat-progress-bar>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <!-- Query Forms Section -->
+        <div class="query-section">
+          <h2>Query Data</h2>
+          <!-- Form to Query Documents -->
+          <mat-card class="query-card">
+            <mat-card-header>
+              <mat-card-title>Query Documents</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form (submit)="onQueryDocuments()">
+                <mat-form-field appearance="outline" class="query-field">
+                  <mat-label>Document Query</mat-label>
+                  <!-- <input matInput [(ngModel)]="documentQuery" name="documentQuery" required> -->
+                  <input matInput name="documentQuery" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Search</button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+          <!-- Form to Query Applications -->
+          <mat-card class="query-card">
+            <mat-card-header>
+              <mat-card-title>Query Applications</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form (submit)="onQueryApplications()">
+                <mat-form-field appearance="outline" class="query-field">
+                  <mat-label>Application Query</mat-label>
+                  <!-- <input matInput [(ngModel)]="applicationQuery" name="applicationQuery" required> -->
+                   <input matInput name="applicationQuery" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Search</button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      } @else {
+        <div class="empty-state">
+          <mat-icon>person_off</mat-icon>
+          <p>No user profile found. Please log in.</p>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

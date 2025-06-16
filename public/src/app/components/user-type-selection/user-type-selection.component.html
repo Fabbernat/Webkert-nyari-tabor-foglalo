@@ -1,0 +1,26 @@
+<!-- src/app/features/auth/components/user-type-selection/user-type-selection.component.html -->
+
+<div class="user-type-selection-container">
+  <div class="selection-header">
+    <h1>Üdvözöljük a Nyári Tábor Foglaló oldalon!</h1>
+    <h2>Felhasználó típus kiválasztása</h2>
+    <p>Kérjük, válassza ki, hogy milyen felhasználóként szeretne regisztrálni:</p>
+  </div>
+
+  <div class="user-types-grid">
+    @for (type of userTypes; track type) {
+      <div class="user-type-card" (click)="selectUserType(type.type)">
+        <div class="icon-container">
+          <span class="material-icons">{{ type.icon }}</span>
+        </div>
+        <h2>{{ type.name }}</h2>
+        <p>{{ type.description }}</p>
+      </div>
+    }
+  </div>
+
+  <div class="browse-option">
+    <p>Csak böngészne az elérhető táborok között?</p>
+    <button class="browse-button" (click)="goToBrowseCamps()">Táborok böngészése</button>
+  </div>
+</div>

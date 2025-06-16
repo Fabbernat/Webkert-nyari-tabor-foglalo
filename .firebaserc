@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "webkert-nyari-tabor-fogl-64317"
+  },
+  "targets": {
+    "webkert-nyari-tabor-fogl-64317": {
+      "hosting": {
+        "legacy": [
+          "webkert-tabor"
+        ],
+        "app": [
+          "webkert-nyari-tabor-fogl-64317"
+        ]
+      }
+    }
+  }
+}

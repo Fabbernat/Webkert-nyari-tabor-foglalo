@@ -1,0 +1,333 @@
+/* C:\VSCodeProjects\Webkert-nyari-tabor-foglalo4\src\app\shared\gallery\gallery.component.scss */
+.gallery-section {
+  border-radius: 40px;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    margin-bottom: 20px;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #3f51b5;
+    }
+    
+    .gallery-card {
+      width: 100%;
+      height: 100%;
+      
+      img {
+        height: 250px;
+        object-fit: cover;
+      }
+      
+      mat-card-content {
+        padding: 1rem;
+        
+        h3 {
+          margin: 0 0 0.5rem 0;
+          color: #3f51b5;
+        }
+        
+        p {
+          margin: 0;
+          color: #666;
+        }
+      }
+    }
+  }
+h1 {
+  font-size: 3.125rem;
+  color: var(--gray-900);
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+  margin: 0;
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+h2{
+  font-size: 2.125rem;
+}
+.large-margin-transparent{
+  margin: 60px;
+  padding: 20px;
+  border:#0869a1;
+  border-radius: 35px;
+}
+p {
+  margin: 10px;
+  color: var(--gray-700);
+}
+.content {
+  display: flex;
+  gap: 20px;
+}
+.content h1 {
+  margin-top: 1.75rem;
+}
+.content p {
+  margin-top: 1.5rem;
+}
+.divider {
+  width: 1px;
+  background: var(--red-to-pink-to-purple-vertical-gradient);
+  margin-inline: 0.5rem;
+}
+@media screen and (max-width: 650px) {
+  .content {
+    flex-direction: column;
+    width: max-content;
+  }
+  .left-side {
+    flex: auto;
+    width: 100%;
+  }
+  .divider {
+    height: 1px;
+    width: 100%;
+    background: var(--red-to-pink-to-purple-horizontal-gradient);
+    margin-block: 1.5rem;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+/* Styling for navigation links */
+nav a {
+  text-decoration: none;
+  &.active {
+    font-weight: bold;
+    color: darkblue;
+  }
+  &:hover {
+    color: #555; /* Slight color change on hover for better UX */
+  }
+}
+/* Styling for main content area */
+.main-content {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 400px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.site-header {
+  position: relative;
+  z-index: 10; /* Ensure header stays above other content */
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 64px);
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  margin-bottom: 16px; /* space between items */
+  padding: 12px;
+  border-radius: 6px;
+}
+a {
+  color: #ffd13b; /* sárga */
+  background-color: #285fd6;
+  padding: 0.3rem 1.0rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #ffeb3b80;
+  animation: linkPulse 2s infinite ease-in-out;
+}
+
+a:hover,
+a:focus,
+a:active {
+  background-color: #002b80;
+  box-shadow: 0 0 20px #ffff00cc, 0 0 10px #ffeb3b;
+  transform: scale(1.05);
+  text-shadow: 0 0 6px #fff176;
+}
+
+/* Link pulzáló animáció */
+@keyframes linkPulse {
+  0% {
+    box-shadow: 0 0 10px #ffeb3b80;
+  }
+  50% {
+    box-shadow: 0 0 20px #ffff00cc;
+  }
+  100% {
+    box-shadow: 0 0 10px #ffeb3b80;
+  }
+}
+
+.gallery-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+/* Fade+Zoom-in animáció a képekre */
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.gallery-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+/* Képek animációja */
+.gallery-card img {
+  width: 100%;
+  height: 375px;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  animation: fadeZoomIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.gallery-card h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #2d3748;
+}
+.gallery-card p {
+  font-size: 0.95rem;
+  color: #4a5568;
+  padding: 0 1rem;
+}
+.block{
+  display: block;
+}
+
+/* an animated arrow, that implies the user to scroll down to see the gallery */
+
+.scroll-arrow-container {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.scroll-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  
+  .arrow-text {
+    color: #3f51b5;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .arrow {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    animation: bounce 2s infinite;
+    
+    span {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-bottom: 3px solid #3f51b5;
+      border-right: 3px solid #3f51b5;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 0;
+      left: 10px;
+      opacity: 0;
+      animation: fadeIn 2s infinite;
+      
+      &:nth-child(1) {
+        animation-delay: 0s;
+        top: -10px;
+      }
+      
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+        top: 0px;
+      }
+      
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+        top: 10px;
+      }
+    }
+  }
+}
+
+/* Animation for the bouncing effect */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(10px);
+  }
+  60% {
+    transform: translateY(5px);
+  }
+}
+
+/* Animation for the fading chevrons */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

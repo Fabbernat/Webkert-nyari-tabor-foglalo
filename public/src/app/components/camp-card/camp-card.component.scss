@@ -1,0 +1,56 @@
+.camp-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .camp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  .camp-image {
+    height: 200px;
+    object-fit: cover;
+  }
+  .camp-info {
+    margin-top: 16px;
+  }
+  .camp-info p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .availability {
+    margin-top: 16px;
+  }
+  .progress-bar {
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .progress {
+    height: 100%;
+    background-color: #4caf50;
+  }
+  .high .progress {
+    background-color: #4caf50;
+  }
+  .medium .progress {
+    background-color: #ff9800;
+  }
+  .low .progress {
+    background-color: #f44336;
+  }
+  mat-card-actions {
+    margin-top: auto;
+    padding: 16px;
+  }
+
+  .highlighted {
+    background-color: crimson;
+    color: white;
+    font-weight: bold;
+  }

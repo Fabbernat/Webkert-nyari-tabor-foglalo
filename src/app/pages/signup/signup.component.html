@@ -1,0 +1,73 @@
+<div class="signup-container">
+  <h1>Fiók létrehozása</h1>
+  
+  @if (isLoading) {
+    <div class="loading-container">
+      <h2>Regisztráció folyamatban</h2>
+      <mat-spinner diameter="50"></mat-spinner>
+      <p>Kérem várjon...</p>
+    </div>
+  }
+  
+  @if (showForm) {
+    <form [formGroup]="signUpForm" (ngSubmit)="signup()" class="signup-form">
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail cím</mat-label>
+        <input matInput type="email" formControlName="email">
+        <mat-icon matSuffix>email</mat-icon>
+        @if (signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched) {
+          <mat-error>Adjon meg egy valós e-mail címet!</mat-error>
+        }
+      </mat-form-field>
+      
+      <div class="name-row" formGroupName="name">
+        <mat-form-field appearance="outline">
+          <mat-label>Keresztnév</mat-label>
+          <input matInput formControlName="firstname">
+          <mat-icon matSuffix>person</mat-icon>
+          @if (signUpForm.get('name.firstname')?.invalid && signUpForm.get('name.firstname')?.touched) {
+            <mat-error>A keresztnévnek legalább 2 karakterből kell állnia!</mat-error>
+          }
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Vezetéknév</mat-label>
+          <input matInput formControlName="lastname">
+          <mat-icon matSuffix>person</mat-icon>
+          @if (signUpForm.get('name.lastname')?.invalid && signUpForm.get('name.lastname')?.touched) {
+            <mat-error>A vezetéknévnek legalább 2 karakterből kell állnia!</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Jelszó</mat-label>
+        <input matInput type="password" formControlName="password">
+        <mat-icon matSuffix>lock</mat-icon>
+        @if (signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched) {
+          <mat-error>A jelszónak legalább 6 karakterből kell állnia</mat-error>
+        }
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Jelszó megerősítése</mat-label>
+        <input matInput type="password" formControlName="rePassword">
+        <mat-icon matSuffix>lock</mat-icon>
+        @if (signUpForm.get('rePassword')?.value !== signUpForm.get('password')?.value) {
+          <mat-error>A jelszavak nem egyeznek meg!</mat-error>
+        }
+      </mat-form-field>
+      
+      @if (signupError) {
+        <div class="error-message">
+          {{ signupError }}
+        </div>
+      }
+      
+      <div class="buttons-row">
+        <button mat-flat-button color="primary" type="submit" [disabled]="signUpForm.invalid">Regiszráció</button>
+        <button mat-flat-button [routerLink]="['/login']">Már van fiókod?</button>
+      </div>
+    </form>
+  }
+</div>

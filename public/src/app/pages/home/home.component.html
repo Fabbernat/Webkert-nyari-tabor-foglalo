@@ -1,0 +1,455 @@
+<!-- C:\VSCodeProjects\Webkert-nyari-tabor-foglalo4\src\app\pages\home\home.component.html -->More actions
+<div class="container">
+  <h1>Üdvözlünk a Nyári Tábor Foglaló honlapján!</h1>
+  <p>Itt böngészhetsz táborokat, regisztrálhatsz, vagy kezelheted a profilod.</p>
+  <button mat-flat-button color="primary" class="tasks" (click)="changePage()">Jelentkezéseim megtekintése</button>
+
+  @if (!isLoggedIn) {
+  <button mat-flat-button color="accent" [routerLink]="['/login']" class="tasks">Bejelentkezés</button>
+  }
+
+  @if (isLoggedIn) {
+  <button mat-flat-button color="accent" [routerLink]="['/profile']" class="tasks">Profilom</button>
+  }
+</div>
+
+<!-- Recommended Camps Section -->
+<section class="recommended-camps">
+  <h2 class="section-title">Ajánlott táborok</h2>
+  <div class="camp-cards">
+    <div class="camp-card">
+      <div class="camp-icon">🏕️</div>
+      <h3>Cserkésztábor</h3>
+      <p class="urgent">Már csak 2 napig lehet jelentkezni!</p>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-icon">⛵</div>
+      <h3>Vitorlástábor</h3>
+      <p>A Balaton-parti piarista szállóban!</p>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-icon">⛷️</div>
+      <h3>Sítábor</h3>
+      <p class="price">69 990 Ft</p>
+      <p>Helyszín: Magas-Tátra</p>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-icon">🌲</div>
+      <h3>Erzsébettábor</h3>
+      <p>Helyszínek: Zánka, Fonyódliget, Zalaszabar, Madarasi Hargita</p>
+    </div>
+  </div>
+</section>
+
+<!-- Camp Types Section -->
+<div style="background-color: lightgreen; border-radius: 30vw; display: flex; align-items: center;">
+  <section class="section camp-types">
+    <div class="section-container">
+      <h2 class="section-title">Tábor típusok felfedezése</h2>
+      <div class="type-cards">
+        <a routerLink="/camp-types/sport" class="type-card">
+          <div class="type-icon sport-icon"></div>
+          <h3>Sport táborok</h3>
+        </a>
+        <a routerLink="/camp-types/art" class="type-card">
+          <div class="type-icon art-icon"></div>
+          <h3>Művészeti táborok</h3>
+        </a>
+        <a routerLink="/camp-types/science" class="type-card">
+          <div class="type-icon science-icon"></div>
+          <h3>Tudományos táborok</h3>
+        </a>
+        <a routerLink="/camp-types/scout" class="type-card">
+          <div class="type-icon scout-icon"></div>
+          <h3>Cserkésztáborok</h3>
+        </a>
+        <a routerLink="/camp-types/hiking" class="type-card">
+          <div class="type-icon hiking-icon"></div>
+          <h3>Erdei vándortáborok</h3>
+        </a>
+        <a routerLink="/camp-types/sailing" class="type-card">
+          <div class="type-icon sailing-icon"></div>
+          <h3>Vitorlástáborok</h3>
+        </a>
+        <a routerLink="/camp-types/dance" class="type-card">
+          <div class="type-icon dance-icon"></div>
+          <h3>Tánctáborok</h3>
+        </a>
+        <a routerLink="/camp-types/drama" class="type-card">
+          <div class="type-icon drama-icon"></div>
+          <h3>Színjátszótáborok</h3>
+        </a>
+        <a routerLink="/camp-types/religion" class="type-card">
+          <div class="type-icon religion-icon"></div>
+          <h3>Hittantáborok</h3>
+        </a>
+        <a routerLink="/camp-types/programming" class="type-card">
+          <div class="type-icon programming-icon"></div>
+          <h3>Programozó táborok</h3>
+        </a>
+        <a routerLink="/camp-types/math" class="type-card">
+          <div class="type-icon math-icon"></div>
+          <h3>Matek táborok</h3>
+        </a>
+        <a routerLink="/camp-types/robotics" class="type-card">
+          <div class="type-icon robotics-icon"></div>
+          <h3>Robotika táborok</h3>
+        </a>
+        <a routerLink="/camp-types" class="type-card view-all">
+          <div class="type-icon browse-icon"></div>
+          <h3>Összes tábor típus</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Gallery Types Section -->
+<section class="gallery-section large-margin-green">
+  <app-gallery></app-gallery>
+</section>
+
+<section class="giga-draft-camp-wrapper">
+  <h2>🏕️ Saját Tábor Piszkozat Készítő</h2>
+    <div class="draft-camp-container">
+        <div class="header">
+            <p>Tervezd meg a tökéletes táborozási élményt</p>
+        </div>
+        
+        <div class="form-container">
+            <h2 id="formTitle" class="form-title">Új Tábor Tervezvény Létrehozása</h2>
+            <form id="draftCampForm">
+                <input type="hidden" id="editingId" value="">
+                
+                <div class="form-group">
+                    <label for="campName">Tábor Neve</label>
+                    <input type="text" id="campName" name="campName" placeholder="Add meg a tábor nevét..." required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="campType">Tábor Típusa</label>
+                        <select id="campType" name="campType" required>
+                            <option value="">Válassz tábor típust</option>
+                            <option value="adventure">Kalandtábor</option>
+                            <option value="family">Családi Tábor</option>
+                            <option value="wilderness">Vadon Tábor</option>
+                            <option value="youth">Ifjúsági Tábor</option>
+                            <option value="retreat">Elvonuló Tábor</option>
+                            <option value="sport">Sport Tábor</option>
+                            <option value="language">Nyelvi Tábor</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="duration">Időtartam (nap)</label>
+                        <input type="number" id="duration" name="duration" min="1" max="30" placeholder="7" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="maxParticipants">Max. Résztvevők</label>
+                        <input type="number" id="maxParticipants" name="maxParticipants" min="1" max="500" placeholder="20" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Helyszín</label>
+                        <input type="text" id="location" name="location" placeholder="Tábor helyszíne..." required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Tábor Leírása</label>
+                    <textarea id="description" name="description" placeholder="Írd le a tábor tevékenységeit, céljait és azt, ami különlegessé teszi..." required></textarea>
+                </div>
+                
+                <button type="submit" id="submitBtn" class="create-btn">
+                    Tervezvény Létrehozása
+                </button>
+                
+                <button type="button" id="cancelBtn" class="cancel-btn" style="display: none;">
+                    Szerkesztés Megszakítása
+                </button>
+            </form>
+            
+            <div id="successMessage" class="success-message">
+                <h3 id="successTitle">🎉 Tábor Tervezvény Sikeresen Létrehozva!</h3>
+                <p id="successText">A tervezvényedet elmentettük és bármikor szerkesztheted.</p>
+            </div>
+            
+            <div id="draftsList" class="draft-list" style="display: none;">
+                <h2>📝 Tábor Tervezvényeid</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Törlés megerősítő modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Tervezvény Törlése</h2>
+            <p>Biztosan törölni szeretnéd ezt a tábor tervezvényt?<br><strong id="deleteModalCampName"></strong></p>
+            <div class="modal-buttons">
+                <button id="confirmDelete" class="confirm-btn">Igen, Törlöm</button>
+                <button id="cancelDelete" class="cancel-modal-btn">Mégsem</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Tábor tervezvények tárolása
+        let draftCamps = [];
+        let draftIdCounter = 1;
+        let editingCampId = null;
+        let campToDelete = null;
+
+        // DOM elemek
+        const form = document.getElementById('draftCampForm');
+        const successMessage = document.getElementById('successMessage');
+        const successTitle = document.getElementById('successTitle');
+        const successText = document.getElementById('successText');
+        const draftsList = document.getElementById('draftsList');
+        const formTitle = document.getElementById('formTitle');
+        const submitBtn = document.getElementById('submitBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const editingIdInput = document.getElementById('editingId');
+        const deleteModal = document.getElementById('deleteModal');
+        const deleteModalCampName = document.getElementById('deleteModalCampName');
+        const confirmDeleteBtn = document.getElementById('confirmDelete');
+        const cancelDeleteBtn = document.getElementById('cancelDelete');
+
+        // Tábor típusok magyar fordításai
+        const campTypeTranslations = {
+            'adventure': 'Kalandtábor',
+            'family': 'Családi Tábor',
+            'wilderness': 'Vadon Tábor',
+            'youth': 'Ifjúsági Tábor',
+            'retreat': 'Elvonuló Tábor',
+            'sport': 'Sport Tábor',
+            'language': 'Nyelvi Tábor'
+        };
+
+        // Form beküldés kezelő
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Form adatok beszerzése
+            const formData = new FormData(form);
+            const campData = {
+                id: editingCampId || draftIdCounter++,
+                name: formData.get('campName'),
+                type: formData.get('campType'),
+                duration: formData.get('duration'),
+                maxParticipants: formData.get('maxParticipants'),
+                location: formData.get('location'),
+                description: formData.get('description'),
+                createdAt: editingCampId ? 
+                    draftCamps.find(camp => camp.id === editingCampId).createdAt : 
+                    new Date().toLocaleDateString('hu-HU'),
+                modifiedAt: editingCampId ? new Date().toLocaleDateString('hu-HU') : null,
+                status: 'draft'
+            };
+            
+            if (editingCampId) {
+                // Meglévő tábor frissítése
+                const index = draftCamps.findIndex(camp => camp.id === editingCampId);
+                draftCamps[index] = campData;
+                showSuccessMessage('🔄 Tábor Tervezvény Sikeresen Frissítve!', 'A változtatásokat elmentettük.');
+                resetEditingMode();
+            } else {
+                // Új tábor hozzáadása
+                draftCamps.push(campData);
+                showSuccessMessage('🎉 Tábor Tervezvény Sikeresen Létrehozva!', 'A tervezvényedet elmentettük és bármikor szerkesztheted.');
+            }
+            
+            // Tervezvények lista frissítése
+            updateDraftsList();
+            
+            // Form visszaállítása
+            form.reset();
+            
+            // Vizuális visszajelzés
+            animateSubmission();
+        });
+
+        // Szerkesztés megszakítása
+        cancelBtn.addEventListener('click', function() {
+            resetEditingMode();
+            form.reset();
+        });
+
+        // Törlés modal kezelők
+        confirmDeleteBtn.addEventListener('click', function() {
+            if (campToDelete) {
+                const index = draftCamps.findIndex(camp => camp.id === campToDelete.id);
+                draftCamps.splice(index, 1);
+                updateDraftsList();
+                showSuccessMessage('🗑️ Tábor Tervezvény Törölve!', 'A tervezvényt sikeresen eltávolítottuk.');
+                closeDeleteModal();
+            }
+        });
+
+        cancelDeleteBtn.addEventListener('click', closeDeleteModal);
+
+        // Modal bezárása háttérre kattintáskor
+        deleteModal.addEventListener('click', function(e) {
+            if (e.target === deleteModal) {
+                closeDeleteModal();
+            }
+        });
+
+        function showSuccessMessage(title, text) {
+            successTitle.textContent = title;
+            successText.textContent = text;
+            successMessage.classList.add('show');
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 3000);
+        }
+
+        function updateDraftsList() {
+            if (draftCamps.length === 0) {
+                draftsList.style.display = 'none';
+                return;
+            }
+            
+            draftsList.style.display = 'block';
+            
+            const draftsHtml = draftCamps.map(camp => `
+                <div class="draft-item" data-id="${camp.id}">
+                    <div class="action-buttons">
+                        <button class="edit-btn" onclick="editCamp(${camp.id})">Szerkesztés</button>
+                        <button class="delete-btn" onclick="showDeleteModal(${camp.id})">Törlés</button>
+                    </div>
+                    <h3>${camp.name}</h3>
+                    <p><strong>Helyszín:</strong> ${camp.location}</p>
+                    <p><strong>Időtartam:</strong> ${camp.duration} nap</p>
+                    <p><strong>Max. résztvevők:</strong> ${camp.maxParticipants} fő</p>
+                    <p><strong>Létrehozva:</strong> ${camp.createdAt}</p>
+                    ${camp.modifiedAt ? `<p><strong>Utoljára módosítva:</strong> ${camp.modifiedAt}</p>` : ''}
+                    <p><strong>Leírás:</strong> ${camp.description.substring(0, 100)}${camp.description.length > 100 ? '...' : ''}</p>
+                    <span class="camp-type-badge">${campTypeTranslations[camp.type] || camp.type}</span>
+                </div>
+            `).join('');
+            
+            draftsList.innerHTML = '<h2>📝 Tábor Tervezvényeid</h2>' + draftsHtml;
+        }
+
+        function editCamp(campId) {
+            const camp = draftCamps.find(c => c.id === campId);
+            if (!camp) return;
+            
+            // Form kitöltése a tábor adataival
+            document.getElementById('campName').value = camp.name;
+            document.getElementById('campType').value = camp.type;
+            document.getElementById('duration').value = camp.duration;
+            document.getElementById('maxParticipants').value = camp.maxParticipants;
+            document.getElementById('location').value = camp.location;
+            document.getElementById('description').value = camp.description;
+            
+            // Szerkesztési mód beállítása
+            editingCampId = campId;
+            editingIdInput.value = campId;
+            formTitle.textContent = 'Tábor Tervezvény Szerkesztése';
+            submitBtn.textContent = 'Tervezvény Frissítése';
+            submitBtn.className = 'update-btn';
+            cancelBtn.style.display = 'block';
+            
+            // Form kiemelése
+            form.classList.add('editing-mode');
+            
+            // Görgetés a form tetejére
+            form.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showDeleteModal(campId) {
+            const camp = draftCamps.find(c => c.id === campId);
+            if (!camp) return;
+            
+            campToDelete = camp;
+            deleteModalCampName.textContent = camp.name;
+            deleteModal.style.display = 'block';
+        }
+
+        function closeDeleteModal() {
+            deleteModal.style.display = 'none';
+            campToDelete = null;
+        }
+
+        function resetEditingMode() {
+            editingCampId = null;
+            editingIdInput.value = '';
+            formTitle.textContent = 'Új Tábor Tervezvény Létrehozása';
+            submitBtn.textContent = 'Tervezvény Létrehozása';
+            submitBtn.className = 'create-btn';
+            cancelBtn.style.display = 'none';
+            form.classList.remove('editing-mode');
+        }
+
+        function animateSubmission() {
+            const button = submitBtn;
+            const originalText = button.textContent;
+            
+            if (editingCampId) {
+                button.textContent = '✓ Frissítés...';
+            } else {
+                button.textContent = '✓ Létrehozás...';
+            }
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        }
+
+        // Interaktív funkciók
+        document.addEventListener('DOMContentLoaded', function() {
+            // Textarea automatikus méretezése
+            const textarea = document.getElementById('description');
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = this.scrollHeight + 'px';
+            });
+            
+            // Minta tervezvény hozzáadása bemutató célból
+            setTimeout(() => {
+                if (draftCamps.length === 0) {
+                    draftCamps.push({
+                        id: draftIdCounter++,
+                        name: 'Minta Kalandtábor',
+                        type: 'adventure',
+                        duration: '5',
+                        maxParticipants: '25',
+                        location: 'Mátra Hegység',
+                        description: 'Izgalmas kalandtábor túrázással, sziklamászással és túlélési technikákkal a természetben.',
+                        createdAt: new Date().toLocaleDateString('hu-HU'),
+                        modifiedAt: null,
+                        status: 'draft'
+                    });
+                    updateDraftsList();
+                }
+            }, 1000);
+        });
+
+        // Vizuális fejlesztések
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+
+        // Globális függvények a HTML-ből történő híváshoz
+        window.editCamp = editCamp;
+        window.showDeleteModal = showDeleteModal;
+    </script>
+  </section>
+
+<!-- Footer Section -->
+<section class="footer-section">
+  <app-footer></app-footer>
