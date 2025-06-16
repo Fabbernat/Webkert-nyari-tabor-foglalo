@@ -26,9 +26,9 @@ Nyári tábor foglaló alkalmazás
 # FireStore adatbázis:
 ## https://console.firebase.google.com/project/webkert-nyari-tabor-fogl-64317/firestore/databases/-default-/data/~2Fcamp~2F1
 
+## Honlap:
 https://fabbernat.github.io
 
-## Mobilalkalmazás
-
+## Mobilalkalmazás:
 https://github.com/Fabbernat/Mobilalkfejl-nyari-tabor-foglalo/tree/merfoldko2
 
